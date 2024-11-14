@@ -1,4 +1,5 @@
-import { getWordPressPage } from "../_services/api";
+import AppFooter from "../components/app-footer";
+import AppHeader from "../components/app-header";
 
 interface Props {
   children: any;
@@ -9,7 +10,15 @@ async function App(props: Props) {
   const { children, locale } = props;
 
   return (
-    <div>{children}</div>
+    <>
+    <AppHeader />
+    <div className="bg-body">{children}</div>
+    <AppFooter
+        params={{
+          locale: locale,
+        }}
+      />
+    </>
   );
 }
 

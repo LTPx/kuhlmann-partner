@@ -1,5 +1,14 @@
 {
   "HomePage": {
     "title": "Hello world!"
+  },
+  "footer": {
+    "our-offices": "Our offices",
+    "see-location": "See location",
+    "write-to-us": "¡Write to us!", 
+    "cookies-policy": "Cookies policy",
+    "privacy-policy": "Privacy policy",
+    "legal-notice": "Legal notice",
+    "accessibility-statement": "Accessibility statement"
   }
 }

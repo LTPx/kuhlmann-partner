@@ -43,7 +43,7 @@ const config: Config = {
           dark: '#888ea8',
         },
         body: {
-          DEFAULT: '#F4F4F2'
+          DEFAULT: '#F5F5F5'
         }
       },
       fontFamily: {
