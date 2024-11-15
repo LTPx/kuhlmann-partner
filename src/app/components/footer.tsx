@@ -89,13 +89,13 @@ export function Footer(props: FooterProps) {
               </Link>
             </div>
           </div>
-            <div className="ml-auto flex flex-col text-[20px] leading-[28px] pr-[70px]">
-              {links.map((link, index) => (
-                <Link key={index} href={link.url}>
-                  {link.title}
-                </Link>
-              ))}
-            </div>
+          <div className="ml-auto flex flex-col text-[20px] leading-[28px] pr-[70px]">
+            {links.map((link, index) => (
+              <Link key={index} href={link.url}>
+                {link.title}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -103,14 +103,14 @@ export function Footer(props: FooterProps) {
         <p className="font-medium text-[12px] leading-[14px] lg:text-[14px] lg:leading-[27px]">
           © Kuhlmann & Partner, {currentYear}
         </p>
-        <div className="flex-wrap lg:flex-no-wrap flex gap-[0px] lg:gap-[20px] text-[12px] leading-[14px] lg:text-[14px] lg:leading-[27px]">
-          <p className="font-medium cursor-pointer">
+        <div className="flex-wrap lg:flex-no-wrap flex gap-[0px] lg:gap-[20px]">
+          <p className="font-medium cursor-pointer text-[12px] leading-[14px] lg:text-[14px] lg:leading-[27px]">
             {`${t("footer.legal-notice")}`}
           </p>
-          <p className="font-medium ml-[4px] lg:ml-[0px] cursor-pointer">
+          <p className="font-medium ml-[4px] text-[12px] leading-[14px] lg:text-[14px] lg:leading-[27px] lg:ml-[0px] cursor-pointer">
             {`${t("footer.privacy-policy")}`}
           </p>
-          <p className="font-medium ml-[4px] lg:ml-[0px] cursor-pointer">
+          <p className="font-medium ml-[4px] text-[12px] leading-[14px] lg:text-[14px] lg:leading-[27px] lg:ml-[0px] cursor-pointer">
             {`${t("footer.cookies-policy")}`}
           </p>
         </div>
