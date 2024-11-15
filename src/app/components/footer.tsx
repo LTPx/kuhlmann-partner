@@ -35,19 +35,24 @@ export function Footer(props: FooterProps) {
   const languages = ["/es", "/en", "/de"];
 
   return (
-    <footer className="bg-body relative">
-      <div className="mx-auto container flex flex-col">
-        <hr className="border-t border-black border-1 mt-[53px] mb-[21px]" />
-        <div className="flex w-full pb-[128px]">
-          <div className="w-[390px] ">
-            <p className="text-[32px] leading-[38px] tracking-[-0.01em]">
+    <footer className="bg-[#DCB93C] lg:bg-body">
+      <div className="container flex flex-col">
+        <hr className="hidden lg:block border-t border-black border-1 mt-[53px] mb-[21px]" />
+        <div className="pt-[20px] lg:pt-[0px] flex flex-col lg:flex-row w-full pb-[35px] lg:pb-[128px]">
+          <div className="lg:w-[390px] ">
+            <p className="text-[25px] leading-[30px] lg:text-[32px] lg:leading-[38px] tracking-[-0.01em]">
               ¿Interesado en construir con nosotros? Contáctanos y te
               brindaremos una asesoría personalizada.
             </p>
           </div>
-          <div className="ml-auto w-[348px] pr-[20px] flex flex-col text-[20px] leading-[28px]">
+          <hr className="lg:hidden border-t border-black border-1 mt-[32px] mb-[8px]" />
+          <div className="lg:ml-auto lg:w-[348px] pr-[20px] flex flex-col">
             <p className="">Contacto:</p>
-            <div className="w-auto">
+            <p className="lg:hidden">
+              Carrer dAndalucía 1, Local 4 07620 Llucmajor Islas Baleares,
+              España
+            </p>
+            <div className="pt-[22px] lg:pt-[0px] w-auto">
               <Link className="w-auto" href={`tel:+34 971 718 996`}>
                 <p>+34 971 718 996</p>
               </Link>
@@ -55,29 +60,29 @@ export function Footer(props: FooterProps) {
             <div>
               <Link
                 href={`mailto:info@kuhlmann-partner.com`}
-                className="lg:underline text-[15px] leading-[32px] lg:text-[20px] lg:leading-[28px]"
+                className="underline"
               >
                 info@kuhlmann-partner.com
               </Link>
             </div>
-            <div className="flex gap-[10px] lg:gap-[0px] lg:flex-col">
+            <div className="pt-[22px] lg:pt-[0px] flex flex-col lg:flex-row lg:gap-[0px] lg:flex-col">
               <Link
                 href={"/"}
                 target="_blank"
-                className="lg:underline text-[30px] leading-[32px] lg:text-[20px] lg:leading-[28px]"
+                className="underline text-[16px] leading-[22px] lg:text-[20px] lg:leading-[28px]"
               >
                 Instagram
               </Link>
               <Link
                 href={"/"}
                 target="_blank"
-                className="lg:underline text-[30px] leading-[32px] lg:text-[20px] lg:leading-[28px]"
+                className="underline text-[16px] leading-[22px] lg:text-[20px] lg:leading-[28px]"
               >
-                LinkedIn
+                Facebook
               </Link>
             </div>
           </div>
-          <div className="w-[348px] pr-[20px]  flex flex-col text-[20px] leading-[28px]">
+          <div className="hidden lg:block lg:w-[348px] pr-[20px]  flex flex-col text-[20px] leading-[28px]">
             <p className="">Oficina de Llucmajor:</p>
             <p>
               Carrer dAndalucía 1, Local 4 07620 Llucmajor Islas Baleares,
@@ -89,7 +94,7 @@ export function Footer(props: FooterProps) {
               </Link>
             </div>
           </div>
-          <div className="ml-auto flex flex-col text-[20px] leading-[28px] pr-[70px]">
+          <div className="hidden lg:ml-auto lg:flex flex-col text-[20px] leading-[28px] lg:pr-[70px]">
             {links.map((link, index) => (
               <Link key={index} href={link.url}>
                 {link.title}
@@ -98,21 +103,28 @@ export function Footer(props: FooterProps) {
           </div>
         </div>
       </div>
-
-      <div className="h-[50px] container text-white bg-black flex flex-col items-start justify-center lg:flex-row lg:justify-between lg:items-center">
-        <p className="font-medium text-[12px] leading-[14px] lg:text-[14px] lg:leading-[27px]">
+      <div className="lg:h-[50px] container lg:text-white bg-[#DCB93C] lg:bg-black flex flex-col lg:flex-row lg:justify-between lg:items-center">
+        <hr className="lg:hidden border-t border-black border-1 mb-[8px]" />
+        <p className="hidden lg:block font-medium text-[12px] leading-[14px] lg:text-[14px] lg:leading-[27px]">
           © Kuhlmann & Partner, {currentYear}
         </p>
-        <div className="flex-wrap lg:flex-no-wrap flex gap-[0px] lg:gap-[20px]">
-          <p className="font-medium cursor-pointer text-[12px] leading-[14px] lg:text-[14px] lg:leading-[27px]">
+        <div className="flex flex-col lg:flex-no-wrap lg:flex-row gap-[0px] lg:gap-[20px]">
+          <p className="font-medium cursor-pointer text-[12px] leading-[20px] lg:text-[14px] lg:leading-[27px]">
             {`${t("footer.legal-notice")}`}
           </p>
-          <p className="font-medium ml-[4px] text-[12px] leading-[14px] lg:text-[14px] lg:leading-[27px] lg:ml-[0px] cursor-pointer">
+          <p className="font-medium text-[12px] leading-[20px] lg:text-[14px] lg:leading-[27px] lg:ml-[0px] cursor-pointer">
             {`${t("footer.privacy-policy")}`}
           </p>
-          <p className="font-medium ml-[4px] text-[12px] leading-[14px] lg:text-[14px] lg:leading-[27px] lg:ml-[0px] cursor-pointer">
+          <p className="font-medium text-[12px] leading-[20px] lg:text-[14px] lg:leading-[27px] lg:ml-[0px] cursor-pointer">
             {`${t("footer.cookies-policy")}`}
           </p>
+          <div className="lg:hidden pt-[97px] pb-[21px]">
+            <img
+              className="cursor-pointer h-[56px]"
+              src="/images/logo-footer.svg"
+              alt="close"
+            />
+          </div>
         </div>
       </div>
     </footer>

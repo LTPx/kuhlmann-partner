@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import Header from "./header";
+import MenuMobile from "./menu-mobile";
 
 function AppHeader() {
   const pathname = usePathname();
@@ -35,9 +36,8 @@ function AppHeader() {
 
   return (
     <>
-      {/* <Header links={filteredLinksHeader} />
-      <MenuMobile languages={languages} links={menuLinks} /> */}
       <Header links={linksHeader}/>
+      <MenuMobile languages={languages} links={menuLinks} /> 
     </>
   );
 }

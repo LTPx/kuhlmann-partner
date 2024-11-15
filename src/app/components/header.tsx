@@ -4,7 +4,6 @@ import { Link } from "@/navigation";
 import { usePathname } from "@/navigation";
 import LanguageSelector from "./selector-languages";
 import { useState } from "react";
-import ContactWindow from "./contact-window";
 
 interface LinksHeader {
   title: string;
@@ -34,7 +33,7 @@ export function Header(props: Props) {
 
   return (
     <>
-      <header className="sticky top-0 z-[1000] bg-[#DCB93C] hidden lg:flex items-center justify-between">
+      <header className="sticky top-0 z-[1000] bg-[#DCB93C] hidden lg:grid grid-cols-3">
         <div className="flex">
           {links.map((link, index) => (
             <Link
@@ -48,14 +47,14 @@ export function Header(props: Props) {
             </Link>
           ))}
         </div>
-
         <div className="flex flex-1 justify-center items-center">
-          <p className="text-[20px] leading-[25px] tracking-[-0.01em]">
-            Kuhlmann & Partner
-          </p>
+          <Link href={"/"}>
+            <p className="text-[20px] leading-[25px] tracking-[-0.01em]">
+              Kuhlmann & Partner
+            </p>
+          </Link>
         </div>
-
-        <div className="flex items-center">
+        <div className="flex justify-end items-center">
           <button
             onClick={handleContactClick}
             className="h-[54px] pr-[30px] flex items-center cursor-pointer text-[20px] leading-[25px] leading-[25px]"
