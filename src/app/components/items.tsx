@@ -9,7 +9,9 @@ function Items(props: ItemsProps) {
 
   return (
     <div className="flex flex-col">
-      <p className="font-medium text-[80px] leading-[85px] pb-[20px]">{count}</p>
+      <p className="font-medium pb-[20px] lg:pb-[0px] text-[40px] leading-[45px] lg:text-[80px] lg:leading-[85px] pb-[20px]">
+        {count}
+      </p>
       <p className="font-semiBold">{title}</p>
       <p>{description}</p>
     </div>

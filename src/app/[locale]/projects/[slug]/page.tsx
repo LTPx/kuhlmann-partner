@@ -20,26 +20,37 @@ async function ProjectSlugPage(nextParams: {
         </div>
       </Cover>
       <div className="container">
-        <section className="pt-[41px] grid grid-cols-2">
+        <section className="pt-[30px] lg:pt-[41px] flex flex-col gap-[20px] lg:gap-[0px] lg:grid lg:grid-cols-2">
           <h3 className="font-medium tracking-[-0.01em]">
             Objetivos del proyecto:
           </h3>
-          <div className="">
-            <p className="font-regular w-[665px] text-[20px] leading-[28px]">
-              Cuando los propietarios de este chalet en Costa den Blanes nos
-              contactaron para solicitar la renovación completa y ampliación de
-              su bungalow, así como la construcción de una piscina infinita con
-              una gran terraza y un apartamento para invitados en el nivel
-              inferior, nuestro primer objetivo fue reunir a los arquitectos y a
-              los propietarios para planificar minuciosamente el proceso de
-              construcción, evitando sorpresas desagradables y retrasos.
-            </p>
-          </div>
+          <p className="font-regular lg:w-[665px]">
+            Cuando los propietarios de este chalet en Costa den Blanes nos
+            contactaron para solicitar la renovación completa y ampliación de su
+            bungalow, así como la construcción de una piscina infinita con una
+            gran terraza y un apartamento para invitados en el nivel inferior,
+            nuestro primer objetivo fue reunir a los arquitectos y a los
+            propietarios para planificar minuciosamente el proceso de
+            construcción, evitando sorpresas desagradables y retrasos.
+          </p>
         </section>
-        <section className="pt-[25px]">
-          <ProjectDetails description_project={""} gallery_project={[]} prevProject={null} nextProject={null} allCategories={[]} currentCategories={[]}/>
+        <section className="pt-[20px] lg:pt-[25px]">
+          <ProjectDetails
+            description_project={""}
+            gallery_project={[]}
+            prevProject={null}
+            nextProject={null}
+            allCategories={[]}
+            currentCategories={[]}
+          />
         </section>
       </div>
+      <section className="pt-[55px] pb-[47px] lg:hidden">
+        <p className="pl-[12px] font-medium pb-[15px]">Todos los proyectos:</p>
+        <div className="h-[65px] flex items-center border-1 border-black border-t border-b">
+          <p className="container text-[20px] leading-[40px]"><span className="opacity-25">2022-2023</span> Petra</p>
+        </div>
+      </section>  
     </div>
   );
 }

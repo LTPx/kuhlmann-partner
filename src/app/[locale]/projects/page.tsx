@@ -18,13 +18,13 @@ async function Projects(nextParams: {
         </div>
       </Cover>
       <div className="container">
-        <section className="pt-[41px] grid grid-cols-2">
+        <section className="pt-[30px] lg:pt-[41px] flex flex-col gap-[20px] lg:gap-[0px] lg:grid lg:grid-cols-2">
           <h3 className="font-medium tracking-[-0.01em]">
             Kuhlmann & Partner ofrece un enfoque centrado en el cliente,
             asegurando una atención personalizada y única.
           </h3>
           <div className="">
-            <p className="font-regular w-[665px] text-[20px] leading-[28px]">
+            <p className="font-regular lg:w-[665px]">
               Kuhlmann & Partner es una empresa familiar fundada en 2008. más de
               una década de experiencia, nos hemos consolidado como líderes en
               el sector, ofreciendo servicios integrales que abarcan desde la
@@ -41,13 +41,13 @@ async function Projects(nextParams: {
             </p>
           </div>
         </section>
-        <section className="pt-[80px]">
-          <hr className="border-t border-black border-1 mb-[16px]" />
-          <div className="grid grid-cols-2">
-            <h3 className="font-medium tracking-[-0.01em]">
+        <section className="pt-[30px] lg:pt-[80px]">
+          <hr className="border-t border-black border-1 mb-[10px] lg:mb-[16px]" />
+          <div className="flex flex-col lg:grid lg:grid-cols-2">
+            <h3 className="font-medium tracking-[-0.01em] pb-[15px] lg:pb-[0px]">
               Proceso de trabajo:
             </h3>
-            <div className="w-[648px]">
+            <div className="lg:w-[648px]">
               <Items
                 count={"01"}
                 title={"Planificación"}
@@ -58,8 +58,10 @@ async function Projects(nextParams: {
             </div>
           </div>
         </section>
-        <section className="pt-[95px]">
-          <p className="font-semiBold">Proyectos</p>
+        <section className="pt-[50px] lg:pt-[95px] pb-[50px] lg:pb-[0px]">
+          <p className="font-semiBold text-[16px] leading-[16px] uppercase lg:normal-case lg:text-[20px] lg:leading-[27px]">
+            Proyectos
+          </p>
           <hr className="border-t border-black border-1 my-[16px]" />
           <ProjectView
             image="https://s3-alpha-sig.figma.com/img/eb3d/be3f/8521aa5ae4518e9d7e858852f7773547?Expires=1732492800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=IIXm36ZCrYMTDW8~vqkV1a4A5epNq0VaaKfbGXCMfj2m4WqT-MlSsWR9wnJfS~MW9cn-oUoYo5HDavp9oC-3iCKY490Ryo9t2FBD8QULvmE5W0PWjby7-asFiaNDkMba688ZGvZW0vArwokCpu4iWIOK7fikl5iraALjBQ4TZCwxFbH88Y8s7f8M4pG~yfZYo8RRczZ-2ZUB70SeDtYXdfp0ZDwKYc3zjCM0pWSfBc6y6omCs48sfaqGQ1uwysXIIhEJrjfrh71p3jAaUF6M8t6MC1jmkS736l~yUN9tFA8lTxmsHtLEAYOw2jrHgCQ46MaJZ9NQNnbfUhGC3~owBw__"

@@ -30,12 +30,13 @@ export function Accordion(props: AccordionProps) {
         }}
       >
         <p
-          className={`pl-[30px] tracking-[-0.015em] font-medium text-[40px] leading-[40px] py-[40px] text-start 
+          className={`pl-[12px] lg:pl-[30px] tracking-[-0.015em] font-medium text-[20px] leading-[30px] lg:text-[40px] lg:leading-[40px] py-[12px] lg:py-[40px] text-start 
           ${isOpen ? "text-white" : "group-hover:text-white"}`}
         >
+          <span className="lg:hidden"> {date} - </span>
           {title}
         </p>
-        <div className="ml-auto pr-[30px]">
+        <div className="hidden lg:block ml-auto pr-[30px]">
           <span
             className={`uppercase inline-block flex items-center justify-center font-medium text-[20px] leading-[25px] cursor-pointer border 
             ${isOpen ? "border-white text-white" : "border-black"} 
@@ -48,10 +49,14 @@ export function Accordion(props: AccordionProps) {
       </button>
 
       <AnimateHeight duration={300} height={isOpen ? "auto" : 0}>
-        <div className="lg:pt-[15px] pb-[20px] lg:pb-[30px]">
-          <div className="container grid grid-cols-2 lg:gap-[80px]">
-            <div className="flex flex-col justify-between">
-              <p className="font-regular text-[18px] leading-[26px]">
+        <div className="pt-[15px] lg:pt-[20px] pb-[20px] lg:pb-[30px]">
+          <div className="container flex flex-col gap-[11px] lg:grid lg:grid-cols-2 lg:gap-[80px]">
+            <img
+              src={image}
+              className="object-cover h-[260px] lg:h-[555px] w-full order-first lg:order-last"
+            />
+            <div className="flex flex-col gap-[50px] lg:gap-[0px] lg:justify-between">
+              <p className="font-regular text-[16px] leading-[22px] lg:text-[18px] lg:leading-[26px]">
                 Lorem Ipsum es simplemente el texto de relleno de las imprentas
                 y archivos de texto. Lorem Ipsum ha sido el texto de relleno
                 estándar de las industrias desde el año 1500, cuando un impresor
@@ -72,16 +77,15 @@ export function Accordion(props: AccordionProps) {
               </p>
               <div
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex justify-start"
+                className="flex justify-end lg:justify-start"
               >
                 <img
-                  className="cursor-pointer h-[35px]"
+                  className="cursor-pointer h-[21px] lg:h-[35px]"
                   src="/images/icons/close-accordion.svg"
                   alt="close"
                 />
               </div>
             </div>
-            <img src={image} className="object-cover h-[555px] w-full" />
           </div>
         </div>
       </AnimateHeight>

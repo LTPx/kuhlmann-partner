@@ -17,9 +17,9 @@ async function AboutUs(nextParams: { params: { locale: "en" | "es" | "de" } }) {
         </div>
       </Cover>
       <div className="container">
-        <section className="pt-[27px] grid grid-cols-2">
+        <section className="pt-[30px] lg:pt-[27px] flex flex-col gap-[20px] lg:gap-[0px] lg:grid lg:grid-cols-2">
           <h3 className="font-medium tracking-[-0.01em]">Nuestra visión:</h3>
-          <p className="font-regular w-[665px] text-[20px] leading-[28px]">
+          <p className="font-regular lg:w-[665px]">
             Cuando emigramos a Mallorca en 1997, comenzamos a trabajar con
             constructoras y arquitectos como clientes. Durante esos primeros
             años, experimentamos varias remodelaciones y construcciones, y nos
@@ -27,12 +27,12 @@ async function AboutUs(nextParams: { params: { locale: "en" | "es" | "de" } }) {
             caracterizaba a muchas de estas empresas.
           </p>
         </section>
-        <section className="pt-[45px]">
-          <img src="" className="object-cover h-[1000px] w-full" />
+        <section className="pt-[30px] lg:pt-[45px]">
+          <img src="" className="object-cover h-[400px] lg:h-[1000px] w-full" />
         </section>
-        <section className="pt-[50px] grid grid-cols-2">
+        <section className="pt-[30px] lg:pt-[50px] flex flex-col gap-[20px] lg:gap-[0px] lg:grid lg:grid-cols-2">
           <h3 className="font-medium tracking-[-0.01em]">Nuestro enfoque:</h3>
-          <p className="font-regular w-[665px] text-[20px] leading-[28px]">
+          <p className="font-regular lg:w-[665px] ">
             Hoy, somos un equipo de aproximadamente 14 personas, comprometido
             con ofrecer una calidad constructiva sobresaliente y soluciones
             personalizadas para proyectos de alta exigencia. Supervisamos cada
@@ -42,8 +42,8 @@ async function AboutUs(nextParams: { params: { locale: "en" | "es" | "de" } }) {
             proveedores.
           </p>
         </section>
-        <section className="pt-[45px]">
-          <img src="" className="object-cover h-[960px] w-full" />
+        <section className="pb-[50px] lg:pb-[0px] pt-[30px] lg:pt-[45px]">
+          <img src="" className="object-cover h-[400px] lg:h-[960px] w-full" />
         </section>
       </div>
     </div>

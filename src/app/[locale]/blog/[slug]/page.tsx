@@ -11,21 +11,21 @@ async function BlogSlugPage(nextParams: {
   return (
     <div className="container blog-slug-page">
       <div className="pt-[40px]">
-        <p className="text-[40px] leading-[60px] tracking-[-0.03em] opacity-20">
+        <p className="text-[25px] leading-[30px] lg:text-[40px] lg:leading-[60px] tracking-[-0.03em] opacity-20">
           14.04.2024
         </p>
-        <h1 className="font-medium text-[80px] leading-[85px] tracking-[-0.03em]">
+        <h1 className="text-[25px] leading-[30px] font-medium lg:text-[80px] lg:leading-[85px] tracking-[-0.03em]">
           ¿Qué debo tener en cuenta al comprar una propiedad en Mallorca?
         </h1>
       </div>
-      <section className="pt-[141px]">
-        <hr className="border-t border-black border-1 mb-[10px]" />
-        <div className="grid grid-cols-2">
-          <h2 className="font-medium text-[40px] leading-[45px] tracking-[-0.02em]">
+      <section className="pt-[30px] lg:pt-[141px]">
+        <hr className="hidden lg:block border-t border-black border-1 mb-[10px]" />
+        <div className="flex flex-col gap-[30px] lg:gap-[0px] lg:grid lg:grid-cols-2">
+          <h2 className="font-medium text-[16px] leading-[22px] lg:text-[40px] lg:leading-[45px] tracking-[-0.02em]">
             Puntos a tener en cuenta para verificar su propiedad antes de la
             compra.
           </h2>
-          <p className="font-regular lg:w-[677px] text-[18px] leading-[24px]">
+          <p className="font-regular lg:w-[677px] text-[16px] leading-[22px] lg:text-[18px] lg:leading-[24px]">
             Tal vez haya escuchado de amigos o conocidos que compraron una
             propiedad en Mallorca de buena fe, solo para descubrir después que
             partes del edificio no se construyeron legalmente o, peor aún, que
