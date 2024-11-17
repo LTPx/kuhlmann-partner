@@ -7,6 +7,7 @@ import {
   OgImage,
   TargetClass,
 } from './wordpress';
+import { AboutUsPageWp, HomePageWp, IndividualProjectWp, ProjectsPageWp } from './wordpress-components';
 
 
 export interface WordPressFrontendPage {
@@ -153,5 +154,12 @@ export interface PotentialAction {
   '@type': string;
   target: string[] | TargetClass;
   'query-input'?: string;
+}
+
+export interface AcfComponents {
+  home_information: HomePageWp;
+  page_projects: ProjectsPageWp;
+  individual_project: IndividualProjectWp;
+  page_about_us: AboutUsPageWp;
 }
 

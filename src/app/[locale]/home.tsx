@@ -16,11 +16,11 @@ function Home(props: Props) {
         </div>
       </Cover>
       <div className="container">
-        <section className="pt-[31px] lg:pt-[41px] flex flex-col gap-[30px] lg:grid lg:grid-cols-2">
-          <h3 className="lg:w-[570px]">
+        <section className="pt-[31px] lg:pt-[41px] flex flex-col gap-[30px] lg:gap-[0px] lg:grid lg:grid-cols-2">
+          <h3 className="tracking-[-0.01em]">
             Empresa especializada en proyectos de construcción en Mallorca.
           </h3>
-          <p className="font-regular lg:w-[590px]">
+          <p className="font-regular">
             Kuhlmann & Partner es una empresa familiar fundada en 2008. Más de
             una década de experiencia, nos hemos consolidado como líderes en el
             sector, ofreciendo servicios integrales que abarcan desde la
@@ -32,8 +32,8 @@ function Home(props: Props) {
         <section className="hidden lg:block pt-[40px]">
           <img src="" className="object-cover h-[800px] w-full" />
         </section>
-        <section className="pt-[31px] lg:pt-[40px] flex flex-col gap-[30px] lg:grid lg:grid-cols-2">
-          <h3 className="lg:w-[628px]">
+        <section className="pt-[31px] lg:pt-[40px] flex flex-col gap-[30px] lg:gap-[0px] lg:grid lg:grid-cols-2">
+          <h3 className="lg:w-[628px] tracking-[-0.01em]">
             Nuestro enfoque único en un proyecto a la vez nos permite dedicarnos
             al 100% a cada cliente, asegurando la máxima prioridad y atención a
             cada obra.

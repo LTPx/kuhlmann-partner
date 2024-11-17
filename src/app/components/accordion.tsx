@@ -50,13 +50,13 @@ export function Accordion(props: AccordionProps) {
 
       <AnimateHeight duration={300} height={isOpen ? "auto" : 0}>
         <div className="pt-[15px] lg:pt-[20px] pb-[20px] lg:pb-[30px]">
-          <div className="container flex flex-col gap-[11px] lg:grid lg:grid-cols-2 lg:gap-[80px]">
+          <div className="container flex flex-col gap-[11px] lg:grid lg:grid-cols-2">
             <img
               src={image}
               className="object-cover h-[260px] lg:h-[555px] w-full order-first lg:order-last"
             />
             <div className="flex flex-col gap-[50px] lg:gap-[0px] lg:justify-between">
-              <p className="font-regular text-[16px] leading-[22px] lg:text-[18px] lg:leading-[26px]">
+              <p className="lg:w-[660px] font-regular text-[16px] leading-[22px] lg:text-[18px] lg:leading-[26px]">
                 Lorem Ipsum es simplemente el texto de relleno de las imprentas
                 y archivos de texto. Lorem Ipsum ha sido el texto de relleno
                 estándar de las industrias desde el año 1500, cuando un impresor

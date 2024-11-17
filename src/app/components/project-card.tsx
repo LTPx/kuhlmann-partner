@@ -14,7 +14,7 @@ function ProjectCard(props: ProjectCardProps) {
   const { imageHover, image, title, className, date, description, url } = props;
 
   return (
-    <div className="flex flex-col gap-[15px] lg:grid lg:grid-cols-2 lg:h-[850px]">
+    <div className="flex flex-col gap-[15px] lg:gap-[0px] lg:grid lg:grid-cols-2 lg:h-[850px]">
       <div className="lg:w-[615px] flex flex-col justify-between">
         <div className="flex flex-col">
           <p className="text-[40px] leading-[45px] lg:text-[75px] lg:leading-[78px] tracking-[-0.03em]">

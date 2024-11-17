@@ -33,13 +33,13 @@ export function Header(props: Props) {
 
   return (
     <>
-      <header className="sticky top-0 z-[1000] bg-[#DCB93C] hidden lg:grid grid-cols-3">
-        <div className="flex">
+      <header className="container sticky top-0 z-[1000] bg-[#DCB93C] hidden lg:grid grid-cols-3">
+        <div className="flex gap-[30px]">
           {links.map((link, index) => (
             <Link
               key={index}
               href={link.url}
-              className={`h-[54px] px-[30px] flex items-center justify-center cursor-pointer text-[20px] leading-[25px] tracking-[-0.01em] ${
+              className={`h-[54px] flex items-center justify-center cursor-pointer text-[20px] leading-[25px] tracking-[-0.01em] ${
                 currentPath === link.url ? "underline" : "text-black"
               }`}
             >
@@ -54,10 +54,10 @@ export function Header(props: Props) {
             </p>
           </Link>
         </div>
-        <div className="flex justify-end items-center">
+        <div className="flex gap-[30px] justify-end items-center">
           <button
             onClick={handleContactClick}
-            className="h-[54px] pr-[30px] flex items-center cursor-pointer text-[20px] leading-[25px] leading-[25px]"
+            className="h-[54px] flex items-center cursor-pointer text-[20px] leading-[25px] leading-[25px]"
           >
             Contacto
           </button>
