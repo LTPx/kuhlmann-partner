@@ -3,12 +3,20 @@
     "title": "Hello world!"
   },
   "footer": {
-    "our-offices": "Unsere Büros",
-    "see-location": "Siehe Standort",
-    "write-to-us": "¡Schreiben Sie uns!",
+    "home": "Home",
+    "projects": "Projekte",
+    "about-us": "Uns",
+    "blog": "Blog",
+    "contact": "Kontakt",
     "cookies-policy": "Cookie-Richtlinie",
     "privacy-policy": "Datenschutzrichtlinie",
     "legal-notice": "Rechtlicher Hinweis",
     "accessibility-statement": "Erklärung zur Barrierefreiheit"
+  },
+  "header": {
+    "projects": "Projekte",
+    "about-us": "Uns",
+    "blog": "Blog",
+    "contact": "Kontakt"
   }
 }

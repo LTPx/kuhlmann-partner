@@ -10,15 +10,15 @@ function AppHeader() {
   const t = useTranslations();
 
   const linksHeader = [
-    { title: `Proyectos`, url: "/projects" },
-    { title: `Nosotros`, url: `/about-us` },
-    { title: `Blog`, url: "/blog" },
+    { title: `${t('header.projects')}`, url: "/projects" },
+    { title: `${t('header.about-us')}`, url: `/about-us` },
+    { title: `${t('header.blog')}`, url: "/blog" },
   ];
 
   const menuLinks = [
-    { title: `Proyectos`, url: "/" },
-    { title: `Nosotros`, url: `/projects` },
-    { title: `Blog`, url: "/studio" },
+    { title: `${t('header.projects')}`, url: "/projects" },
+    { title: `${t('header.about-us')}`, url: `/about-us` },
+    { title: `${t('header.blog')}`, url: "/blog" },
     { title: `${t('header.contact')}`, url: "/contact" },
   ];
 

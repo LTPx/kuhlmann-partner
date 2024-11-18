@@ -54,7 +54,7 @@ export function ProjectDetails(props: ProjectDetailsProps) {
           <div className="flex items-start">
             {/* {prevProject && ( */}
             <Link href={`/projects/${prevProject?.slug}`}>
-              <button className="uppercase inline-block hover:bg-black hover:text-white hover:rounded-none flex items-center justify-center font-medium text-[18px] leading-[18px] cursor-pointer border border-black h-[35px] px-[15px] rounded-full transition-colors duration-300 ease-in-out">
+              <button className="uppercase inline-block hover:bg-black hover:text-white flex items-center justify-center font-medium text-[18px] leading-[18px] cursor-pointer border border-black h-[35px] px-[15px] rounded-full transition-colors duration-300 ease-in-out">
                 ANTERIOR
               </button>
             </Link>
@@ -63,7 +63,7 @@ export function ProjectDetails(props: ProjectDetailsProps) {
           <div className="flex items-start">
             {/* {nextProject && ( */}
             <Link href={`/projects/${nextProject?.slug || ""}`}>
-              <button className="uppercase inline-block hover:bg-black hover:text-white hover:rounded-none flex items-center justify-center font-medium text-[18px] leading-[18px] cursor-pointer border border-black h-[35px] px-[15px] rounded-full transition-colors duration-300 ease-in-out">
+              <button className="uppercase inline-block hover:bg-black hover:text-white flex items-center justify-center font-medium text-[18px] leading-[18px] cursor-pointer border border-black h-[35px] px-[15px] rounded-full transition-colors duration-300 ease-in-out">
                 SIGUIENTE
               </button>
             </Link>

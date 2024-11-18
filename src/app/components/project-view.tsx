@@ -20,7 +20,7 @@ function ProjectView(props: ProjectViewProps) {
         </div>
         <div className="hidden lg:flex flex-col gap-[50px]">
           <Link className="inline-block" href={url || ""}>
-            <button className="uppercase inline-block hover:bg-black hover:text-white hover:rounded-none flex items-center justify-center font-medium text-[18px] leading-[18px] cursor-pointer border border-black h-[35px] px-[15px] rounded-full transition-colors duration-300 ease-in-out">
+            <button className="uppercase inline-block hover:bg-black hover:text-white flex items-center justify-center font-medium text-[18px] leading-[18px] cursor-pointer border border-black h-[35px] px-[15px] rounded-full transition-colors duration-300 ease-in-out">
               VER MÁS
             </button>
           </Link>
@@ -29,7 +29,7 @@ function ProjectView(props: ProjectViewProps) {
       <img src={image} className={"h-[500px] lg:h-[800px] w-full object-cover"} />
       <div className="w-full pt-[10px] lg:hidden">
         <Link href={url || ""}>
-          <button className="uppercase w-full hover:bg-black hover:text-white hover:rounded-none flex items-center justify-center font-medium text-[16px] leading-[16px] cursor-pointer border border-black h-[30px] rounded-full transition-colors duration-300 ease-in-out">
+          <button className="uppercase w-full hover:bg-black hover:text-white flex items-center justify-center font-medium text-[16px] leading-[16px] cursor-pointer border border-black h-[30px] rounded-full transition-colors duration-300 ease-in-out">
             VER MÁS
           </button>
         </Link>

@@ -8,15 +8,8 @@ async function AppFooter(nextParams: {
     params: { locale },
   } = nextParams;
 
-  const linksFooter = [
-    { title: `Inicio`, url: "/projects" },
-    { title: `Proyectos`, url: "/projects" },
-    { title: `Nosotros`, url: `/about-us` },
-    { title: `Blog`, url: "/blog" },
-    { title: `Contacto`, url: "/blog" },
-  ];
 
-  return <Footer links={linksFooter}/>;
+  return <Footer/>;
 }
 
 export default AppFooter;

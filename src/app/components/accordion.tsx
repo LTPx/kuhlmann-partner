@@ -75,15 +75,17 @@ export function Accordion(props: AccordionProps) {
                 desconocido usó una galería de textos y los mezcló de tal manera
                 que logró hacer un libro de textos especimen.
               </p>
-              <div
-                onClick={() => setIsOpen(!isOpen)}
-                className="flex justify-end lg:justify-start"
-              >
-                <img
-                  className="cursor-pointer h-[21px] lg:h-[35px]"
-                  src="/images/icons/close-accordion.svg"
-                  alt="close"
-                />
+              <div className="flex justify-end lg:justify-start">
+                <button
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="group flex hover:bg-black items-center justify-center h-[21px] border border-black rounded-[16px] lg:h-[35px] px-[8px] lg:px-[14px] flex justify-end lg:justify-start"
+                >
+                  <img
+                    className="group-hover:invert w-[21px] lg:w-full"
+                    src="/images/icons/arrow-left.svg"
+                    alt=""
+                  />
+                </button>
               </div>
             </div>
           </div>

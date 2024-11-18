@@ -26,7 +26,7 @@ function ProjectCard(props: ProjectCardProps) {
         <div className="hidden lg:flex flex-col gap-[50px]">
           <p>{description}</p>
           <Link className="inline-block" href={url || ""}>
-            <button className="uppercase inline-block hover:bg-black hover:text-white hover:rounded-none flex items-center justify-center font-medium text-[18px] leading-[18px] cursor-pointer border border-black h-[35px] px-[15px] rounded-full transition-colors duration-300 ease-in-out">
+            <button className="uppercase inline-block hover:bg-black hover:text-white flex items-center justify-center font-medium text-[18px] leading-[18px] cursor-pointer border border-black h-[35px] px-[15px] rounded-full transition-colors duration-300 ease-in-out">
               Ver proyecto
             </button>
           </Link>
@@ -48,7 +48,7 @@ function ProjectCard(props: ProjectCardProps) {
         )}
       </div>
       <Link className="lg:hidden w-full" href={url || ""}>
-        <button className="uppercase w-full hover:bg-black hover:text-white hover:rounded-none flex items-center justify-center font-medium text-[16px] leading-[16px] cursor-pointer border border-black h-[30px] rounded-full transition-colors duration-300 ease-in-out">
+        <button className="uppercase w-full hover:bg-black hover:text-white flex items-center justify-center font-medium text-[16px] leading-[16px] cursor-pointer border border-black h-[30px] rounded-full transition-colors duration-300 ease-in-out">
           Ver proyecto
         </button>
       </Link>
