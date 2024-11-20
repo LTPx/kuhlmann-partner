@@ -54,10 +54,26 @@ p {
   position: relative;
 }
 
+.wp-h3 {
+  p{
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: -0.01em;
+  }
+}
+
 @media (max-width: 768px) {
   .container {
     padding-left: 12px;
     padding-right: 12px;
+  }
+
+  .wp-h3 {
+    p{
+      font-size: 20px;
+      line-height: 24px;
+      letter-spacing: -0.01em;
+    }
   }
 
   h1 {

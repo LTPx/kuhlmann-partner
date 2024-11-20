@@ -18,8 +18,6 @@ interface FooterProps {
 export function Footer(props: FooterProps) {
   // const { links } = props;
   const currentYear = new Date().getFullYear();
-  const pathname = usePathname();
-  const [isMobile, setIsMobile] = useState(false);
   const t = useTranslations();
   const [showContact, setShowContact] = useState(false);
 
@@ -34,17 +32,6 @@ export function Footer(props: FooterProps) {
     { title: `${t("footer.blog")}`, url: "/blog" },
   ];
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 640);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
   const languages = ["/es", "/en", "/de"];
 
   return (
@@ -55,8 +42,7 @@ export function Footer(props: FooterProps) {
           <div className="pt-[20px] lg:pt-[0px] flex flex-col lg:flex-row w-full pb-[35px] lg:pb-[128px]">
             <div className="lg:w-[390px] ">
               <p className="text-[25px] leading-[30px] lg:text-[32px] lg:leading-[38px] tracking-[-0.01em]">
-                ¿Interesado en construir con nosotros? Contáctanos y te
-                brindaremos una asesoría personalizada.
+                {t("footer.information")}
               </p>
             </div>
             <hr className="lg:hidden border-t border-black border-1 mt-[32px] mb-[8px]" />
@@ -97,7 +83,7 @@ export function Footer(props: FooterProps) {
               </div>
             </div>
             <div className="hidden lg:block lg:w-[348px] pr-[20px]  flex flex-col text-[20px] leading-[28px]">
-              <p className="">Oficina de Llucmajor:</p>
+              <p className="">{t("footer.office")}</p>
               <p>
                 Carrer dAndalucía 1, Local 4 07620 Llucmajor Islas Baleares,
                 España

@@ -13,7 +13,12 @@ function Items(props: ItemsProps) {
         {count}
       </p>
       <p className="font-semiBold">{title}</p>
-      <p>{description}</p>
+      <div
+        className="lg:w-[665px]"
+        dangerouslySetInnerHTML={{
+          __html: description,
+        }}
+      />
     </div>
   );
 }

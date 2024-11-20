@@ -29,7 +29,7 @@ export interface WordPressFrontendPage {
   yoast_head: string;
   yoast_head_json: YoastHeadJSON;
   _links: Links;
-  // acf?: AcfBuilderPage
+  acf: AcfComponents
 }
 
 export interface Links {

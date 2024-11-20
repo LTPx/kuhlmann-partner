@@ -3,6 +3,8 @@
     "title": "Hello world!"
   },
   "footer": {
+    "information": "¿Interesado en construir con nosotros? Contáctanos y te brindaremos una asesoría personalizada.",
+    "office": "Oficina de Llucmajor:",
     "home": "Inicio",
     "projects": "Proyectos",
     "about-us": "Nosotros",
@@ -18,5 +20,14 @@
     "about-us": "Nosotros",
     "blog": "Blog",
     "contact": "Contacto"
+  },
+  "projects-page": {
+    "projects": "Proyectos"
+  },
+  "us-page": {
+    "us": "Nosotros"
+  },
+  "blog-page": {
+    "notice": "Noticias"
   }
 }
