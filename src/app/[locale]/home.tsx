@@ -22,7 +22,7 @@ async function Home(props: Props) {
       <div className="container">
         <section className="pt-[31px] lg:pt-[41px] flex flex-col gap-[30px] lg:gap-[0px] lg:grid lg:grid-cols-2">
           <div
-            className="wp-h3 "
+            className="wp-h3"
             dangerouslySetInnerHTML={{
               __html: home_information.first_section.title,
             }}
@@ -58,10 +58,11 @@ async function Home(props: Props) {
           <hr className="border-t border-black border-1 mb-[16px] lg:mb-[20px]" />
           <ProjectCard
             image="https://s3-alpha-sig.figma.com/img/eb3d/be3f/8521aa5ae4518e9d7e858852f7773547?Expires=1732492800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=IIXm36ZCrYMTDW8~vqkV1a4A5epNq0VaaKfbGXCMfj2m4WqT-MlSsWR9wnJfS~MW9cn-oUoYo5HDavp9oC-3iCKY490Ryo9t2FBD8QULvmE5W0PWjby7-asFiaNDkMba688ZGvZW0vArwokCpu4iWIOK7fikl5iraALjBQ4TZCwxFbH88Y8s7f8M4pG~yfZYo8RRczZ-2ZUB70SeDtYXdfp0ZDwKYc3zjCM0pWSfBc6y6omCs48sfaqGQ1uwysXIIhEJrjfrh71p3jAaUF6M8t6MC1jmkS736l~yUN9tFA8lTxmsHtLEAYOw2jrHgCQ46MaJZ9NQNnbfUhGC3~owBw__"
-            imageHover=""
+            imageHover="https://s3-alpha-sig.figma.com/img/c4e2/1d20/381b266f9faf8621a68b57298888f743?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=TS91htQTfwuJIr9xl47LFsB848tMdm0x5VsPAzGAgyOV28z1Mtg201thGf3ltTcFniEjX04jwwGVEqewLbFkvITFF6Kn1cOJXSxxy9XtODwc4HnEBteZgfNynmLx~YgcX5rX2ltz04JP--lQR-Hxn2Com8n4gRyjQ51DXt0cMg5CzZV7WyJBC9Ir-alEjFHDMzybVkUOW0feo3zNH0AL4ByrYyAE0woOGxFbu3Pt~2sTSYAyeuiw13bWwUqrKOX90oR2PoYKxyblwZKcAzaiR-KvBo-C7HfReKQmvZ1Q7zd9cj~FaKFJE7Gmv5wz16AbYrtvUalx6Wbc~mFgQ-IpKg__"
             title="Petra"
             description="Este proyecto consistió en la transformación de un edificio de alto valor arquitectónico e histórico, previamente de uso industrial, en una vivienda moderna y funcional. Se trabajó cuidadosamente para preservar y realzar los elementos originales, como las columnas y techos de madera."
             date="2020–21"
+            url="/projects/petra"
           />
         </section>
         <section className="pt-[55px] lg:pt-[40px]">

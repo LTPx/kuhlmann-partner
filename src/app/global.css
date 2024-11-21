@@ -74,6 +74,9 @@ p {
       line-height: 24px;
       letter-spacing: -0.01em;
     }
+    br {
+      display: none;
+    }
   }
 
   h1 {

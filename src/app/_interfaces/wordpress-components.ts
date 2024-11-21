@@ -42,6 +42,7 @@ export interface WorkWp {
 }
 
 export interface IndividualProjectWp {
+  title: string;
   cover_page: MediaFileWp;
   first_section: DescriptionWp;
   first_gallery: GalleryProjectWp[];
