@@ -2,13 +2,16 @@ import React from "react";
 import Cover from "../components/cover";
 import ProjectCard from "../components/project-card";
 import { HomePageWp } from "../_interfaces/wordpress-components";
+import { getTranslations } from "next-intl/server";
 
 interface Props {
   home_information: HomePageWp;
 }
 
-function Home(props: Props) {
+async function Home(props: Props) {
   const { home_information } = props;
+  const t = await getTranslations();
+
   return (
     <div className="flex flex-col">
       <Cover media={home_information.cover_page}>
@@ -72,9 +75,9 @@ function Home(props: Props) {
         <section className="pt-[21px] lg:pt-[58px]">
           <hr className="border-t border-black border-1 mb-[21px] lg:mb-[32px]" />
           <p className="text-[20px] leading-[26px] lg:text-[32px] lg:leading-[40px] tracking-[-0.01em]">
-            ¿Por qué trabajar con nosotros?
+          {`${t("home-page.work-with-us")}`}
           </p>
-          <div className="flex flex-col gap-[22px] lg:grid lg:grid-cols-2 lg:gap-y-[50px] pt-[25px] lg:pt-[45px]">
+          <div className="flex flex-col gap-[22px] lg:gap-[0px] lg:grid lg:grid-cols-2 lg:gap-y-[50px] pt-[25px] lg:pt-[45px]">
             {home_information.work_with_us.map((item, index) => (
               <div
                 key={index}
