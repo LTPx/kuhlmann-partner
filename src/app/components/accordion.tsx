@@ -22,7 +22,7 @@ export function Accordion(props: AccordionProps) {
     <div className="relative border border-t-[#000000] last:border-b-[#000000]">
       <button
         className={`w-full flex items-center relative ${className} 
-          ${isOpen ? "bg-black text-white" : "hover:bg-black hover:text-white"}
+          ${isOpen ? "bg-black text-white-beige" : "hover:bg-black hover:text-white-beige"}
           transition-colors duration-300 ease-in-out group`}
         onClick={(e) => {
           e.preventDefault();
@@ -30,15 +30,15 @@ export function Accordion(props: AccordionProps) {
         }}
       >
         <p
-          className={`pl-[12px] lg:pl-[30px] tracking-[-0.015em] font-medium text-[20px] leading-[30px] lg:text-[40px] lg:leading-[40px] py-[12px] lg:py-[40px] text-start 
-          ${isOpen ? "text-white" : "group-hover:text-white"}`}
+          className={`pl-[12px] lg:pl-[30px] tracking-[-0.015em] font-mediumFont text-[20px] leading-[30px] lg:text-[40px] lg:leading-[40px] py-[12px] lg:py-[40px] text-start 
+          ${isOpen ? "text-white-beige" : "group-hover:text-white-beige"}`}
         >
           <span className="lg:hidden"> {date} - </span>
           {title}
         </p>
         <div className="hidden lg:block ml-auto pr-[30px]">
           <span
-            className={`uppercase inline-block flex items-center justify-center font-medium text-[20px] leading-[25px] cursor-pointer border 
+            className={`uppercase inline-block flex items-center justify-center font-mediumFont text-[20px] leading-[25px] cursor-pointer border 
             ${isOpen ? "border-white text-white" : "border-black"} 
             h-[35px] px-[15px] rounded-full 
             ${isOpen ? "" : "group-hover:border-white group-hover:text-white"}`}
@@ -56,7 +56,7 @@ export function Accordion(props: AccordionProps) {
               className="object-cover h-[260px] lg:h-[555px] w-full order-first lg:order-last"
             />
             <div className="flex flex-col gap-[50px] lg:gap-[0px] lg:justify-between">
-              <p className="lg:w-[660px] font-regular text-[16px] leading-[22px] lg:text-[18px] lg:leading-[26px]">
+              <p className="lg:w-[660px] font-regularFont text-[16px] leading-[22px] lg:text-[18px] lg:leading-[26px]">
                 Lorem Ipsum es simplemente el texto de relleno de las imprentas
                 y archivos de texto. Lorem Ipsum ha sido el texto de relleno
                 estándar de las industrias desde el año 1500, cuando un impresor

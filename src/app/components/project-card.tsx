@@ -17,7 +17,7 @@ function ProjectCard(props: ProjectCardProps) {
     <div className="flex flex-col gap-[15px] lg:gap-[0px] lg:grid lg:grid-cols-2 lg:h-[850px]">
       <div className="lg:w-[615px] flex flex-col justify-between">
         <div className="flex flex-col">
-          <p className="text-[40px] leading-[45px] lg:text-[75px] lg:leading-[78px] tracking-[-0.03em]">
+          <p className="font-mediumFont text-[40px] leading-[45px] lg:text-[75px] lg:leading-[78px] tracking-[-0.03em]">
             {title}
             <br />
             <span className="opacity-30">{date}</span>
@@ -32,7 +32,7 @@ function ProjectCard(props: ProjectCardProps) {
             />
           )}
           <Link className="inline-block" href={url || ""}>
-            <button className="uppercase inline-block hover:bg-black hover:text-white flex items-center justify-center font-medium text-[18px] leading-[18px] cursor-pointer border border-black h-[35px] px-[15px] rounded-full transition-colors duration-300 ease-in-out">
+            <button className="uppercase inline-block hover:bg-black hover:text-white flex items-center justify-center font-mediumFont text-[18px] leading-[18px] cursor-pointer border border-black h-[35px] px-[15px] rounded-full transition-colors duration-300 ease-in-out">
               Ver proyecto
             </button>
           </Link>
@@ -55,7 +55,7 @@ function ProjectCard(props: ProjectCardProps) {
         )}
       </Link>
       <Link className="lg:hidden w-full" href={url || ""}>
-        <button className="uppercase w-full hover:bg-black hover:text-white flex items-center justify-center font-medium text-[16px] leading-[16px] cursor-pointer border border-black h-[30px] rounded-full transition-colors duration-300 ease-in-out">
+        <button className="uppercase w-full hover:bg-black hover:text-white flex items-center justify-center font-mediumFont text-[16px] leading-[16px] cursor-pointer border border-black h-[30px] rounded-full transition-colors duration-300 ease-in-out">
           Ver proyecto
         </button>
       </Link>

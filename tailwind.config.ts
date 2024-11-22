@@ -20,8 +20,8 @@ const config: Config = {
         },
         white: {
           DEFAULT: '#ffffff',
-          beige: '#F4F4F2',
-          light: '#b9bdc4',
+          beige: '#E4E3DE',
+          light: '#F8F7EE',
           dark: '#888ea8',
         },
         body: {
@@ -31,9 +31,11 @@ const config: Config = {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         var: ['Ottertype-Var', 'sans-serif'],
-        regular: ['Ottertype-Regular', 'sans-serif'],
-        bold: ['Ottertype-Bold', 'sans-serif'],
+        regularFont: ['Regular', 'sans-serif'],
+        boldFont: ['Bold', 'sans-serif'],
         black: ['Ottertype-Black', 'sans-serif'],
+        mediumFont: ['Medium', 'sans-serif'],
+        semiBoldFont: ['SemiBold', 'sans-serif'],
       },
     },
   },

@@ -18,7 +18,7 @@ async function Home(props: Props) {
     <div className="flex flex-col">
       <Cover media={home_information.cover_page}>
         <div className="flex flex-col">
-          <h1 className="text-white tracking-[-0.015em]">Kuhlmann & Partner</h1>
+          <h1 className="text-white-light tracking-[-0.015em]">Kuhlmann & Partner</h1>
         </div>
       </Cover>
       <div className="container">
@@ -30,7 +30,7 @@ async function Home(props: Props) {
             }}
           />
           <div
-            className="font-regular"
+            className="font-regularFont"
             dangerouslySetInnerHTML={{
               __html: home_information.first_section.description,
             }}
@@ -50,7 +50,7 @@ async function Home(props: Props) {
             }}
           />
           <div
-            className="font-regular lg:w-[590px]"
+            className="font-regularFont lg:w-[590px]"
             dangerouslySetInnerHTML={{
               __html: home_information.second_section.description,
             }}
@@ -73,7 +73,7 @@ async function Home(props: Props) {
         </section>
         <section className="pt-[55px] lg:pt-[40px]">
           <hr className="border-t border-black border-1 hidden lg:block lg:mb-[45px]" />
-          <p className="text-[40px] leading-[45px] lg:text-[75px] lg:leading-[78px] tracking-[-0.03em]">
+          <p className="font-mediumFont text-[40px] leading-[45px] lg:text-[75px] lg:leading-[78px] tracking-[-0.03em]">
             {home_information.banner.title}
             <br />
             <span className="opacity-30">{home_information.banner.date} </span>
@@ -81,7 +81,7 @@ async function Home(props: Props) {
         </section>
         <section className="pt-[21px] lg:pt-[58px]">
           <hr className="border-t border-black border-1 mb-[21px] lg:mb-[32px]" />
-          <p className="text-[20px] leading-[26px] lg:text-[32px] lg:leading-[40px] tracking-[-0.01em]">
+          <p className="font-mediumFont text-[20px] leading-[26px] lg:text-[32px] lg:leading-[40px] tracking-[-0.01em]">
             {`${t("home-page.work-with-us")}`}
           </p>
           <div className="flex flex-col gap-[22px] lg:gap-[0px] lg:grid lg:grid-cols-2 lg:gap-y-[50px] pt-[25px] lg:pt-[45px]">
@@ -91,9 +91,9 @@ async function Home(props: Props) {
                 className="flex flex-col lg:w-[550px] gap-[22px] lg:gap-[50px]"
               >
                 <div className="flex flex-col">
-                  <p className="font-semiBold">{item.title}</p>
+                  <p className="font-semiBoldFont">{item.title}</p>
                   <div
-                    className="font-regular"
+                    className="font-regularFont"
                     dangerouslySetInnerHTML={{
                       __html: item.description,
                     }}

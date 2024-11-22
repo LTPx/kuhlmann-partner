@@ -1,3 +1,52 @@
+@font-face {
+  font-family: "ExtraLight";
+  src: url("/fonts/Manrope-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Light";
+  src: url("/fonts/Manrope-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Regular";
+  src: url("/fonts/Manrope-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Medium";
+  src: url("/fonts/Manrope-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SemiBold";
+  src: url("/fonts/Manrope-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bold";
+  src: url("/fonts/Manrope-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ExtraBold";
+  src: url("/fonts/Manrope-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
 .aspect-16-9 {
   aspect-ratio: 16 / 9;
 }
@@ -10,9 +59,27 @@
   aspect-ratio: 1 / 1;
 }
 
+p {
+  font-family: "Regular";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-family: "Regular";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 h1 {
   font-size: 75px;
   line-height: 75px;
+  font-family: "SemiBold", sans-serif;
 }
 
 ul {
@@ -33,6 +100,7 @@ h3 {
 p {
   font-size: 20px;
   line-height: 28px;
+  font-family: "Regular", sans-serif;
 }
 
 .container {
@@ -55,23 +123,25 @@ p {
 }
 
 .wp-h2 {
-  p{
+  p {
     font-size: 40px;
     line-height: 45px;
     letter-spacing: -0.02em;
+    font-family: "Medium", sans-serif;
   }
 }
 
 .wp-h3 {
-  p{
+  p {
     font-size: 32px;
     line-height: 40px;
     letter-spacing: -0.01em;
+    font-family: "Medium", sans-serif;
   }
 }
 
 .blog-description {
-  p{
+  p {
     font-size: 18px;
     line-height: 24px;
   }
@@ -84,14 +154,14 @@ p {
   }
 
   .blog-description {
-    p{
+    p {
       font-size: 16px;
       line-height: 22px;
     }
   }
 
   .wp-h2 {
-    p{
+    p {
       font-size: 16px;
       line-height: 22px;
       letter-spacing: -0.02em;
@@ -99,7 +169,7 @@ p {
   }
 
   .wp-h3 {
-    p{
+    p {
       font-size: 20px;
       line-height: 24px;
       letter-spacing: -0.01em;
@@ -123,5 +193,4 @@ p {
     font-size: 16px;
     line-height: 22px;
   }
-
 }

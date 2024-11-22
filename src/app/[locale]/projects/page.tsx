@@ -19,7 +19,7 @@ async function Projects(nextParams: { params: { locale: "es" | "de" } }) {
     <div className="page-projects">
       <Cover media={page_projects.cover_page}>
         <div className="flex flex-col">
-          <h1 className="text-white tracking-[-0.015em]">{`${t(
+          <h1 className="text-white-light tracking-[-0.015em]">{`${t(
             "projects-page.projects"
           )}`}</h1>
         </div>
@@ -33,7 +33,7 @@ async function Projects(nextParams: { params: { locale: "es" | "de" } }) {
             }}
           />
           <div
-            className="font-regular lg:w-[658px]"
+            className="font-regularFont lg:w-[658px]"
             dangerouslySetInnerHTML={{
               __html: page_projects.information.description,
             }}
@@ -42,7 +42,7 @@ async function Projects(nextParams: { params: { locale: "es" | "de" } }) {
         <section className="pt-[30px] lg:pt-[80px]">
           <hr className="border-t border-black border-1 mb-[10px] lg:mb-[16px]" />
           <div className="flex flex-col lg:grid lg:grid-cols-2">
-            <h3 className="font-medium tracking-[-0.01em] pb-[15px] lg:pb-[0px]">
+            <h3 className="font-mediumFont tracking-[-0.01em] pb-[15px] lg:pb-[0px]">
               {page_projects.work_processes.title}
             </h3>
             <div className="lg:w-[648px] flex flex-col gap-[40px] lg:gap-[47px]">
@@ -58,7 +58,7 @@ async function Projects(nextParams: { params: { locale: "es" | "de" } }) {
           </div>
         </section>
         <section className="pt-[50px] lg:pt-[95px] pb-[50px] lg:pb-[0px]">
-          <p className="font-semiBold text-[16px] leading-[16px] uppercase lg:normal-case lg:text-[20px] lg:leading-[27px]">
+          <p className="font-semiBoldFont text-[16px] leading-[16px] uppercase lg:normal-case lg:text-[20px] lg:leading-[27px]">
             {`${t("projects-page.projects")}`}
           </p>
           <hr className="border-t border-black border-1 my-[16px]" />

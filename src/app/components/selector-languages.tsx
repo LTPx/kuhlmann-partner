@@ -25,13 +25,13 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   );
 
   return (
-    <div className="flex gap-[10px] text-[20px] leading-[25px] tracking-[-0.02em] font-medium">
+    <div className="flex gap-[10px] text-[20px] leading-[25px] tracking-[-0.02em] font-mediumFont">
       {languages.map((language, index) => (
         <React.Fragment key={index}>
           {index > 0 && <span>|</span>}
           <Link
             href={language.href}
-            className={`cursor-pointer ${
+            className={`font-mediumFont cursor-pointer ${
               currentLanguage?.code === language.code ? "" : "opacity-30"
             }`}
           >

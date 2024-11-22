@@ -16,10 +16,10 @@ async function BlogSlugPage(nextParams: {
   return (
     <div className="container blog-slug-page">
       <div className="pt-[40px]">
-        <p className="text-[25px] leading-[30px] lg:text-[40px] lg:leading-[60px] tracking-[-0.03em] opacity-20">
+        <p className="font-mediumFont text-[25px] leading-[30px] lg:text-[40px] lg:leading-[60px] tracking-[-0.03em] opacity-20">
           14.04.2024
         </p>
-        <h1 className="text-[25px] leading-[30px] font-medium lg:text-[80px] lg:leading-[85px] tracking-[-0.03em]">
+        <h1 className="text-[25px] leading-[30px] font-mediumFont lg:text-[80px] lg:leading-[85px] tracking-[-0.03em]">
           ¿Qué debo tener en cuenta al comprar una propiedad en Mallorca?
         </h1>
       </div>
@@ -33,7 +33,7 @@ async function BlogSlugPage(nextParams: {
             }}
           />
           <div
-            className="blog-description font-regular lg:w-[677px]"
+            className="blog-description font-regularFont lg:w-[677px]"
             dangerouslySetInnerHTML={{
               __html: blog.information.description,
             }}
@@ -41,11 +41,11 @@ async function BlogSlugPage(nextParams: {
           </div>
         ))}
         <div className="flex flex-col gap-[30px] lg:gap-[0px] lg:grid lg:grid-cols-2">
-          <h2 className="font-medium text-[16px] leading-[22px] lg:text-[40px] lg:leading-[45px] tracking-[-0.02em]">
+          <h2 className="font-mediumFont text-[16px] leading-[22px] lg:text-[40px] lg:leading-[45px] tracking-[-0.02em]">
             Puntos a tener en cuenta para verificar su propiedad antes de la
             compra.
           </h2>
-          <p className="font-regular lg:w-[677px] text-[16px] leading-[22px] lg:text-[18px] lg:leading-[24px]">
+          <p className="font-regularFont lg:w-[677px] text-[16px] leading-[22px] lg:text-[18px] lg:leading-[24px]">
             Tal vez haya escuchado de amigos o conocidos que compraron una
             propiedad en Mallorca de buena fe, solo para descubrir después que
             partes del edificio no se construyeron legalmente o, peor aún, que
@@ -64,10 +64,10 @@ async function BlogSlugPage(nextParams: {
       <section className="pt-[50px] pb-[70px]">
         <hr className="border-t border-black border-1 mb-[18px]" />
         <div className="grid grid-cols-2">
-          <h2 className="font-medium text-[40px] leading-[45px] tracking-[-0.02em]">
+          <h2 className="font-mediumFont text-[40px] leading-[45px] tracking-[-0.02em]">
             Preguntas frecuentes:
           </h2>
-          <p className="font-regular lg:w-[677px] text-[18px] leading-[24px]">
+          <p className="font-regularFont lg:w-[677px] text-[18px] leading-[24px]">
             ¿Cuánto cuesta la revisión de los documentos de compra? Cobramos un
             punto porcentual del precio de compra por nuestro trabajo (más el
             21% de IVA).

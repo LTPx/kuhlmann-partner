@@ -16,18 +16,18 @@ async function AboutUs(nextParams: { params: { locale: "es" | "de" } }) {
     <div className="page-aboutUs">
       <Cover media={page_about_us.cover_page}>
         <div className="flex flex-col">
-          <h1 className="text-white tracking-[-0.015em]">{`${t(
+          <h1 className="text-white-light tracking-[-0.015em]">{`${t(
             "us-page.us"
           )}`}</h1>
         </div>
       </Cover>
       <div className="container">
         <section className="pt-[30px] lg:pt-[27px] flex flex-col gap-[20px] lg:gap-[0px] lg:grid lg:grid-cols-2">
-          <h3 className="font-medium tracking-[-0.01em]">
+          <h3 className="font-mediumFont tracking-[-0.01em]">
             {page_about_us.first_section.title}
           </h3>
           <div
-            className="font-regular lg:w-[665px]"
+            className="font-regularFont lg:w-[665px]"
             dangerouslySetInnerHTML={{
               __html: page_about_us.first_section.description,
             }}
@@ -40,11 +40,11 @@ async function AboutUs(nextParams: { params: { locale: "es" | "de" } }) {
           />
         </section>
         <section className="pt-[30px] lg:pt-[50px] flex flex-col gap-[20px] lg:gap-[0px] lg:grid lg:grid-cols-2">
-          <h3 className="font-medium tracking-[-0.01em]">
+          <h3 className="font-mediumFont tracking-[-0.01em]">
             {page_about_us.second_section.title}
           </h3>
           <div
-            className="font-regular lg:w-[665px]"
+            className="font-regularFont lg:w-[665px]"
             dangerouslySetInnerHTML={{
               __html: page_about_us.second_section.description,
             }}

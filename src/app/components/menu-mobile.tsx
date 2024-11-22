@@ -72,7 +72,7 @@ export function MenuMobile(props: MenuMobileProps) {
                 {links.map((link, index) => (
                   <div key={index}>
                     <Link
-                      className="pl-[20px] block font-medium text-[25px] leading-[60px]"
+                      className="pl-[20px] block font-mediumFont text-[25px] leading-[60px]"
                       href={link.url}
                       key={index}
                       onClick={() => setMenuOpen(false)}
