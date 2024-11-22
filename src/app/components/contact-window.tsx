@@ -28,18 +28,18 @@ export function ContactWindow(props: Props) {
           />
         </div>
         <div className="lg:w-[1215px] pt-[30px] flex flex-col gap-[70px]">
-          <h1 className="leading-[85px]">
+          <h1 className="font-mediumFont leading-[85px]">
             Carrer d'Andalucía 1, Local 4 07620 Llucmajor Islas Baleares, España
           </h1>
           <div className="contact">
             <Link href={`tel:+34 971 718 996`}>
-              <h1 className="leading-[85px]">+34 971 718 996</h1>
+              <h1 className="font-mediumFont leading-[85px]">+34 971 718 996</h1>
             </Link>
             <Link
               href={`mailto:info@kuhlmann-partner.com`}
               className="text-[15px] leading-[32px] lg:text-[20px] lg:leading-[28px]"
             >
-              <h1 className="leading-[85px]">+info@kuhlmann-partner.com</h1>
+              <h1 className="font-mediumFont leading-[85px]">+info@kuhlmann-partner.com</h1>
             </Link>
           </div>
           <div className="social">
@@ -48,14 +48,14 @@ export function ContactWindow(props: Props) {
               target="_blank"
               className="text-[30px] leading-[32px] lg:text-[20px] lg:leading-[28px]"
             >
-              <h1 className="leading-[85px]">Instagram</h1>
+              <h1 className="font-mediumFont leading-[85px]">Instagram</h1>
             </Link>
             <Link
               href={"/"}
               target="_blank"
               className="text-[30px] leading-[32px] lg:text-[20px] lg:leading-[28px]"
             >
-              <h1 className="leading-[85px]">Facebook</h1>
+              <h1 className="font-mediumFont leading-[85px]">Facebook</h1>
             </Link>
           </div>
         </div>
