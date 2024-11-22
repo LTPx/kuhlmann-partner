@@ -24,7 +24,13 @@ function ProjectCard(props: ProjectCardProps) {
           </p>
         </div>
         <div className="hidden lg:flex flex-col gap-[50px]">
-          <p>{description}</p>
+          {description && (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: description,
+              }}
+            />
+          )}
           <Link className="inline-block" href={url || ""}>
             <button className="uppercase inline-block hover:bg-black hover:text-white flex items-center justify-center font-medium text-[18px] leading-[18px] cursor-pointer border border-black h-[35px] px-[15px] rounded-full transition-colors duration-300 ease-in-out">
               Ver proyecto

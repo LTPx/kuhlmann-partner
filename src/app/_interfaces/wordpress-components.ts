@@ -1,4 +1,4 @@
-import { ImageAcf } from "./wordpress-page";
+import { ImageAcf, Project } from "./wordpress-page";
 
 export interface MediaFileWp {
   url: string;
@@ -15,6 +15,7 @@ export interface HomePageWp {
   first_section: DescriptionWp;
   image: ImageAcf;
   second_section: DescriptionWp;
+  projects: ProjectWp[];
   banner: BannerHomeWp
   work_with_us: DescriptionWp[];
   last_image: ImageAcf;
@@ -23,6 +24,14 @@ export interface HomePageWp {
 export interface DescriptionWp {
   title: string;
   description: string;
+}
+
+export interface ProjectWp {
+  project: Project;
+  feature_image: ImageAcf;
+  hover_image: ImageAcf;
+  date: string;
+  short_description: string;
 }
 
 export interface BannerHomeWp {
@@ -48,6 +57,10 @@ export interface IndividualProjectWp {
   first_gallery: GalleryProjectWp[];
   second_section: DescriptionWp;
   second_gallery: GalleryProjectWp[];
+}
+
+export interface IndividualBlogWP {
+  information: DescriptionWp;
 }
 
 export interface AboutUsPageWp {

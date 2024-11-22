@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import Cover from "@/app/components/cover";
 import Gallery from "@/app/components/gallery";
 import ProjectDetails from "@/app/components/project-details";
-import { getWordPressCustomPage, getWordPressPage } from "@/app/_services/api";
+import { getProjectChildBySlug } from "@/app/_services/api";
 
 async function ProjectSlugPage(nextParams: {
   params: { locale: "es" | "de"; slug: string };
@@ -13,7 +13,7 @@ async function ProjectSlugPage(nextParams: {
     params: { locale, slug },
   } = nextParams;
 
-  const data = await getWordPressPage(locale, "petra");
+  const data = await getProjectChildBySlug(slug, locale);
   const { acf } = data;
   const { individual_project } = acf;
 

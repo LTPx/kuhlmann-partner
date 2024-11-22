@@ -22,9 +22,9 @@ export function Header(props: Props) {
   const currentSlug = currentPath.substring(currentPath.lastIndexOf("/") + 1);
   const isProjectRoute = /^\/projects\/.+$/.test(currentPath);
   const linksSelector = {
-    es: isProjectRoute ? `/es/` : `/es/${currentSlug}`,
-    en: isProjectRoute ? `/en/` : `/en/${currentSlug}`,
-    de: isProjectRoute ? `/de/` : `/de/${currentSlug}`,
+    es: isProjectRoute ? `/es/projects/${currentSlug}` : `/es/${currentSlug}`,
+    en: isProjectRoute ? `/en/projects/${currentSlug}` : `/en/${currentSlug}`,
+    de: isProjectRoute ? `/de/projects/${currentSlug}` : `/de/${currentSlug}`,
   };
   const t = useTranslations();
 

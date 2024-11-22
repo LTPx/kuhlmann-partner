@@ -1,3 +1,4 @@
+import { getWordPressPage } from "@/app/_services/api";
 import Cover from "@/app/components/cover";
 import ProjectDetails from "@/app/components/project-details";
 
@@ -7,6 +8,10 @@ async function BlogSlugPage(nextParams: {
   const {
     params: { locale, slug },
   } = nextParams;
+
+  const data = await getWordPressPage(locale, 'blog-test');
+  const { acf } = data;
+  const { individual_blog } = acf;
 
   return (
     <div className="container blog-slug-page">
@@ -19,7 +24,22 @@ async function BlogSlugPage(nextParams: {
         </h1>
       </div>
       <section className="pt-[30px] lg:pt-[141px]">
-        <hr className="hidden lg:block border-t border-black border-1 mb-[10px]" />
+        {individual_blog.map((blog, index) => (
+          <div className="flex flex-col gap-[30px] lg:gap-[0px] lg:grid lg:grid-cols-2" key={index}>
+            <div
+            className="wp-h2"
+            dangerouslySetInnerHTML={{
+              __html: blog.information.title,
+            }}
+          />
+          <div
+            className="blog-description font-regular lg:w-[677px]"
+            dangerouslySetInnerHTML={{
+              __html: blog.information.description,
+            }}
+          />
+          </div>
+        ))}
         <div className="flex flex-col gap-[30px] lg:gap-[0px] lg:grid lg:grid-cols-2">
           <h2 className="font-medium text-[16px] leading-[22px] lg:text-[40px] lg:leading-[45px] tracking-[-0.02em]">
             Puntos a tener en cuenta para verificar su propiedad antes de la
