@@ -7,11 +7,10 @@ import { WordPressFrontendPage } from "../_interfaces/wordpress-page";
 
 interface Props {
   home_information: HomePageWp;
-  childPages: WordPressFrontendPage[];
 }
 
 async function Home(props: Props) {
-  const { home_information, childPages } = props;
+  const { home_information } = props;
   const t = await getTranslations();
 
   return (
@@ -63,10 +62,10 @@ async function Home(props: Props) {
               <ProjectCard
                 image={project.feature_image.url}
                 imageHover={project.hover_image.url}
-                title={project.project.post_title}
+                title={project.title}
                 description={project.short_description}
                 date={project.date}
-                url={`/projects/${project.project.post_name}`}
+                url={`/projects/${getSlugUrlWordPress(project.project)}`}
               />
             </div>
           ))}
@@ -112,6 +111,12 @@ async function Home(props: Props) {
       </div>
     </div>
   );
+}
+
+function getSlugUrlWordPress(url: string) {
+  const match = url.match(/\/([^\/]+)\/?$/);
+  const slug = match ? match[1] : null;
+  return slug || '#';
 }
 
 export default Home;

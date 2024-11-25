@@ -27,7 +27,8 @@ export interface DescriptionWp {
 }
 
 export interface ProjectWp {
-  project: Project;
+  project: string;
+  title: string;
   feature_image: ImageAcf;
   hover_image: ImageAcf;
   date: string;
@@ -52,6 +53,7 @@ export interface WorkWp {
 
 export interface IndividualProjectWp {
   title: string;
+  date: string;
   cover_page: MediaFileWp;
   first_section: DescriptionWp;
   first_gallery: GalleryProjectWp[];
@@ -61,6 +63,11 @@ export interface IndividualProjectWp {
 
 export interface IndividualBlogWP {
   information: DescriptionWp;
+}
+
+export interface PreviewBlogWP {
+  image: ImageAcf;
+  short_description: string;
 }
 
 export interface AboutUsPageWp {

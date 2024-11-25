@@ -15,6 +15,9 @@
     "legal-notice": "Aviso legal",
     "accessibility-statement": "Declaración de accesibilidad"
   },
+  "blog": {
+    "see_more": "VER MAS"
+  },
   "header": {
     "projects": "Proyectos",
     "about-us": "Nosotros",
@@ -22,7 +25,11 @@
     "contact": "Contacto"
   },
   "projects-page": {
-    "projects": "Proyectos"
+    "projects": "Proyectos",
+    "all_projects": "Todos los proyectos:",
+    "see_project": "Ver proyecto",
+    "next": "SIGUIENTE",
+    "prev": "ANTERIOR"
   },
   "us-page": {
     "us": "Nosotros"

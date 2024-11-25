@@ -65,6 +65,13 @@ p {
   -moz-osx-font-smoothing: grayscale;
 }
 
+ul {
+  li {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -153,6 +160,13 @@ p {
     padding-right: 12px;
   }
 
+  ul {
+    li {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
   .blog-description {
     p {
       font-size: 16px;
@@ -165,6 +179,10 @@ p {
       font-size: 16px;
       line-height: 22px;
       letter-spacing: -0.02em;
+      display: inline; 
+    }
+    br {
+      display: none;
     }
   }
 

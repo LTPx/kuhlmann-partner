@@ -13,8 +13,6 @@ interface ProjectDetailsProps {
   second_galley: GalleryProjectWp[];
   prevProject: { slug: string } | null;
   nextProject: { slug: string } | null;
-  allCategories: string[];
-  currentCategories: { id: number; name: string; slug: string }[];
   information: DescriptionWp;
 }
 
@@ -23,8 +21,6 @@ export function ProjectDetails(props: ProjectDetailsProps) {
     second_galley,
     prevProject,
     nextProject,
-    allCategories,
-    currentCategories,
     first_gallery,
     information,
   } = props;
@@ -39,7 +35,9 @@ export function ProjectDetails(props: ProjectDetailsProps) {
         </section>
       )}
       <div className="pt-[20px] lg:pt-[30px] flex flex-col gap-[20px] lg:gap-[0px] lg:grid lg:grid-cols-2">
-        <h3 className="font-mediumFont tracking-[-0.01em]">{information.title}</h3>
+        <h3 className="font-mediumFont tracking-[-0.01em]">
+          {information.title}
+        </h3>
         <div
           className="font-regularFont lg:w-[670px]"
           dangerouslySetInnerHTML={{
@@ -55,22 +53,22 @@ export function ProjectDetails(props: ProjectDetailsProps) {
       <section className="hidden lg:block pt-[30px] pb-[65px]">
         <div className="flex justify-between items-center">
           <div className="flex items-start">
-            {/* {prevProject && ( */}
-            <Link href={`/projects/${prevProject?.slug}`}>
-              <button className="uppercase inline-block hover:bg-black hover:text-white flex items-center justify-center font-mediumFont text-[18px] leading-[18px] cursor-pointer border border-black h-[35px] px-[15px] rounded-full transition-colors duration-300 ease-in-out">
-                ANTERIOR
-              </button>
-            </Link>
-            {/* )} */}
+            {prevProject && (
+              <Link href={`/projects/${prevProject?.slug}`}>
+                <button className="uppercase inline-block hover:bg-black hover:text-white flex items-center justify-center font-mediumFont text-[18px] leading-[18px] cursor-pointer border border-black h-[35px] px-[15px] rounded-full transition-colors duration-300 ease-in-out">
+                  {t("projects-page.prev")}
+                </button>
+              </Link>
+            )}
           </div>
           <div className="flex items-start">
-            {/* {nextProject && ( */}
-            <Link href={`/projects/${nextProject?.slug || ""}`}>
-              <button className="uppercase inline-block hover:bg-black hover:text-white flex items-center justify-center font-mediumFont text-[18px] leading-[18px] cursor-pointer border border-black h-[35px] px-[15px] rounded-full transition-colors duration-300 ease-in-out">
-                SIGUIENTE
-              </button>
-            </Link>
-            {/* )} */}
+            {nextProject && (
+              <Link href={`/projects/${nextProject?.slug || ""}`}>
+                <button className="uppercase inline-block hover:bg-black hover:text-white flex items-center justify-center font-mediumFont text-[18px] leading-[18px] cursor-pointer border border-black h-[35px] px-[15px] rounded-full transition-colors duration-300 ease-in-out">
+                  {t("projects-page.next")}
+                </button>
+              </Link>
+            )}
           </div>
         </div>
       </section>

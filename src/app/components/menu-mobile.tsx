@@ -27,18 +27,18 @@ export function MenuMobile(props: MenuMobileProps) {
             "px-[12px] flex bg-[#DCB93C] justify-between items-center h-[50px]"
           }
         >
-          <Link href="/" className="flex items-center justify-center">
-            <p className="text-[20px] leading-[26px]">Kuhlmann & Partner</p>
+          <div></div>
+          <Link href="/" className="font-semiBoldFont flex items-center justify-center">
+            <p className="font-semiBoldFont text-[20px] leading-[26px]">Kuhlmann & Partner</p>
           </Link>
-          <div className="border-l border-black h-[50px] flex justify-center items-center">
+          <div className="h-[50px] flex justify-center items-center">
             <img
-              className="pl-[11px] cursor-pointer invert-custom"
+              className="cursor-pointer invert-custom"
               src="/images/icons/menu.svg"
               onClick={() => setMenuOpen(true)}
             />
           </div>
         </div>
-        <hr className="border-t border-black border-1" />
       </header>
       {menuOpen && (
         <div
@@ -55,12 +55,13 @@ export function MenuMobile(props: MenuMobileProps) {
         <div className="h-full flex flex-col justify-between">
           <div>
             <div className="px-[11px] bg-[#DCB93C] items-center flex justify-between h-[50px]">
+              <div></div>       
               <Link href="/">
-                <p className="text-[20px] leading-[26px]">Kuhlmann & Partner</p>
+                <p className="font-semiBoldFont text-[20px] leading-[26px]">Kuhlmann & Partner</p>
               </Link>
-              <div className="border-l border-black h-[50px] flex justify-center items-center">
+              <div className="h-[50px] flex justify-center items-center">
                 <img
-                  className="pl-[11px] cursor-pointer invert-custom"
+                  className="cursor-pointer invert-custom"
                   src="/images/icons/menu.svg"
                   onClick={() => setMenuOpen(false)}
                 />

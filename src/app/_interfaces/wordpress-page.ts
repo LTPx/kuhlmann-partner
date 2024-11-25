@@ -7,7 +7,7 @@ import {
   OgImage,
   TargetClass,
 } from './wordpress';
-import { AboutUsPageWp, HomePageWp, IndividualBlogWP, IndividualProjectWp, ProjectsPageWp } from './wordpress-components';
+import { AboutUsPageWp, HomePageWp, IndividualBlogWP, IndividualProjectWp, PreviewBlogWP, ProjectsPageWp } from './wordpress-components';
 
 
 export interface WordPressFrontendPage {
@@ -161,6 +161,7 @@ export interface AcfComponents {
   page_projects: ProjectsPageWp;
   individual_project: IndividualProjectWp;
   individual_blog: IndividualBlogWP[];
+  preview_blog: PreviewBlogWP;
   page_about_us: AboutUsPageWp;
 }
 

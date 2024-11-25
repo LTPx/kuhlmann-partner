@@ -39,7 +39,7 @@ export function Gallery({ gallery }: GalleryProps) {
               >
                 <img
                   src={image.url}
-                  className="object-cover object-center rounded-[10px] lg:rounded-[0px] h-[270px] md:h-[500px] lg:h-[800px] w-full"
+                  className="object-cover object-center lg:rounded-[0px] h-[300px] md:h-[500px] lg:h-[800px] w-full"
                   alt={`Gallery image ${index + 1}`}
                   data-fancybox="gallery"
                 />
@@ -59,24 +59,24 @@ export function Gallery({ gallery }: GalleryProps) {
             <div key={image.ID} className="grid grid-cols-2 gap-3">
               <button
                 type="button"
-                className="col-span-1"
+                className="col-span-2 lg:col-span-1"
                 onClick={() => openLightbox(index)}
               >
                 <img
                   src={image.url}
-                  className="object-cover object-center rounded-[10px] lg:rounded-[0px] h-[450px] md:h-[500px] lg:h-[1001px] w-full"
+                  className="object-cover object-center lg:rounded-[0px] h-[450px] md:h-[500px] lg:h-[1001px] w-full"
                   alt={`Gallery image ${index + 1}`}
                   data-fancybox="gallery"
                 />
               </button>
               <button
                 type="button"
-                className="col-span-1"
+                className="col-span-2 lg:col-span-1"
                 onClick={() => openLightbox(index + 1)}
               >
                 <img
                   src={gallery[index + 1].image.url}
-                  className="object-cover object-center rounded-[10px] lg:rounded-[0px] h-[450px] md:h-[500px] lg:h-[1001px] w-full"
+                  className="object-cover object-center lg:rounded-[0px] h-[450px] md:h-[500px] lg:h-[1001px] w-full"
                   alt={`Gallery image ${index + 2}`}
                   data-fancybox="gallery"
                 />
@@ -94,17 +94,17 @@ export function Gallery({ gallery }: GalleryProps) {
             <div key={image.ID} className="grid grid-cols-2 gap-3">
               <button
                 type="button"
-                className="col-span-1"
+                className="col-span-2 lg:col-span-1"
                 onClick={() => openLightbox(index)}
               >
                 <img
                   src={image.url}
-                  className="object-cover object-center rounded-[10px] lg:rounded-[0px] h-[450px] md:h-[500px] lg:h-[1001px] w-full"
+                  className="object-cover object-center lg:rounded-[0px] h-[450px] md:h-[500px] lg:h-[1001px] w-full"
                   alt={`Gallery image ${index + 1}`}
                   data-fancybox="gallery"
                 />
               </button>
-              <div className="col-span-1"></div>
+              <div className="col-span-2 lg:col-span-1"></div>
             </div>
           );
         }

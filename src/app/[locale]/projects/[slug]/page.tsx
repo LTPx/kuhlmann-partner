@@ -1,10 +1,8 @@
-import { Link } from "@/navigation";
 import { getTranslations } from "next-intl/server";
-import { Metadata } from "next";
 import Cover from "@/app/components/cover";
-import Gallery from "@/app/components/gallery";
 import ProjectDetails from "@/app/components/project-details";
-import { getProjectChildBySlug } from "@/app/_services/api";
+import { getChildPages, getProjectChildBySlug } from "@/app/_services/api";
+import { Link } from "@/navigation";
 
 async function ProjectSlugPage(nextParams: {
   params: { locale: "es" | "de"; slug: string };
@@ -16,6 +14,20 @@ async function ProjectSlugPage(nextParams: {
   const data = await getProjectChildBySlug(slug, locale);
   const { acf } = data;
   const { individual_project } = acf;
+  const t = await getTranslations();
+
+  const page = "projects";
+  const parentSlug = locale === "es" ? "spanish-pages" : "german-pages";
+  const allProjects = await getChildPages(page, locale, parentSlug);
+  const currentIndex = allProjects.findIndex(
+    (project) => project.slug === slug
+  );
+  const prevProject = currentIndex > 0 ? allProjects[currentIndex - 1] : null;
+  const nextProject =
+    currentIndex < allProjects.length - 1
+      ? allProjects[currentIndex + 1]
+      : null;
+  console.log(allProjects);
 
   return (
     <div className="project-slug-page">
@@ -43,20 +55,32 @@ async function ProjectSlugPage(nextParams: {
             information={individual_project.second_section}
             first_gallery={individual_project.first_gallery}
             second_galley={individual_project.second_gallery}
-            prevProject={null}
-            nextProject={null}
-            allCategories={[]}
-            currentCategories={[]}
+            prevProject={prevProject}
+            nextProject={nextProject}
           />
         </section>
       </div>
       <section className="pt-[55px] pb-[47px] lg:hidden">
-        <p className="pl-[12px] font-mediumFont pb-[15px]">Todos los proyectos:</p>
-        <div className="h-[65px] flex items-center border-1 border-black border-t border-b">
-          <p className="container text-[20px] leading-[40px]">
-            <span className="opacity-25">2022-2023</span> Petra
-          </p>
-        </div>
+        <p className="pl-[12px] font-mediumFont pb-[15px]">
+        {`${t("projects-page.all_projects")}`}
+        </p>
+        {allProjects.map((project, index) => (
+          <Link key={index} href={`/projects/${project?.slug}`}>
+            <div
+              className={`h-[65px] flex items-center border-1 border-black border-t ${
+                index === allProjects.length - 1 ? "border-b" : ""
+              } ${project.slug === slug ? "bg-black text-white" : ""}`}
+            >
+              <p className="font-mediumFont container text-[20px] leading-[40px]">
+                <span className="opacity-25">
+                  {project.acf.individual_project.date}
+                </span>
+                {"  "}
+                {project.acf.individual_project.title}
+              </p>
+            </div>
+          </Link>
+        ))}
       </section>
     </div>
   );

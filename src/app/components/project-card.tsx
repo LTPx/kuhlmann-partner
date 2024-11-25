@@ -1,4 +1,5 @@
 import { Link } from "@/navigation";
+import { getTranslations } from "next-intl/server";
 
 interface ProjectCardProps {
   imageHover?: string;
@@ -10,8 +11,9 @@ interface ProjectCardProps {
   url?: string;
 }
 
-function ProjectCard(props: ProjectCardProps) {
+async function ProjectCard(props: ProjectCardProps) {
   const { imageHover, image, title, className, date, description, url } = props;
+  const t = await getTranslations();
 
   return (
     <div className="flex flex-col gap-[15px] lg:gap-[0px] lg:grid lg:grid-cols-2 lg:h-[850px]">
@@ -33,7 +35,7 @@ function ProjectCard(props: ProjectCardProps) {
           )}
           <Link className="inline-block" href={url || ""}>
             <button className="uppercase inline-block hover:bg-black hover:text-white flex items-center justify-center font-mediumFont text-[18px] leading-[18px] cursor-pointer border border-black h-[35px] px-[15px] rounded-full transition-colors duration-300 ease-in-out">
-              Ver proyecto
+              {`${t("projects-page.see_project")}`}
             </button>
           </Link>
         </div>
@@ -56,7 +58,7 @@ function ProjectCard(props: ProjectCardProps) {
       </Link>
       <Link className="lg:hidden w-full" href={url || ""}>
         <button className="uppercase w-full hover:bg-black hover:text-white flex items-center justify-center font-mediumFont text-[16px] leading-[16px] cursor-pointer border border-black h-[30px] rounded-full transition-colors duration-300 ease-in-out">
-          Ver proyecto
+          {`${t("projects-page.see_project")}`}
         </button>
       </Link>
     </div>

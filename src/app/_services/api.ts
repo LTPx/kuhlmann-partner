@@ -41,7 +41,7 @@ export async function getWordPressCustomPage(
   return page;
 }
 
-export async function getChildPagesForProjects(
+export async function getChildPages(
   slug: string, 
   locale: "es" | "de", 
   parentSlug: string
