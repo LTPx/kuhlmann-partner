@@ -26,7 +26,12 @@ function ProjectView(props: ProjectViewProps) {
           </Link>
         </div>
       </div>
-      <img src={image} className={"h-[500px] lg:h-[800px] w-full object-cover"} />
+      <Link href={url || ""}>
+        <img
+          src={image}
+          className={"h-[500px] lg:h-[800px] w-full object-cover"}
+        />
+      </Link>
       <div className="w-full pt-[10px] lg:hidden">
         <Link href={url || ""}>
           <button className="uppercase w-full hover:bg-black hover:text-white flex items-center justify-center font-mediumFont text-[16px] leading-[16px] cursor-pointer border border-black h-[30px] rounded-full transition-colors duration-300 ease-in-out">

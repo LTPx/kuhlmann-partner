@@ -63,7 +63,7 @@ async function Projects(nextParams: { params: { locale: "es" | "de" } }) {
           </p>
           <hr className="border-t border-black border-1 my-[16px]" />
           <ProjectView
-            image="https://s3-alpha-sig.figma.com/img/eb3d/be3f/8521aa5ae4518e9d7e858852f7773547?Expires=1732492800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=IIXm36ZCrYMTDW8~vqkV1a4A5epNq0VaaKfbGXCMfj2m4WqT-MlSsWR9wnJfS~MW9cn-oUoYo5HDavp9oC-3iCKY490Ryo9t2FBD8QULvmE5W0PWjby7-asFiaNDkMba688ZGvZW0vArwokCpu4iWIOK7fikl5iraALjBQ4TZCwxFbH88Y8s7f8M4pG~yfZYo8RRczZ-2ZUB70SeDtYXdfp0ZDwKYc3zjCM0pWSfBc6y6omCs48sfaqGQ1uwysXIIhEJrjfrh71p3jAaUF6M8t6MC1jmkS736l~yUN9tFA8lTxmsHtLEAYOw2jrHgCQ46MaJZ9NQNnbfUhGC3~owBw__"
+            image="https://s3-alpha-sig.figma.com/img/cd65/f9e4/8959175a7edad4039d2c090b55dcdb27?Expires=1733702400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MnLxKCzWmYH0eo8U2xH0QdxzUl3QSSALQiPFNL1sXVlZzQpXozPeJX7EAQh4OJt3IbQpiB5d3EHMQYWHBhBHO23GHvWkhbrPByjP~Nr0lofVLyCWmuPsyNbq2sJdVh-zUGHZfeTlkSkex9FNdpMMx-D9wYaWyDR9sSi6RNHvfeZVtFWlhG4Hd4UCoTdAPtaNYE~29Bhfm06TBEPre7ADEZ-~3l1Q5~2NjuznMRH84b8lLx0uGpxDch7-HXSIe1SIQcovoYIsTtW~PpN0jXdk5RBkB-7Pjwiq2SqvPhaqUsaT10b4ojwJliTdiUeFtciVh~dJ2BRkij-BUW~MqiCN2g__"
             title={"Petra"}
             date={"2020-2021"}
             url={"projects/petra"}
