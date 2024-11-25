@@ -19,6 +19,7 @@ async function ProjectSlugPage(nextParams: {
   const page = "projects";
   const parentSlug = locale === "es" ? "spanish-pages" : "german-pages";
   const allProjects = await getChildPages(page, locale, parentSlug);
+  allProjects.reverse();
   const currentIndex = allProjects.findIndex(
     (project) => project.slug === slug
   );

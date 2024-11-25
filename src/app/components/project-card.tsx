@@ -19,11 +19,13 @@ async function ProjectCard(props: ProjectCardProps) {
     <div className="flex flex-col gap-[15px] lg:gap-[0px] lg:grid lg:grid-cols-2 lg:h-[850px]">
       <div className="lg:w-[615px] flex flex-col justify-between">
         <div className="flex flex-col">
-          <p className="font-mediumFont text-[40px] leading-[45px] lg:text-[75px] lg:leading-[78px] tracking-[-0.03em]">
-            {title}
-            <br />
-            <span className="opacity-30">{date}</span>
-          </p>
+          <Link href={url || ""}>
+            <p className="font-mediumFont text-[40px] leading-[45px] lg:text-[75px] lg:leading-[78px] tracking-[-0.03em]">
+              {title}
+              <br />
+              <span className="opacity-30">{date}</span>
+            </p>
+          </Link>
         </div>
         <div className="hidden lg:flex flex-col gap-[50px]">
           {description && (
