@@ -75,9 +75,14 @@ export function Accordion(props: AccordionProps) {
               />
             </Link>
             <div className="flex flex-col gap-[50px] lg:gap-[0px] lg:justify-between">
-              <p className="lg:w-[660px] font-regularFont text-[16px] leading-[22px] lg:text-[18px] lg:leading-[26px]">
-                {description}
-              </p>
+              {description && (
+                <div
+                  className="description-blog font-regularFont lg:w-[660px] text-[16px] leading-[22px] lg:text-[18px] lg:leading-[26px]"
+                  dangerouslySetInnerHTML={{
+                    __html: description,
+                  }}
+                />
+              )}
               <div className="flex justify-end lg:justify-start">
                 <Link href={url || ""}>
                   <button className="hover:text-white uppercase group flex hover:bg-black items-center justify-center h-[21px] border border-black rounded-[16px] lg:h-[35px] px-[8px] lg:px-[14px] flex justify-end lg:justify-start">

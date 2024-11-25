@@ -21,11 +21,26 @@ export function Header(props: Props) {
   const currentPath = usePathname();
   const currentSlug = currentPath.substring(currentPath.lastIndexOf("/") + 1);
   const isProjectRoute = /^\/projects\/.+$/.test(currentPath);
+  const isBlogRoute = /^\/blog\/.+$/.test(currentPath);
+
   const linksSelector = {
-    es: isProjectRoute ? `/es/projects/${currentSlug}` : `/es/${currentSlug}`,
-    en: isProjectRoute ? `/en/projects/${currentSlug}` : `/en/${currentSlug}`,
-    de: isProjectRoute ? `/de/projects/${currentSlug}` : `/de/${currentSlug}`,
+    es: isProjectRoute
+      ? `/es/projects/${currentSlug}`
+      : isBlogRoute
+      ? `/es/blog/${currentSlug}`
+      : `/es/${currentSlug}`,
+    en: isProjectRoute
+      ? `/en/projects/${currentSlug}`
+      : isBlogRoute
+      ? `/en/blog/${currentSlug}`
+      : `/en/${currentSlug}`,
+    de: isProjectRoute
+      ? `/de/projects/${currentSlug}`
+      : isBlogRoute
+      ? `/de/blog/${currentSlug}`
+      : `/de/${currentSlug}`,
   };
+
   const t = useTranslations();
 
   const [showContact, setShowContact] = useState(false);

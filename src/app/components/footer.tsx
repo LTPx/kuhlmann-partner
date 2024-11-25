@@ -100,7 +100,7 @@ export function Footer(props: FooterProps) {
             <div className="hidden lg:ml-auto lg:flex flex-col text-[20px] leading-[28px] lg:pr-[70px]">
               {linksFooter.map((link, index) => (
                 <Link
-                  className={index === 0 ? "font-semiBoldFont" : ""}
+                  className={index === 0 ? "font-semiBoldFont hover:underline" : "hover:underline"}
                   key={index}
                   href={link.url}
                 >
@@ -109,7 +109,7 @@ export function Footer(props: FooterProps) {
               ))}
               <div
                 onClick={handleContactClick}
-                className="font-regularFont cursor-pointer"
+                className="font-regularFont cursor-pointer hover:underline"
               >
                 {t("footer.contact")}
               </div>

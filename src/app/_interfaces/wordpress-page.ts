@@ -161,6 +161,7 @@ export interface AcfComponents {
   page_projects: ProjectsPageWp;
   individual_project: IndividualProjectWp;
   individual_blog: IndividualBlogWP[];
+  title_blog: string;
   preview_blog: PreviewBlogWP;
   page_about_us: AboutUsPageWp;
 }

@@ -66,6 +66,7 @@ export interface IndividualBlogWP {
 }
 
 export interface PreviewBlogWP {
+  title_blog: string;
   image: ImageAcf;
   short_description: string;
 }

@@ -32,7 +32,7 @@ async function Blog(nextParams: { params: { locale: "es" | "de" } }) {
           <Accordion
             key={index}
             date={formatDate(blog.date)}
-            title={blog.title.rendered}
+            title={blog.acf.preview_blog.title_blog}
             description={blog.acf.preview_blog.short_description}
             image={blog.acf.preview_blog.image.url}
             url={`/blog/${blog.slug}`}

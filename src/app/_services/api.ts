@@ -93,5 +93,37 @@ export async function getProjectChildBySlug(
   }
 }
 
+export async function getBlogChildBySlug(
+  slug: string,
+  locale: "es" | "de"
+): Promise<WordPressFrontendPage> {
+  const parentPages = {
+    es: "spanish-pages",
+    de: "german-pages",
+  };
+  const parentPage = parentPages[locale];
+  const WORDPRESS_API_URL = "https://www.kuhlmann-partner.com/wp-json";
+  const url = `${WORDPRESS_API_URL}/custom/v1/blog_child?slug=${slug}&parent_slug=${parentPage}&lang=${locale}`;
+  
+  console.log("url blog child: ", url);
+
+  try {
+    const response = await fetch(url, {
+      next: {
+        revalidate: 0,
+      },
+    });
+    if (!response.ok) {
+      throw new Error("Error al obtener la página hija.");
+    }
+    const page = await response.json();
+    return page;
+  } catch (error) {
+    console.error("Error al obtener la página hija:", error);
+    throw new Error("No se pudo obtener la página hija.");
+  }
+}
+
+
 
 
