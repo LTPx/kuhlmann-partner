@@ -29,7 +29,7 @@ export function ContactWindow(props: Props) {
         </div>
         <div className="lg:w-[1215px] pt-[30px] flex flex-col gap-[70px]">
           <h1 className="font-mediumFont leading-[85px]">
-            Carrer d'Andalucía 1, Local 4 07620 Llucmajor Islas Baleares, España
+            {`Carrer d'Andalucía 1, Local 4 07620 Llucmajor Islas Baleares, España`}
           </h1>
           <div className="contact">
             <Link href={`tel:+34 971 718 996`}>
