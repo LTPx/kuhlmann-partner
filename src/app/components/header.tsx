@@ -57,7 +57,7 @@ export function Header(props: Props) {
             <Link
               key={index}
               href={link.url}
-              className={`font-mediumFont h-[54px] flex items-center justify-center cursor-pointer text-[20px] leading-[25px] tracking-[-0.01em] ${
+              className={`hover:underline font-mediumFont h-[54px] flex items-center justify-center cursor-pointer text-[20px] leading-[25px] tracking-[-0.01em] ${
                 currentPath === link.url ? "underline" : "text-black"
               }`}
             >
@@ -75,7 +75,7 @@ export function Header(props: Props) {
         <div className="flex gap-[30px] justify-end items-center">
           <button
             onClick={handleContactClick}
-            className="font-mediumFont h-[54px] flex items-center cursor-pointer text-[20px] leading-[25px] leading-[25px]"
+            className="hover:underline font-mediumFont h-[54px] flex items-center cursor-pointer text-[20px] leading-[25px] leading-[25px]"
           >
             {t("header.contact")}
           </button>

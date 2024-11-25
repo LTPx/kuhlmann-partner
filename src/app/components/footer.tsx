@@ -122,13 +122,13 @@ export function Footer(props: FooterProps) {
             © Kuhlmann & Partner, {currentYear}
           </p>
           <div className="flex flex-col lg:flex-no-wrap lg:flex-row gap-[0px] lg:gap-[20px]">
-            <p className="font-semiBoldFont cursor-pointer text-[12px] leading-[20px] lg:text-[14px] lg:leading-[27px]">
+            <p className="hover:underline font-semiBoldFont cursor-pointer text-[12px] leading-[20px] lg:text-[14px] lg:leading-[27px]">
               {`${t("footer.legal-notice")}`}
             </p>
-            <p className="font-semiBoldFont text-[12px] leading-[20px] lg:text-[14px] lg:leading-[27px] lg:ml-[0px] cursor-pointer">
+            <p className="hover:underline font-semiBoldFont text-[12px] leading-[20px] lg:text-[14px] lg:leading-[27px] lg:ml-[0px] cursor-pointer">
               {`${t("footer.privacy-policy")}`}
             </p>
-            <p className="font-semiBoldFont text-[12px] leading-[20px] lg:text-[14px] lg:leading-[27px] lg:ml-[0px] cursor-pointer">
+            <p className="hover:underline font-semiBoldFont text-[12px] leading-[20px] lg:text-[14px] lg:leading-[27px] lg:ml-[0px] cursor-pointer">
               {`${t("footer.cookies-policy")}`}
             </p>
             <div className="lg:hidden pt-[97px] pb-[21px]">
