@@ -28,7 +28,6 @@ async function ProjectSlugPage(nextParams: {
     currentIndex < allProjects.length - 1
       ? allProjects[currentIndex + 1]
       : null;
-  console.log(allProjects);
 
   return (
     <div className="project-slug-page">

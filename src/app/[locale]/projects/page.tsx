@@ -1,4 +1,8 @@
-import { getChildPages, getWordPressCustomPage, getWordPressPage } from "@/app/_services/api";
+import {
+  getChildPages,
+  getWordPressCustomPage,
+  getWordPressPage,
+} from "@/app/_services/api";
 import Cover from "@/app/components/cover";
 import Items from "@/app/components/items";
 import ProjectView from "@/app/components/project-view";
@@ -18,7 +22,7 @@ async function Projects(nextParams: { params: { locale: "es" | "de" } }) {
   const parentSlug = locale === "es" ? "spanish-pages" : "german-pages";
   const allProjects = await getChildPages(page, locale, parentSlug);
   allProjects.reverse();
-  
+
   return (
     <div className="page-projects">
       <Cover media={page_projects.cover_page}>
@@ -67,7 +71,11 @@ async function Projects(nextParams: { params: { locale: "es" | "de" } }) {
           </p>
           {allProjects.map((project, index) => (
             <div key={index}>
-              <hr className="border-t border-black border-1 my-[16px]" />
+              <hr
+                className={`border-t border-black border-1 ${
+                  index === 0 ? "my-[16px]" : "mt-[25px] mb-[16px]"
+                }`}
+              />{" "}
               <ProjectView
                 image={project.acf.preview_project.feature_image.url}
                 title={project.acf.preview_project.title}
