@@ -1,4 +1,4 @@
-import { getWordPressCustomPage, getWordPressPage } from "@/app/_services/api";
+import { getChildPages, getWordPressCustomPage, getWordPressPage } from "@/app/_services/api";
 import Cover from "@/app/components/cover";
 import Items from "@/app/components/items";
 import ProjectView from "@/app/components/project-view";
@@ -14,7 +14,11 @@ async function Projects(nextParams: { params: { locale: "es" | "de" } }) {
   const { acf } = data;
   const { page_projects } = acf;
   const t = await getTranslations();
-
+  const page = "projects";
+  const parentSlug = locale === "es" ? "spanish-pages" : "german-pages";
+  const allProjects = await getChildPages(page, locale, parentSlug);
+  allProjects.reverse();
+  
   return (
     <div className="page-projects">
       <Cover media={page_projects.cover_page}>
@@ -61,13 +65,17 @@ async function Projects(nextParams: { params: { locale: "es" | "de" } }) {
           <p className="font-semiBoldFont text-[16px] leading-[16px] uppercase lg:normal-case lg:text-[20px] lg:leading-[27px]">
             {`${t("projects-page.projects")}`}
           </p>
-          <hr className="border-t border-black border-1 my-[16px]" />
-          <ProjectView
-            image="https://s3-alpha-sig.figma.com/img/cd65/f9e4/8959175a7edad4039d2c090b55dcdb27?Expires=1733702400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MnLxKCzWmYH0eo8U2xH0QdxzUl3QSSALQiPFNL1sXVlZzQpXozPeJX7EAQh4OJt3IbQpiB5d3EHMQYWHBhBHO23GHvWkhbrPByjP~Nr0lofVLyCWmuPsyNbq2sJdVh-zUGHZfeTlkSkex9FNdpMMx-D9wYaWyDR9sSi6RNHvfeZVtFWlhG4Hd4UCoTdAPtaNYE~29Bhfm06TBEPre7ADEZ-~3l1Q5~2NjuznMRH84b8lLx0uGpxDch7-HXSIe1SIQcovoYIsTtW~PpN0jXdk5RBkB-7Pjwiq2SqvPhaqUsaT10b4ojwJliTdiUeFtciVh~dJ2BRkij-BUW~MqiCN2g__"
-            title={"Petra"}
-            date={"2020-2021"}
-            url={"projects/petra"}
-          />
+          {allProjects.map((project, index) => (
+            <div key={index}>
+              <hr className="border-t border-black border-1 my-[16px]" />
+              <ProjectView
+                image={project.acf.preview_project.feature_image.url}
+                title={project.acf.preview_project.title}
+                date={project.acf.preview_project.date}
+                url={`/projects/${project.slug}`}
+              />
+            </div>
+          ))}
         </section>
       </div>
     </div>

@@ -7,7 +7,7 @@ import {
   OgImage,
   TargetClass,
 } from './wordpress';
-import { AboutUsPageWp, HomePageWp, IndividualBlogWP, IndividualProjectWp, PreviewBlogWP, ProjectsPageWp } from './wordpress-components';
+import { AboutUsPageWp, FeatureProjectWp, HomePageWp, IndividualBlogWP, IndividualProjectWp, PreviewBlogWP, PreviewProyectWp, ProjectsPageWp } from './wordpress-components';
 
 
 export interface WordPressFrontendPage {
@@ -160,10 +160,12 @@ export interface AcfComponents {
   home_information: HomePageWp;
   page_projects: ProjectsPageWp;
   individual_project: IndividualProjectWp;
+  preview_project: PreviewProyectWp;
   individual_blog: IndividualBlogWP[];
   title_blog: string;
   preview_blog: PreviewBlogWP;
   page_about_us: AboutUsPageWp;
+  feature_projects: FeatureProjectWp[];
 }
 
 export interface Project {

@@ -19,6 +19,7 @@ export interface HomePageWp {
   banner: BannerHomeWp
   work_with_us: DescriptionWp[];
   last_image: ImageAcf;
+  feature_projects: FeatureProjectWp[];
 }
 
 export interface DescriptionWp {
@@ -61,6 +62,15 @@ export interface IndividualProjectWp {
   second_gallery: GalleryProjectWp[];
 }
 
+export interface PreviewProyectWp {
+  title: string;
+  date: string;
+  feature_image: ImageAcf;
+  hover_image: ImageAcf;
+  short_description: string;
+}
+
+
 export interface IndividualBlogWP {
   information: DescriptionWp;
 }
@@ -77,4 +87,14 @@ export interface AboutUsPageWp {
   image: ImageAcf;
   second_section: DescriptionWp;
   last_image: ImageAcf;
+}
+
+export interface FeatureProjectWp {
+  project: ProjectPostWp;
+}
+
+export interface ProjectPostWp {
+  ID: number;
+  post_title: string;
+  imageUrl: string;
 }

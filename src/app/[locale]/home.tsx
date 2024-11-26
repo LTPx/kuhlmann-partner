@@ -4,13 +4,15 @@ import ProjectCard from "../components/project-card";
 import { HomePageWp } from "../_interfaces/wordpress-components";
 import { getTranslations } from "next-intl/server";
 import { WordPressFrontendPage } from "../_interfaces/wordpress-page";
+import { WordPressProject } from "../_interfaces/wordpress-project";
 
 interface Props {
   home_information: HomePageWp;
+  projects: WordPressFrontendPage[];
 }
 
 async function Home(props: Props) {
-  const { home_information } = props;
+  const { home_information, projects } = props;
   const t = await getTranslations();
 
   return (
@@ -56,16 +58,16 @@ async function Home(props: Props) {
           />
         </section>
         <section className="pt-[48px] lg:pt-[83px]">
-          {home_information.projects.map((project, index) => (
+          {projects.map((project, index) => (
             <div key={index} className={index !== 0 ? "mt-[25px]" : ""}>
               <hr className="border-t border-black border-1 mb-[16px] lg:mb-[20px]" />
               <ProjectCard
-                image={project.feature_image.url}
-                imageHover={project.hover_image.url}
-                title={project.title}
-                description={project.short_description}
-                date={project.date}
-                url={`/projects/${getSlugUrlWordPress(project.project)}`}
+                image={project.acf.preview_project.feature_image.url}
+                imageHover={project.acf.preview_project.hover_image.url}
+                title={project.acf.preview_project.title}
+                description={project.acf.preview_project.short_description}
+                date={project.acf.preview_project.date}
+                url={`/projects/${project.slug}`}
               />
             </div>
           ))}
