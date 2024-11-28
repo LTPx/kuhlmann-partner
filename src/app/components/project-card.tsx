@@ -22,14 +22,14 @@ function ProjectCard(props: ProjectCardProps) {
       <div className="lg:w-[615px] flex flex-col justify-between">
         <div className="flex flex-col">
           <Link href={url || ""}>
-            <p className="font-mediumFont text-[40px] leading-[45px] lg:text-[75px] lg:leading-[78px] tracking-[-0.03em]">
+            <p data-aos="fade-up" className="font-mediumFont text-[40px] leading-[45px] lg:text-[75px] lg:leading-[78px] tracking-[-0.03em]">
               {title}
               <br />
               <span className="opacity-30">{date}</span>
             </p>
           </Link>
         </div>
-        <div className="hidden lg:flex flex-col gap-[50px]">
+        <div data-aos="fade-up" className="hidden lg:flex flex-col gap-[50px]">
           {description && (
             <div
               dangerouslySetInnerHTML={{
@@ -37,7 +37,7 @@ function ProjectCard(props: ProjectCardProps) {
               }}
             />
           )}
-          <Link className="inline-block" href={url || ""}>
+          <Link data-aos="fade-up" className="inline-block" href={url || ""}>
             <button className="uppercase inline-block hover:bg-black hover:text-white flex items-center justify-center font-mediumFont text-[18px] leading-[18px] cursor-pointer border border-black h-[35px] px-[15px] rounded-full transition-colors duration-300 ease-in-out">
               {`${t("projects-page.see_project")}`}
             </button>

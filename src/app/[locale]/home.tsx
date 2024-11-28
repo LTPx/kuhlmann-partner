@@ -1,10 +1,7 @@
 import React from "react";
 import Cover from "../components/cover";
-import ProjectCard from "../components/project-card";
 import { HomePageWp } from "../_interfaces/wordpress-components";
-import { getTranslations } from "next-intl/server";
 import { WordPressFrontendPage } from "../_interfaces/wordpress-page";
-import { WordPressProject } from "../_interfaces/wordpress-project";
 import HomeInformation from "../components/home-information";
 
 interface Props {
@@ -12,7 +9,7 @@ interface Props {
   projects: WordPressFrontendPage[];
 }
 
-async function Home(props: Props) {
+function Home(props: Props) {
   const { home_information, projects } = props;
 
   return (

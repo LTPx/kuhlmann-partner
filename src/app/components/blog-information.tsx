@@ -39,7 +39,7 @@ export function BlogInformation(props: BlogInformationDetails) {
       </div>
       <section className="pt-[30px] lg:pt-[141px] flex flex-col gap-[50px] pb-[70px]">
         {individual_blog.map((blog, index) => (
-          <div data-aos="fade-up">
+          <div key={index} data-aos="fade-up">
             <hr className="hidden lg:block border-t border-black border-1 hr-draw" />
             <div
               className="flex flex-col gap-[30px] lg:gap-[0px] lg:grid lg:grid-cols-2"

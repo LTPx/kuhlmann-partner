@@ -47,16 +47,17 @@ export function HomeInformation(props: HomeInformationDetails) {
   return (
     <div className="container">
       <section
-        data-aos="fade-up"
         className="pt-[31px] lg:pt-[41px] flex flex-col gap-[30px] lg:gap-[0px] lg:grid lg:grid-cols-2"
       >
         <div
+          data-aos="fade-up"
           className="wp-h3"
           dangerouslySetInnerHTML={{
             __html: first_section.title,
           }}
         />
         <div
+          data-aos="fade-up"
           className="font-regularFont"
           dangerouslySetInnerHTML={{
             __html: first_section.description,
@@ -67,16 +68,17 @@ export function HomeInformation(props: HomeInformationDetails) {
         <img src={image.url} className="object-cover h-[800px] w-full" />
       </section>
       <section
-        data-aos="fade-up"
         className="pt-[31px] lg:pt-[40px] flex flex-col gap-[30px] lg:gap-[0px] lg:grid lg:grid-cols-2"
       >
         <div
+          data-aos="fade-up"
           className="wp-h3"
           dangerouslySetInnerHTML={{
             __html: second_section.title,
           }}
         />
         <div
+          data-aos="fade-up"
           className="font-regularFont lg:w-[590px]"
           dangerouslySetInnerHTML={{
             __html: second_section.description,
@@ -104,14 +106,14 @@ export function HomeInformation(props: HomeInformationDetails) {
       </section>
       <section data-aos="fade-up" className="pt-[55px] lg:pt-[40px]">
         <hr className="border-t border-black border-1 hidden lg:block lg:mb-[45px] hr-draw" />
-        <p className="font-mediumFont text-[40px] leading-[45px] lg:text-[75px] lg:leading-[78px] tracking-[-0.03em]">
+        <p data-aos="fade-up" className="font-mediumFont text-[40px] leading-[45px] lg:text-[75px] lg:leading-[78px] tracking-[-0.03em]">
           {banner.title}
           <br />
           <span className="opacity-30">{banner.date} </span>
         </p>
       </section>
-      <section className="pt-[21px] lg:pt-[58px]">
-        <hr className="border-t border-black border-1 mb-[21px] lg:mb-[32px]" />
+      <section data-aos="fade-up" className="pt-[21px] lg:pt-[58px]">
+        <hr className="border-t border-black border-1 mb-[21px] lg:mb-[32px] hr-draw" />
         <p className="font-mediumFont text-[20px] leading-[26px] lg:text-[32px] lg:leading-[40px] tracking-[-0.01em]">
           {`${t("home-page.work-with-us")}`}
         </p>
