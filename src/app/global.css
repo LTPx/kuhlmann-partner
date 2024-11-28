@@ -226,3 +226,21 @@ p {
     line-height: 22px;
   }
 }
+
+@keyframes drawLine {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.hr-draw {
+  width: 0;
+  transition: width 1s ease-out;
+}
+
+.aos-animate .hr-draw {
+  width: 100%;
+}

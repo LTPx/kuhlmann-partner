@@ -6,6 +6,7 @@ import {
 import Cover from "@/app/components/cover";
 import Items from "@/app/components/items";
 import ProjectView from "@/app/components/project-view";
+import ProjectsInformation from "@/app/components/projects-information";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
@@ -32,60 +33,11 @@ async function Projects(nextParams: { params: { locale: "es" | "de" } }) {
           )}`}</h1>
         </div>
       </Cover>
-      <div className="container">
-        <section className="pt-[30px] lg:pt-[41px] flex flex-col gap-[20px] lg:gap-[0px] lg:grid lg:grid-cols-2">
-          <div
-            className="wp-h3"
-            dangerouslySetInnerHTML={{
-              __html: page_projects.information.title,
-            }}
-          />
-          <div
-            className="font-regularFont lg:w-[658px]"
-            dangerouslySetInnerHTML={{
-              __html: page_projects.information.description,
-            }}
-          />
-        </section>
-        <section className="pt-[30px] lg:pt-[80px]">
-          <hr className="border-t border-black border-1 mb-[10px] lg:mb-[16px]" />
-          <div className="flex flex-col lg:grid lg:grid-cols-2">
-            <h3 className="font-mediumFont tracking-[-0.01em] pb-[15px] lg:pb-[0px]">
-              {page_projects.work_processes.title}
-            </h3>
-            <div className="lg:w-[648px] flex flex-col gap-[40px] lg:gap-[47px]">
-              {page_projects.work_processes.processes.map((process, index) => (
-                <Items
-                  key={index}
-                  count={index < 9 ? `0${index + 1}` : `${index + 1}`}
-                  title={process.title}
-                  description={process.description}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-        <section className="pt-[50px] lg:pt-[95px] pb-[50px] lg:pb-[0px]">
-          <p className="font-semiBoldFont text-[16px] leading-[16px] uppercase lg:normal-case lg:text-[20px] lg:leading-[27px]">
-            {`${t("projects-page.projects")}`}
-          </p>
-          {allProjects.map((project, index) => (
-            <div key={index}>
-              <hr
-                className={`border-t border-black border-1 ${
-                  index === 0 ? "my-[16px]" : "mt-[25px] mb-[16px]"
-                }`}
-              />{" "}
-              <ProjectView
-                image={project.acf.preview_project.feature_image.url}
-                title={project.acf.preview_project.title}
-                date={project.acf.preview_project.date}
-                url={`/projects/${project.slug}`}
-              />
-            </div>
-          ))}
-        </section>
-      </div>
+      <ProjectsInformation
+        information={page_projects.information}
+        work_processes={page_projects.work_processes}
+        allProjects={allProjects}
+      />
     </div>
   );
 }

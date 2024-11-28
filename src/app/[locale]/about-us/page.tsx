@@ -1,6 +1,6 @@
 import { getWordPressCustomPage, getWordPressPage } from "@/app/_services/api";
 import Cover from "@/app/components/cover";
-import { Metadata } from "next";
+import UsInformation from "@/app/components/us-information";
 import { getTranslations } from "next-intl/server";
 
 async function AboutUs(nextParams: { params: { locale: "es" | "de" } }) {
@@ -21,42 +21,12 @@ async function AboutUs(nextParams: { params: { locale: "es" | "de" } }) {
           )}`}</h1>
         </div>
       </Cover>
-      <div className="container">
-        <section className="pt-[30px] lg:pt-[27px] flex flex-col gap-[20px] lg:gap-[0px] lg:grid lg:grid-cols-2">
-          <h3 className="font-mediumFont tracking-[-0.01em]">
-            {page_about_us.first_section.title}
-          </h3>
-          <div
-            className="font-regularFont lg:w-[665px]"
-            dangerouslySetInnerHTML={{
-              __html: page_about_us.first_section.description,
-            }}
-          />
-        </section>
-        <section className="pt-[30px] lg:pt-[45px]">
-          <img
-            src={page_about_us.image.url}
-            className="object-cover h-[400px] lg:h-[1000px] w-full"
-          />
-        </section>
-        <section className="pt-[30px] lg:pt-[27px] flex flex-col gap-[20px] lg:gap-[0px] lg:grid lg:grid-cols-2">
-          <h3 className="font-mediumFont tracking-[-0.01em]">
-            {page_about_us.second_section.title}
-          </h3>
-          <div
-            className="font-regularFont lg:w-[665px]"
-            dangerouslySetInnerHTML={{
-              __html: page_about_us.second_section.description,
-            }}
-          />
-        </section>
-        <section className="pb-[50px] lg:pb-[0px] pt-[30px] lg:pt-[45px]">
-          <img
-            src={page_about_us.last_image.url}
-            className="object-cover h-[400px] lg:h-[960px] w-full"
-          />
-        </section>
-      </div>
+      <UsInformation
+        first_image={page_about_us.image}
+        first_section={page_about_us.first_section}
+        second_section={page_about_us.second_section}
+        last_image={page_about_us.last_image}
+      />
     </div>
   );
 }

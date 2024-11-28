@@ -31,7 +31,11 @@ export function Gallery({ gallery }: GalleryProps) {
         if (layout === "full-width") {
           processedIds.add(image.ID);
           return (
-            <div key={image.ID} className="grid grid-cols-1 gap-3">
+            <div
+              key={image.ID}
+              data-aos="fade-up"
+              className="grid grid-cols-1 gap-3"
+            >
               <button
                 type="button"
                 className="col-span-1"
@@ -56,7 +60,11 @@ export function Gallery({ gallery }: GalleryProps) {
           processedIds.add(gallery[index + 1].image.ID);
 
           return (
-            <div key={image.ID} className="grid grid-cols-2 gap-3">
+            <div
+              key={image.ID}
+              data-aos="fade-up"
+              className="grid grid-cols-2 gap-3"
+            >
               <button
                 type="button"
                 className="col-span-2 lg:col-span-1"
@@ -91,7 +99,11 @@ export function Gallery({ gallery }: GalleryProps) {
         ) {
           processedIds.add(image.ID);
           return (
-            <div key={image.ID} className="grid grid-cols-2 gap-3">
+            <div
+              key={image.ID}
+              data-aos="fade-up"
+              className="grid grid-cols-2 gap-3"
+            >
               <button
                 type="button"
                 className="col-span-2 lg:col-span-1"

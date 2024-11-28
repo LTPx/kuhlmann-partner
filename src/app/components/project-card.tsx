@@ -1,5 +1,7 @@
+"use client";
+
 import { Link } from "@/navigation";
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 
 interface ProjectCardProps {
   imageHover?: string;
@@ -11,9 +13,9 @@ interface ProjectCardProps {
   url?: string;
 }
 
-async function ProjectCard(props: ProjectCardProps) {
+function ProjectCard(props: ProjectCardProps) {
   const { imageHover, image, title, className, date, description, url } = props;
-  const t = await getTranslations();
+  const t = useTranslations();
 
   return (
     <div className="flex flex-col gap-[15px] lg:gap-[0px] lg:grid lg:grid-cols-2 lg:h-[850px]">

@@ -20,7 +20,6 @@ async function Blog(nextParams: { params: { locale: "es" | "de" } }) {
     const year = newDate.getFullYear();
     return `${day}.${month}.${year}`;
   };
-  console.log(allBlogs);
 
   return (
     <div className="page-blog">
