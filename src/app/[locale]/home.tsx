@@ -60,7 +60,7 @@ async function Home(props: Props) {
         <section className="pt-[48px] lg:pt-[83px]">
           {projects.map((project, index) => (
             <div key={index} className={index !== 0 ? "mt-[25px]" : ""}>
-              <hr className="border-t border-black border-1 mb-[16px] lg:mb-[20px]" />
+              <hr className="border-t border-black border-1 mb-[16px] lg:mb-[25px]" />
               <ProjectCard
                 image={project.acf.preview_project.feature_image.url}
                 imageHover={project.acf.preview_project.hover_image.url}

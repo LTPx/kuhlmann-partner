@@ -39,7 +39,7 @@ async function AboutUs(nextParams: { params: { locale: "es" | "de" } }) {
             className="object-cover h-[400px] lg:h-[1000px] w-full"
           />
         </section>
-        <section className="pt-[30px] lg:pt-[50px] flex flex-col gap-[20px] lg:gap-[0px] lg:grid lg:grid-cols-2">
+        <section className="pt-[30px] lg:pt-[27px] flex flex-col gap-[20px] lg:gap-[0px] lg:grid lg:grid-cols-2">
           <h3 className="font-mediumFont tracking-[-0.01em]">
             {page_about_us.second_section.title}
           </h3>

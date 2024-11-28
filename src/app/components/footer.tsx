@@ -54,7 +54,7 @@ export function Footer(props: FooterProps) {
               </p>
               <div className="pt-[22px] lg:pt-[0px] w-auto">
                 <Link
-                  className="font-regularFont w-auto"
+                  className="font-regularFont w-auto inline-block"
                   href={`tel:+34 971 718 996`}
                 >
                   <p>+34 971 718 996</p>
@@ -63,7 +63,7 @@ export function Footer(props: FooterProps) {
               <div>
                 <Link
                   href={`mailto:info@kuhlmann-partner.com`}
-                  className="underline font-regularFont"
+                  className="underline font-regularFont text-[16px] leading-[22px] lg:text-[20px] lg:leading-[28px]"
                 >
                   info@kuhlmann-partner.com
                 </Link>
@@ -72,14 +72,14 @@ export function Footer(props: FooterProps) {
                 <Link
                   href={"/"}
                   target="_blank"
-                  className="font-regularFont underline text-[16px] leading-[22px] lg:text-[20px] lg:leading-[28px]"
+                  className="w-auto inline-block font-regularFont underline text-[16px] leading-[22px] lg:text-[20px] lg:leading-[28px]"
                 >
                   Instagram
                 </Link>
                 <Link
                   href={"/"}
                   target="_blank"
-                  className="font-regularFont underline text-[16px] leading-[22px] lg:text-[20px] lg:leading-[28px]"
+                  className="w-auto inline-block font-regularFont underline text-[16px] leading-[22px] lg:text-[20px] lg:leading-[28px]"
                 >
                   Facebook
                 </Link>
@@ -92,7 +92,7 @@ export function Footer(props: FooterProps) {
                 España
               </p>
               <div className="w-auto">
-                <Link className="w-auto" href={`tel:+34 971 718 996`}>
+                <Link className="w-auto inline-block " href={`tel:+34 971 718 996`}>
                   <p>+34 971 718 996</p>
                 </Link>
               </div>
