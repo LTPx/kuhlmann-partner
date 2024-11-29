@@ -15,7 +15,7 @@ function LoaderPage({
           animationData={logoAnimation}
           loop={false}
           autoplay={true}
-          className="w-[393.97px] h-auto"
+          className="w-[150px] lg:w-[393.97px] h-auto"
           style={{
             mixBlendMode: "multiply",
             background: "transparent",
