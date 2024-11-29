@@ -47,6 +47,7 @@ function ProjectCard(props: ProjectCardProps) {
       <Link href={url || ""} className={`group relative ${className}`}>
         <img
           src={image}
+          data-aos="fade-up"
           alt="base image"
           className={`lg:absolute top-0 left-0 h-[500px] lg:h-[850px] w-full object-cover transition-opacity duration-500 ease-in-out transform ${
             imageHover ? "opacity-100 group-hover:opacity-0" : ""

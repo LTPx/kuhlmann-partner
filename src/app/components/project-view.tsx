@@ -30,6 +30,7 @@ function ProjectView(props: ProjectViewProps) {
       </div>
       <Link href={url || ""}>
         <img
+          data-aos="fade-up"
           src={image}
           className={"h-[500px] lg:h-[800px] w-full object-cover"}
         />
