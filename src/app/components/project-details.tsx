@@ -20,7 +20,9 @@ interface ProjectDetailsProps {
   information: DescriptionWp;
   first_section: DescriptionWp;
   allProjects: WordPressFrontendPage[];
+  process_section: DescriptionWp;
   slug: string;
+  gif: string;
 }
 
 export function ProjectDetails(props: ProjectDetailsProps) {
@@ -31,12 +33,14 @@ export function ProjectDetails(props: ProjectDetailsProps) {
     first_gallery,
     information,
     first_section,
+    process_section,
     allProjects,
-    slug
+    slug,
+    gif,
   } = props;
 
   const t = useTranslations();
-  
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -48,7 +52,10 @@ export function ProjectDetails(props: ProjectDetailsProps) {
 
   return (
     <div className="flex flex-col">
-      <section data-aos="fade-up" className="pt-[30px] lg:pt-[41px] flex flex-col gap-[20px] lg:gap-[0px] lg:grid lg:grid-cols-2">
+      <section
+        data-aos="fade-up"
+        className="pt-[30px] lg:pt-[41px] flex flex-col gap-[20px] lg:gap-[0px] lg:grid lg:grid-cols-2"
+      >
         <h3 className="font-mediumFont tracking-[-0.01em]">
           {first_section.title}
         </h3>
@@ -64,7 +71,10 @@ export function ProjectDetails(props: ProjectDetailsProps) {
           <Gallery gallery={first_gallery} />
         </section>
       )}
-      <div data-aos="fade-up" className="pt-[20px] lg:pt-[30px] flex flex-col gap-[20px] lg:gap-[0px] lg:grid lg:grid-cols-2">
+      <div
+        data-aos="fade-up"
+        className="pt-[20px] lg:pt-[30px] flex flex-col gap-[20px] lg:gap-[0px] lg:grid lg:grid-cols-2"
+      >
         <h3 className="font-mediumFont tracking-[-0.01em]">
           {information.title}
         </h3>
@@ -80,7 +90,31 @@ export function ProjectDetails(props: ProjectDetailsProps) {
           <Gallery gallery={second_galley} />
         </section>
       )}
-      <section data-aos="fade-up" className="hidden lg:block pt-[30px] pb-[65px]">
+      <section>
+        <div
+          data-aos="fade-up"
+          className="pt-[20px] lg:pt-[30px] flex flex-col gap-[20px] lg:gap-[0px] lg:grid lg:grid-cols-2"
+        >
+          <h3 className="font-mediumFont tracking-[-0.01em]">
+            {process_section.title}
+          </h3>
+          <div
+            className="font-regularFont lg:w-[670px]"
+            dangerouslySetInnerHTML={{
+              __html: process_section.description,
+            }}
+          />
+        </div>
+        {gif && (
+          <div data-aos="fade-up" className="pt-[60px] lg:pt-[120px]">
+            <img className="object-cover w-full lg:h-[900px]" src={gif} />
+          </div>
+        )}
+      </section>
+      <section
+        data-aos="fade-up"
+        className="hidden lg:block pt-[30px] pb-[65px]"
+      >
         <div className="flex justify-between items-center">
           <div className="flex items-start">
             {prevProject && (
@@ -102,9 +136,9 @@ export function ProjectDetails(props: ProjectDetailsProps) {
           </div>
         </div>
       </section>
-            <section className="pt-[55px] pb-[47px] lg:hidden">
+      <section className="pt-[55px] pb-[47px] lg:hidden">
         <p className="pl-[12px] font-mediumFont pb-[15px]">
-        {`${t("projects-page.all_projects")}`}
+          {`${t("projects-page.all_projects")}`}
         </p>
         {allProjects.map((project, index) => (
           <Link key={index} href={`/projects/${project?.slug}`}>

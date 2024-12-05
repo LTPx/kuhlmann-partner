@@ -16,9 +16,10 @@ function Home(props: Props) {
     <div className="flex flex-col">
       <Cover media={home_information.cover_page}>
         <div className="flex flex-col">
-          <h1 className="text-white-light tracking-[-0.015em]">
-            Kuhlmann & Partner
-          </h1>
+          <img
+            className="w-[315px] h-[125px] lg:w-[630px] lg:h-[254px]"
+            src="/images/logo-white.svg"
+          />
         </div>
       </Cover>
       <HomeInformation

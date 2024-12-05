@@ -60,6 +60,8 @@ export interface IndividualProjectWp {
   first_gallery: GalleryProjectWp[];
   second_section: DescriptionWp;
   second_gallery: GalleryProjectWp[];
+  third_section: DescriptionWp;
+  gif_process_images: ImageAcf;
 }
 
 export interface PreviewProyectWp {

@@ -2,7 +2,6 @@ import { getTranslations } from "next-intl/server";
 import Cover from "@/app/components/cover";
 import ProjectDetails from "@/app/components/project-details";
 import { getChildPages, getProjectChildBySlug } from "@/app/_services/api";
-import { Link } from "@/navigation";
 
 async function ProjectSlugPage(nextParams: {
   params: { locale: "es" | "de"; slug: string };
@@ -19,7 +18,7 @@ async function ProjectSlugPage(nextParams: {
   const page = "projects";
   const parentSlug = locale === "es" ? "spanish-pages" : "german-pages";
   const allProjects = await getChildPages(page, locale, parentSlug);
-  allProjects.reverse();
+  // allProjects.reverse();
   const currentIndex = allProjects.findIndex(
     (project) => project.slug === slug
   );
@@ -49,6 +48,8 @@ async function ProjectSlugPage(nextParams: {
             first_section={individual_project.first_section}
             slug={slug}
             allProjects={allProjects}
+            gif={individual_project.gif_process_images.url}
+            process_section={individual_project.third_section}
           />
         </section>
       </div>
