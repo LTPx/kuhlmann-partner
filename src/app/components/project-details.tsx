@@ -25,6 +25,13 @@ interface ProjectDetailsProps {
   gif: string;
 }
 
+const getOriginalGifUrl = (url: string): string => {
+  if (url.includes("-scaled.gif")) {
+    return url.replace("-scaled.gif", ".gif");
+  }
+  return url;
+};
+
 export function ProjectDetails(props: ProjectDetailsProps) {
   const {
     second_galley,
@@ -107,7 +114,10 @@ export function ProjectDetails(props: ProjectDetailsProps) {
         </div>
         {gif && (
           <div data-aos="fade-up" className="pt-[60px] lg:pt-[120px]">
-            <img className="object-cover w-full lg:h-[900px]" src={gif} />
+            <img
+              className="object-cover w-full lg:h-[900px]"
+              src={getOriginalGifUrl(gif)}
+            />
           </div>
         )}
       </section>
