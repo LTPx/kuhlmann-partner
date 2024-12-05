@@ -27,9 +27,7 @@ export default function LoaderWrapper({
       style={{
         transition: "opacity 3s",
       }}
-      className={`${
-        showContent ? "opacity-100" : "opacity-0"
-      }`}
+      className={`${showContent ? "opacity-100" : "opacity-0"}`}
     >
       {children}
     </div>
