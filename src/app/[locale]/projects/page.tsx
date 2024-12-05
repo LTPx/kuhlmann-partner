@@ -22,7 +22,7 @@ async function Projects(nextParams: { params: { locale: "es" | "de" } }) {
   const page = "projects";
   const parentSlug = locale === "es" ? "spanish-pages" : "german-pages";
   const allProjects = await getChildPages(page, locale, parentSlug);
-  allProjects.reverse();
+  // allProjects.reverse();
 
   return (
     <div className="page-projects">
