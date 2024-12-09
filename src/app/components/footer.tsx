@@ -92,7 +92,10 @@ export function Footer(props: FooterProps) {
                 España
               </p>
               <div className="w-auto">
-                <Link className="w-auto inline-block " href={`tel:+34 971 718 996`}>
+                <Link
+                  className="w-auto inline-block "
+                  href={`tel:+34 971 718 996`}
+                >
                   <p>+34 971 718 996</p>
                 </Link>
               </div>
@@ -100,7 +103,11 @@ export function Footer(props: FooterProps) {
             <div className="hidden lg:ml-auto lg:flex flex-col text-[20px] leading-[28px] lg:pr-[70px]">
               {linksFooter.map((link, index) => (
                 <Link
-                  className={index === 0 ? "font-semiBoldFont hover:underline" : "hover:underline"}
+                  className={
+                    index === 0
+                      ? "font-semiBoldFont hover:underline"
+                      : "hover:underline"
+                  }
                   key={index}
                   href={link.url}
                 >

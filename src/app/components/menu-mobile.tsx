@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Link } from "@/navigation";
 import { useTranslations } from "next-intl";
+import ContactWindow from "./contact-window";
 
 interface Link {
   title: string;
@@ -18,6 +19,11 @@ export function MenuMobile(props: MenuMobileProps) {
   const { links, languages } = props;
   const [menuOpen, setMenuOpen] = useState(false);
   const t = useTranslations();
+  const [showContact, setShowContact] = useState(false);
+
+  const handleContactClick = () => {
+    setShowContact((prev) => !prev);
+  };
 
   return (
     <>
@@ -28,8 +34,13 @@ export function MenuMobile(props: MenuMobileProps) {
           }
         >
           <div></div>
-          <Link href="/" className="font-semiBoldFont flex items-center justify-center">
-            <p className="font-semiBoldFont text-[20px] leading-[26px]">Kuhlmann & Partner</p>
+          <Link
+            href="/"
+            className="font-semiBoldFont flex items-center justify-center"
+          >
+            <p className="font-semiBoldFont text-[20px] leading-[26px]">
+              Kuhlmann & Partner
+            </p>
           </Link>
           <div className="h-[50px] flex justify-center items-center">
             <img
@@ -55,9 +66,11 @@ export function MenuMobile(props: MenuMobileProps) {
         <div className="h-full flex flex-col justify-between">
           <div>
             <div className="px-[11px] bg-[#DCB93C] items-center flex justify-between h-[50px]">
-              <div></div>       
+              <div></div>
               <Link href="/">
-                <p className="font-semiBoldFont text-[20px] leading-[26px]">Kuhlmann & Partner</p>
+                <p className="font-semiBoldFont text-[20px] leading-[26px]">
+                  Kuhlmann & Partner
+                </p>
               </Link>
               <div className="h-[50px] flex justify-center items-center">
                 <img
@@ -83,6 +96,13 @@ export function MenuMobile(props: MenuMobileProps) {
                     <hr className="border-t border-black border-1" />
                   </div>
                 ))}
+                <div
+                  onClick={handleContactClick}
+                  className="pl-[20px] block font-mediumFont text-[25px] leading-[60px]"
+                >
+                  {t("footer.contact")}
+                </div>
+                <hr className="border-t border-black border-1" />
                 <div className="mt-[70px] pl-[20px] w-[250px]">
                   <Link className="w-auto" href={`tel:+34 971 718 996`}>
                     <p>+34 971 718 996</p>
@@ -119,6 +139,10 @@ export function MenuMobile(props: MenuMobileProps) {
           </div>
         </div>
       </div>
+      <ContactWindow
+        showContact={showContact}
+        setShowContact={setShowContact}
+      />
     </>
   );
 }

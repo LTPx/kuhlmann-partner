@@ -19,7 +19,7 @@ function AppHeader() {
     { title: `${t('header.projects')}`, url: "/projects" },
     { title: `${t('header.about-us')}`, url: `/about-us` },
     { title: `${t('header.blog')}`, url: "/blog" },
-    { title: `${t('header.contact')}`, url: "/" },
+    // { title: `${t('header.contact')}`, url: "/" },
   ];
 
   const allLanguages = ["/es", "/en", "/de"];

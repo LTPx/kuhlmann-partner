@@ -16,14 +16,14 @@ export function ContactWindow(props: Props) {
         showContact ? "translate-x-0" : "-translate-x-full"
       }`}
     >
-      <div className="container flex gap-[50px] lg:gap-[100px] h-full">
+      <div className="container flex gap-[40px] lg:gap-[100px] h-full">
         <div className="pt-[30px]">
           <button
             onClick={() => setShowContact(!showContact)}
-            className="group flex hover:bg-black items-center justify-center h-[21px] border-[1.5px] border-black rounded-[16px] lg:h-[35px] px-[8px] lg:px-[12px] flex justify-end lg:justify-start"
+            className="group flex hover:bg-black items-center justify-center h-[30px] border-[1.5px] border-black rounded-[16px] lg:h-[35px] px-[8px] lg:px-[12px] flex justify-end lg:justify-start"
           >
             <img
-              className="group-hover:filter group-hover:brightness-0 group-hover:saturate-100 group-hover:invert group-hover:sepia group-hover:hue-rotate-[50deg] w-full"
+              className="group-hover:filter h-[25px] lg:h-auto group-hover:brightness-0 group-hover:saturate-100 group-hover:invert group-hover:sepia group-hover:hue-rotate-[50deg] w-full"
               src="/images/icons/arrow-left.svg"
               alt=""
             />

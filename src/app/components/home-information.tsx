@@ -105,7 +105,7 @@ export function HomeInformation(props: HomeInformationDetails) {
         ))}
       </section>
       <section data-aos="fade-up" className="pt-[55px] lg:pt-[40px]">
-        <hr className="border-t border-black border-1 hidden lg:block lg:mb-[45px] hr-draw" />
+        <hr className="border-t border-black border-1 mb-[21px] lg:block lg:mb-[45px] hr-draw" />
         <p data-aos="fade-up" className="font-mediumFont text-[40px] leading-[45px] lg:text-[75px] lg:leading-[78px] tracking-[-0.03em]">
           {banner.title}
           <br />
