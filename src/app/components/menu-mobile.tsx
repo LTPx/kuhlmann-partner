@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import { Link } from "@/navigation";
+import { Link, usePathname } from "@/navigation";
 import { useTranslations } from "next-intl";
 import ContactWindow from "./contact-window";
+import LanguageSelector from "./selector-languages";
 
 interface Link {
   title: string;
@@ -20,6 +21,7 @@ export function MenuMobile(props: MenuMobileProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const t = useTranslations();
   const [showContact, setShowContact] = useState(false);
+  const currentPath = usePathname();
 
   const handleContactClick = () => {
     setShowContact((prev) => !prev);
@@ -101,6 +103,15 @@ export function MenuMobile(props: MenuMobileProps) {
                   className="pl-[20px] block font-mediumFont text-[25px] leading-[60px]"
                 >
                   {t("footer.contact")}
+                </div>
+                <hr className="border-t border-black border-1" />
+                <div className="pl-[20px] block font-mediumFont">
+                  <LanguageSelector
+                    urlsTranslate={{
+                      es: "/es" + currentPath,
+                      de: "/de" + currentPath,
+                    }}
+                  />
                 </div>
                 <hr className="border-t border-black border-1" />
                 <div className="mt-[70px] pl-[20px] w-[250px]">

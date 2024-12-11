@@ -25,7 +25,7 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   );
 
   return (
-    <div className="flex gap-[10px] text-[20px] leading-[25px] tracking-[-0.02em] font-mediumFont">
+    <div className="flex gap-[10px] text-[25px] leading-[60px] lg:text-[20px] lg:leading-[25px] tracking-[-0.02em] font-mediumFont">
       {languages.map((language, index) => (
         <React.Fragment key={index}>
           {index > 0 && <span>|</span>}
