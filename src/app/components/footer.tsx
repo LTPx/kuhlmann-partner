@@ -129,15 +129,24 @@ export function Footer(props: FooterProps) {
             © Kuhlmann & Partner, {currentYear}
           </p>
           <div className="flex flex-col lg:flex-no-wrap lg:flex-row gap-[0px] lg:gap-[20px]">
-            <p className="hover:underline font-semiBoldFont cursor-pointer text-[12px] leading-[20px] lg:text-[14px] lg:leading-[27px]">
+            <Link
+              href={"/legal-notice"}
+              className="hover:underline font-semiBoldFont text-[12px] leading-[20px] lg:text-[14px] lg:leading-[27px] lg:ml-[0px] cursor-pointer"
+            >
               {`${t("footer.legal-notice")}`}
-            </p>
-            <p className="hover:underline font-semiBoldFont text-[12px] leading-[20px] lg:text-[14px] lg:leading-[27px] lg:ml-[0px] cursor-pointer">
+            </Link>
+            <Link
+              href={"/privacy-policy"}
+              className="hover:underline font-semiBoldFont text-[12px] leading-[20px] lg:text-[14px] lg:leading-[27px] lg:ml-[0px] cursor-pointer"
+            >
               {`${t("footer.privacy-policy")}`}
-            </p>
-            <p className="hover:underline font-semiBoldFont text-[12px] leading-[20px] lg:text-[14px] lg:leading-[27px] lg:ml-[0px] cursor-pointer">
+            </Link>
+            <Link
+              href={"/cookies-policy"}
+              className="hover:underline font-semiBoldFont text-[12px] leading-[20px] lg:text-[14px] lg:leading-[27px] lg:ml-[0px] cursor-pointer"
+            >
               {`${t("footer.cookies-policy")}`}
-            </p>
+            </Link>
             <div className="lg:hidden pt-[97px] pb-[21px]">
               <img className="h-[56px]" src="/images/logo-footer.svg" alt="" />
             </div>

@@ -154,10 +154,22 @@ p {
   }
 }
 
+.privacy-page {
+  a {
+    text-decoration: underline;
+  }
+}
+
 .description-blog {
   p {
     font-size: 18px;
     line-height: 26px;
+  }
+}
+
+.blog-slug-page {
+  a {
+    text-decoration: underline;
   }
 }
 
