@@ -55,6 +55,15 @@ export function ProjectDetails(props: ProjectDetailsProps) {
       offset: 80,
       once: false,
     });
+
+    const container = document.querySelector(".information-content");
+    if (container) {
+      const links = container.querySelectorAll("a");
+      links.forEach((link) => {
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer");
+      });
+    }
   }, []);
 
   return (
@@ -67,7 +76,7 @@ export function ProjectDetails(props: ProjectDetailsProps) {
           {first_section.title}
         </h3>
         <div
-          className="font-regularFont lg:w-[670px]"
+          className="font-regularFont lg:w-[670px] information-content"
           dangerouslySetInnerHTML={{
             __html: first_section.description,
           }}
@@ -86,7 +95,7 @@ export function ProjectDetails(props: ProjectDetailsProps) {
           {information.title}
         </h3>
         <div
-          className="font-regularFont lg:w-[670px]"
+          className="font-regularFont lg:w-[670px] information-content"
           dangerouslySetInnerHTML={{
             __html: information.description,
           }}
@@ -106,7 +115,7 @@ export function ProjectDetails(props: ProjectDetailsProps) {
             {process_section.title}
           </h3>
           <div
-            className="font-regularFont lg:w-[670px]"
+            className="font-regularFont lg:w-[670px] information-content"
             dangerouslySetInnerHTML={{
               __html: process_section.description,
             }}
