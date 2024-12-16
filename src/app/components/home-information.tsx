@@ -65,7 +65,7 @@ export function HomeInformation(props: HomeInformationDetails) {
         />
       </section>
       <section data-aos="fade-up" className="hidden lg:block pt-[40px]">
-        <img src={image.url} className="object-cover h-[800px] w-full" />
+        <img src={image.url} className="home-image" />
       </section>
       <section
         className="pt-[31px] lg:pt-[40px] flex flex-col gap-[30px] lg:gap-[0px] lg:grid lg:grid-cols-2"
@@ -79,7 +79,7 @@ export function HomeInformation(props: HomeInformationDetails) {
         />
         <div
           data-aos="fade-up"
-          className="font-regularFont lg:w-[590px]"
+          className="font-regularFont lg:pr-[235px]"
           dangerouslySetInnerHTML={{
             __html: second_section.description,
           }}
@@ -122,12 +122,12 @@ export function HomeInformation(props: HomeInformationDetails) {
             <div
               key={index}
               data-aos="fade-up"
-              className="flex flex-col lg:w-[550px] gap-[22px] lg:gap-[50px]"
+              className="flex flex-col gap-[22px] lg:gap-[50px]"
             >
               <div className="flex flex-col">
                 <p className="font-semiBoldFont">{item.title}</p>
                 <div
-                  className="font-regularFont"
+                  className="font-regularFont lg:pr-[160px]"
                   dangerouslySetInnerHTML={{
                     __html: item.description,
                   }}

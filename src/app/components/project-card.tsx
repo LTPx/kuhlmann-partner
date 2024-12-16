@@ -19,7 +19,7 @@ function ProjectCard(props: ProjectCardProps) {
 
   return (
     <div className="flex flex-col gap-[15px] lg:gap-[0px] lg:grid lg:grid-cols-2 lg:h-[850px]">
-      <div className="lg:w-[615px] flex flex-col justify-between">
+      <div className="lg:pr-[160px] flex flex-col justify-between">
         <div className="flex flex-col">
           <Link href={url || ""}>
             <p data-aos="fade-up" className="font-mediumFont text-[40px] leading-[45px] lg:text-[75px] lg:leading-[78px] tracking-[-0.03em]">

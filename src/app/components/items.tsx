@@ -14,7 +14,7 @@ function Items(props: ItemsProps) {
       </p>
       <p className="font-semiBoldFont">{title}</p>
       <div
-        className="lg:w-[665px]"
+        className="lg:pr-[160px]"
         dangerouslySetInnerHTML={{
           __html: description,
         }}

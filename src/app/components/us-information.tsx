@@ -42,7 +42,7 @@ export function UsInformation(props: UsInformationProps) {
         {first_section.title}
       </h3>
       <div
-        className="font-regularFont lg:w-[665px]"
+        className="font-regularFont lg:pr-[160px]"
         dangerouslySetInnerHTML={{
           __html: first_section.description,
         }}
@@ -59,7 +59,7 @@ export function UsInformation(props: UsInformationProps) {
         {second_section.title}
       </h3>
       <div
-        className="font-regularFont lg:w-[665px]"
+        className="font-regularFont lg:pr-[160px]"
         dangerouslySetInnerHTML={{
           __html: second_section.description,
         }}

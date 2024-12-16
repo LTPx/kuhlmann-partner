@@ -76,7 +76,7 @@ export function ProjectDetails(props: ProjectDetailsProps) {
           {first_section.title}
         </h3>
         <div
-          className="font-regularFont lg:w-[670px] information-content"
+          className="font-regularFont lg:pr-[160px] information-content"
           dangerouslySetInnerHTML={{
             __html: first_section.description,
           }}
@@ -95,7 +95,7 @@ export function ProjectDetails(props: ProjectDetailsProps) {
           {information.title}
         </h3>
         <div
-          className="font-regularFont lg:w-[670px] information-content"
+          className="font-regularFont lg:pr-[160px] information-content"
           dangerouslySetInnerHTML={{
             __html: information.description,
           }}
@@ -115,7 +115,7 @@ export function ProjectDetails(props: ProjectDetailsProps) {
             {process_section.title}
           </h3>
           <div
-            className="font-regularFont lg:w-[670px] information-content"
+            className="font-regularFont lg:pr-[160px] information-content"
             dangerouslySetInnerHTML={{
               __html: process_section.description,
             }}

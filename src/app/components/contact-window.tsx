@@ -29,7 +29,7 @@ export function ContactWindow(props: Props) {
             />
           </button>
         </div>
-        <div className="px-[8px] lg:px-[0px] lg:w-[1215px] lg:pt-[30px] flex flex-col gap-[35px] lg:gap-[70px]">
+        <div className="px-[8px] lg:px-[0px] lg:pt-[30px] flex flex-col gap-[35px] lg:gap-[70px]">
           <h1 className="text-[25px] leading-[28px] lg:text-[75px] lg:leading-[85px] font-mediumFont">
             {`Carrer d'Andalucía 1, Local 4`}
             <br />

@@ -67,17 +67,19 @@ export function Accordion(props: AccordionProps) {
 
       <AnimateHeight duration={300} height={isOpen ? "auto" : 0}>
         <div className="pt-[15px] lg:pt-[20px] pb-[20px] lg:pb-[30px]">
-          <div className="container flex flex-col gap-[11px] lg:grid lg:grid-cols-2">
+          <div className="container flex flex-col lg:grid lg:grid-cols-2">
+            {image &&
             <Link href={url || ""} className="order-first lg:order-last">
               <img
                 src={image}
                 className="object-cover h-[260px] lg:h-[555px] w-full order-first lg:order-last"
               />
             </Link>
+            }
             <div className="flex flex-col gap-[50px] lg:gap-[0px] lg:justify-between">
               {description && (
                 <div
-                  className="description-blog font-regularFont lg:w-[660px] text-[16px] leading-[22px] lg:text-[18px] lg:leading-[26px]"
+                  className="description-blog font-regularFont lg:pr-[160px] text-[16px] leading-[22px] lg:text-[18px] lg:leading-[26px]"
                   dangerouslySetInnerHTML={{
                     __html: description,
                   }}

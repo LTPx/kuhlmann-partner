@@ -21,7 +21,7 @@ export interface WordPressFrontendPage {
   status: string;
   type: string;
   link: string;
-  title: GUID;
+  title: string;
   content: Content;
   featured_media: number;
   template: string;

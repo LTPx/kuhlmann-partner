@@ -7,8 +7,8 @@
     "office": "Büro Llucmajor:",
     "home": "Home",
     "projects": "Projekte",
-    "about-us": "Uns",
-    "blog": "Blog",
+    "about-us": "Über uns",
+    "blog": "Neuigkeiten",
     "contact": "Kontakt",
     "cookies-policy": "Cookie-Richtlinie",
     "privacy-policy": "Datenschutzrichtlinie",
@@ -20,8 +20,8 @@
   },
   "header": {
     "projects": "Projekte",
-    "about-us": "Uns",
-    "blog": "Blog",
+    "about-us": "Über uns",
+    "blog": "Neuigkeiten",
     "contact": "Kontakt"
   },
   "projects-page": {

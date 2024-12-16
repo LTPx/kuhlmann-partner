@@ -23,7 +23,7 @@ async function BlogSlugPage(nextParams: {
   return (
     <BlogInformation
       date={formattedDate}
-      title={preview_blog.title_blog}
+      title={data.title}
       individual_blog={individual_blog}
     />
   );

@@ -42,7 +42,7 @@ export function InformationPages(props: InformationPagesDetails) {
               />
               <div
               data-aos="fade-up"
-                className="blog-description font-regularFont lg:w-[677px] lg:pt-[15px]"
+                className="blog-description font-regularFont lg:pr-[160px] lg:pt-[15px]"
                 dangerouslySetInnerHTML={{
                   __html: blog.information.description,
                 }}

@@ -42,7 +42,7 @@ export function ProjectsInformation(props: ProjectsInformationDetails) {
         />
         <div
           data-aos="fade-up"
-          className="font-regularFont lg:w-[658px]"
+          className="font-regularFont lg:pr-[160px]"
           dangerouslySetInnerHTML={{
             __html: information.description,
           }}
@@ -57,7 +57,7 @@ export function ProjectsInformation(props: ProjectsInformationDetails) {
           >
             {work_processes.title}
           </h3>
-          <div className="lg:w-[648px] flex flex-col gap-[40px] lg:gap-[47px]">
+          <div className="flex flex-col gap-[40px] lg:gap-[47px]">
             {work_processes.processes.map((process, index) => (
               <div key={index} data-aos="fade-up">
                 <Items
