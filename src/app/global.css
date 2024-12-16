@@ -179,6 +179,12 @@ p {
   object-fit: cover;
 }
 
+.work-information {
+  br {
+    display: none;
+  }
+}
+
 @media (min-width: 1920px) {
   .home-image {
     height: 1000px;

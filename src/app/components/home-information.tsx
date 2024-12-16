@@ -127,7 +127,7 @@ export function HomeInformation(props: HomeInformationDetails) {
               <div className="flex flex-col">
                 <p className="font-semiBoldFont">{item.title}</p>
                 <div
-                  className="font-regularFont lg:pr-[160px]"
+                  className="work-information font-regularFont lg:pr-[160px]"
                   dangerouslySetInnerHTML={{
                     __html: item.description,
                   }}
