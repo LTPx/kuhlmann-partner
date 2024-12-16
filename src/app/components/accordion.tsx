@@ -67,25 +67,35 @@ export function Accordion(props: AccordionProps) {
 
       <AnimateHeight duration={300} height={isOpen ? "auto" : 0}>
         <div className="pt-[15px] lg:pt-[20px] pb-[20px] lg:pb-[30px]">
-          <div className="container flex flex-col lg:grid lg:grid-cols-2">
-            {image &&
-            <Link href={url || ""} className="order-first lg:order-last">
-              <img
-                src={image}
-                className="object-cover h-[260px] lg:h-[555px] w-full order-first lg:order-last"
-              />
-            </Link>
-            }
+          <div
+            className={`container flex flex-col lg:grid ${
+              image ? "lg:grid-cols-2" : "lg:grid-cols-1"
+            } gap-[50px] lg:gap-[0px]`}
+          >
+            {image && (
+              <Link href={url || ""} className="order-first lg:order-last">
+                <img
+                  src={image}
+                  className="object-cover h-[260px] lg:h-[555px] w-full order-first lg:order-last"
+                />
+              </Link>
+            )}
             <div className="flex flex-col gap-[50px] lg:gap-[0px] lg:justify-between">
               {description && (
                 <div
-                  className="description-blog font-regularFont lg:pr-[160px] text-[16px] leading-[22px] lg:text-[18px] lg:leading-[26px]"
+                  className={`description-blog font-regularFont text-[16px] leading-[22px] lg:text-[18px] lg:leading-[26px] ${
+                    image ? "lg:pr-[160px]" : ""
+                  }`}
                   dangerouslySetInnerHTML={{
-                    __html: description,
+                    __html: description || "",
                   }}
                 />
               )}
-              <div className="flex justify-end lg:justify-start">
+              <div
+                className={`flex justify-end lg:justify-start ${
+                  !image ? "pt-[30px]" : ""
+                }`}
+              >
                 <Link href={url || ""}>
                   <button className="hover:text-white uppercase group flex hover:bg-black items-center justify-center h-[21px] border border-black rounded-[16px] lg:h-[35px] px-[8px] lg:px-[14px] flex justify-end lg:justify-start">
                     {t("blog.see_more")}
