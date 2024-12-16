@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LoaderPage from "./loader";
 
 export default function LoaderWrapper({
@@ -8,8 +8,21 @@ export default function LoaderWrapper({
 }: {
   children: React.ReactNode;
 }) {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isFirstVisit, setIsFirstVisit] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [showContent, setShowContent] = useState(false);
+
+  useEffect(() => {
+    const hasShownLoader = sessionStorage.getItem("hasShownLoader");
+
+    if (!hasShownLoader) {
+      setIsFirstVisit(true);
+      setIsLoading(true);
+      sessionStorage.setItem("hasShownLoader", "true");
+    } else {
+      setShowContent(true);
+    }
+  }, []);
 
   const handleAnimationComplete = () => {
     setIsLoading(false);
@@ -18,7 +31,7 @@ export default function LoaderWrapper({
     }, 5);
   };
 
-  if (isLoading) {
+  if (isLoading && isFirstVisit) {
     return <LoaderPage onAnimationComplete={handleAnimationComplete} />;
   }
 
