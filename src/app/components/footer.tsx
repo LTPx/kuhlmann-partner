@@ -29,7 +29,7 @@ export function Footer(props: FooterProps) {
     { title: `${t("footer.home")}`, url: "/" },
     { title: `${t("footer.projects")}`, url: "/projects" },
     { title: `${t("footer.about-us")}`, url: `/about-us` },
-    { title: `${t("footer.blog")}`, url: "/blog" },
+    { title: `${t("footer.blog")}`, url: "/news" },
   ];
 
   const languages = ["/es", "/en", "/de"];

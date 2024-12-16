@@ -34,7 +34,7 @@ async function Blog(nextParams: { params: { locale: "es" | "de" } }) {
             title={blog.title}
             description={blog.acf.preview_blog.short_description}
             image={blog.acf.preview_blog.image.url}
-            url={`/blog/${blog.slug}`}
+            url={`/news/${blog.slug}`}
           />
         ))}
       </section>

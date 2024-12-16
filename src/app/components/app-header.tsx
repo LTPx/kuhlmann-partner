@@ -12,13 +12,13 @@ function AppHeader() {
   const linksHeader = [
     { title: `${t('header.projects')}`, url: "/projects" },
     { title: `${t('header.about-us')}`, url: `/about-us` },
-    { title: `${t('header.blog')}`, url: "/blog" },
+    { title: `${t('header.blog')}`, url: "/news" },
   ];
 
   const menuLinks = [
     { title: `${t('header.projects')}`, url: "/projects" },
     { title: `${t('header.about-us')}`, url: `/about-us` },
-    { title: `${t('header.blog')}`, url: "/blog" },
+    { title: `${t('header.blog')}`, url: "/news" },
     // { title: `${t('header.contact')}`, url: "/" },
   ];
 
