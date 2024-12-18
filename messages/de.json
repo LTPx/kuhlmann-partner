@@ -28,13 +28,13 @@
     "projects": "Projekte",
     "all_projects": "Alle Projekte:",
     "see_project": "Siehe Projekt",
-    "next": "Folgende",
-    "prev": "Ehemalig"
+    "next": "nächstes Projekt",
+    "prev": "vorheriges Projekt"
   },
   "us-page": {
     "us": "Über uns"
   },
   "blog-page": {
-    "notice": "Nachricht"
+    "notice": "Neuigkeiten"
   }
 }
