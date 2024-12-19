@@ -31,11 +31,12 @@ export default async function LocaleLayout({
   params: { locale: 'en' | 'es' | 'de' };
 }) {
   const messages = await getMessages();
+  const timeZone = locale === 'es' ? 'Europe/Madrid' : locale === 'de' ? 'Europe/Berlin' : 'America/New_York';
 
   return (
     <html lang={locale}>
       <body>
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={messages} timeZone={timeZone}>
           <App locale={locale}>
             {children}
           </App>
