@@ -10,7 +10,9 @@ import ProjectsInformation from "@/app/components/projects-information";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
-async function Projects(nextParams: { params: { locale: "es" | "de" } }) {
+async function Projects(nextParams: {
+  params: { locale: "es" | "de" | "en" };
+}) {
   const {
     params: { locale },
   } = nextParams;
@@ -20,7 +22,12 @@ async function Projects(nextParams: { params: { locale: "es" | "de" } }) {
   const { page_projects } = acf;
   const t = await getTranslations();
   const page = "projects";
-  const parentSlug = locale === "es" ? "spanish-pages" : "german-pages";
+  const parentSlug =
+    locale === "es"
+      ? "spanish-pages"
+      : locale === "de"
+      ? "german-pages"
+      : "english-pages";
   const allProjects = await getChildPages(page, locale, parentSlug);
   // allProjects.reverse();
 

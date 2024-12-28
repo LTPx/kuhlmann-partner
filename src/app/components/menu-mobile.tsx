@@ -110,6 +110,7 @@ export function MenuMobile(props: MenuMobileProps) {
                     urlsTranslate={{
                       es: "/es" + currentPath,
                       de: "/de" + currentPath,
+                      en: "/en" + currentPath,
                     }}
                   />
                 </div>

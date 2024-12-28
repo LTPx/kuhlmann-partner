@@ -1,14 +1,41 @@
 {
-  "HomePage": {
-    "title": "Hello world!"
+  "home-page": {
+    "title": "Hello world!",
+    "work-with-us": "Why work with us?"
   },
   "footer": {
-    "our-offices": "Our offices",
-    "see-location": "See location",
-    "write-to-us": "¡Write to us!", 
+    "information": "Interested in building with us? Contact us and we will provide you with personalized advice.",
+    "office": "Llucmajor Office:",
+    "home": "Home",
+    "projects": "Projects",
+    "about-us": "About us",
+    "blog": "News",
+    "contact": "Contact",
     "cookies-policy": "Cookies policy",
     "privacy-policy": "Privacy policy",
     "legal-notice": "Legal notice",
     "accessibility-statement": "Accessibility statement"
+  },
+  "blog": {
+    "see_more": "SEE MORE"
+  },
+  "header": {
+    "projects": "Projects",
+    "about-us": "About us",
+    "blog": "News",
+    "contact": "Contact"
+  },
+  "projects-page": {
+    "projects": "Projects",
+    "all_projects": "All projects:",
+    "see_project": "See project",
+    "next": "NEXT",
+    "prev": "PREVIOUS"
+  },
+  "us-page": {
+    "us": "About us"
+  },
+  "blog-page": {
+    "notice": "News"
   }
 }

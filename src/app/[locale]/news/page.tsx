@@ -4,14 +4,19 @@ import Cover from "@/app/components/cover";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
-async function Blog(nextParams: { params: { locale: "es" | "de" } }) {
+async function Blog(nextParams: { params: { locale: "es" | "de" | "en" } }) {
   const {
     params: { locale },
   } = nextParams;
 
   const t = await getTranslations();
   const page = "blog";
-  const parentSlug = locale === "es" ? "spanish-pages" : "german-pages";
+  const parentSlug =
+    locale === "es"
+      ? "spanish-pages"
+      : locale === "de"
+      ? "german-pages"
+      : "english-pages";
   const allBlogs = await getChildPages(page, locale, parentSlug);
   const formatDate = (date: any) => {
     const newDate = new Date(date);

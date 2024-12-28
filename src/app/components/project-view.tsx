@@ -1,4 +1,7 @@
+"use client";
+
 import { Link } from "@/navigation";
+import { useTranslations } from "next-intl";
 
 interface ProjectViewProps {
   image?: string;
@@ -9,6 +12,7 @@ interface ProjectViewProps {
 
 function ProjectView(props: ProjectViewProps) {
   const { image, title, date, url } = props;
+  const t = useTranslations();
 
   return (
     <div className="flex flex-col lg:gap-[15px]">
@@ -23,7 +27,7 @@ function ProjectView(props: ProjectViewProps) {
         <div className="hidden lg:flex flex-col gap-[50px]">
           <Link className="inline-block" href={url || ""}>
             <button className="uppercase inline-block hover:bg-black hover:text-white flex items-center justify-center font-mediumFont text-[18px] leading-[18px] cursor-pointer border border-black h-[35px] px-[15px] rounded-full transition-colors duration-300 ease-in-out">
-              VER MÁS
+              {`${t("blog.see_more")}`}
             </button>
           </Link>
         </div>
@@ -38,7 +42,7 @@ function ProjectView(props: ProjectViewProps) {
       <div className="w-full pt-[10px] lg:hidden">
         <Link href={url || ""}>
           <button className="uppercase w-full hover:bg-black hover:text-white flex items-center justify-center font-mediumFont text-[16px] leading-[16px] cursor-pointer border border-black h-[30px] rounded-full transition-colors duration-300 ease-in-out">
-            VER MÁS
+            {`${t("blog.see_more")}`}
           </button>
         </Link>
       </div>

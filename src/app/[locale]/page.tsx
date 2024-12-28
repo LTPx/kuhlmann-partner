@@ -2,7 +2,7 @@ import Home from "./home";
 import { getChildPages, getWordPressCustomPage } from "../_services/api";
 
 export default async function Page(nextParams: {
-  params: { locale: "es" | "de" };
+  params: { locale: "es" | "de" | "en" };
 }) {
   const {
     params: { locale },
@@ -10,7 +10,13 @@ export default async function Page(nextParams: {
 
   const data = await getWordPressCustomPage(locale, "home");
   const page = "projects";
-  const parentSlug = locale === "es" ? "spanish-pages" : "german-pages";
+  const parentSlug =
+    locale === "es"
+      ? "spanish-pages"
+      : locale === "de"
+      ? "german-pages"
+      : "english-pages";
+
   const allProjects = await getChildPages(page, locale, parentSlug);
 
   const { acf } = data;

@@ -3,7 +3,7 @@ import Cover from "@/app/components/cover";
 import UsInformation from "@/app/components/us-information";
 import { getTranslations } from "next-intl/server";
 
-async function AboutUs(nextParams: { params: { locale: "es" | "de" } }) {
+async function AboutUs(nextParams: { params: { locale: "es" | "de" | "en" } }) {
   const {
     params: { locale },
   } = nextParams;

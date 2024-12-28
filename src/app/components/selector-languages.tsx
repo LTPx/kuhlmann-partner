@@ -7,6 +7,7 @@ import React from "react";
 interface LanguageSelectorProps {
   urlsTranslate: {
     es: string;
+    en: string;
     de: string;
   };
 }
@@ -17,6 +18,7 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   const currentPath = usePathname();
   const languages = [
     { code: "es", label: "ESP", href: urlsTranslate.es },
+    { code: "en", label: "ENG", href: urlsTranslate.en },
     { code: "de", label: "DEU", href: urlsTranslate.de },
   ];
 

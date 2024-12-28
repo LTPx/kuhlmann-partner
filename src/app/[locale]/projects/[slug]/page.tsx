@@ -4,7 +4,7 @@ import ProjectDetails from "@/app/components/project-details";
 import { getChildPages, getProjectChildBySlug } from "@/app/_services/api";
 
 async function ProjectSlugPage(nextParams: {
-  params: { locale: "es" | "de"; slug: string };
+  params: { locale: "es" | "de" | "en" ; slug: string };
 }) {
   const {
     params: { locale, slug },
@@ -16,7 +16,13 @@ async function ProjectSlugPage(nextParams: {
   const t = await getTranslations();
 
   const page = "projects";
-  const parentSlug = locale === "es" ? "spanish-pages" : "german-pages";
+  const parentSlug =
+    locale === "es"
+      ? "spanish-pages"
+      : locale === "de"
+      ? "german-pages"
+      : "english-pages";  
+  
   const allProjects = await getChildPages(page, locale, parentSlug);
   // allProjects.reverse();
   const currentIndex = allProjects.findIndex(

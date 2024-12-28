@@ -2,7 +2,7 @@ import { getBlogChildBySlug } from "@/app/_services/api";
 import BlogInformation from "@/app/components/blog-information";
 
 async function BlogSlugPage(nextParams: {
-  params: { locale: "es" | "de"; slug: string };
+  params: { locale: "es" | "de" | "en"; slug: string };
 }) {
   const {
     params: { locale, slug },

@@ -20,12 +20,13 @@ export async function getWordPressPage(
 }
 
 export async function getWordPressCustomPage(
-  locale: "es" | "de",
+  locale: "en" | "es" | "de",
   slug: string
 ): Promise<WordPressFrontendPage> {
   const parentPages = {
     es: 'spanish-pages',
     de: 'german-pages',
+    en: 'english-pages',
   };
   const parentPage = parentPages[locale];
   const WORDPRESS_API_URL = "https://www.kuhlmann-partner.com/wp-json";
@@ -43,7 +44,7 @@ export async function getWordPressCustomPage(
 
 export async function getChildPages(
   slug: string, 
-  locale: "es" | "de", 
+  locale: "en" | "es" | "de",
   parentSlug: string
 ): Promise<WordPressFrontendPage[]> {
   const WORDPRESS_API_URL = "https://www.kuhlmann-partner.com/wp-json";
@@ -64,11 +65,12 @@ export async function getChildPages(
 
 export async function getProjectChildBySlug(
   slug: string,
-  locale: "es" | "de"
+  locale: "en" | "es" | "de",
 ): Promise<WordPressFrontendPage> {
   const parentPages = {
     es: "spanish-pages",
     de: "german-pages",
+    en: 'english-pages',
   };
   const parentPage = parentPages[locale];
   const WORDPRESS_API_URL = "https://www.kuhlmann-partner.com/wp-json";
@@ -95,11 +97,12 @@ export async function getProjectChildBySlug(
 
 export async function getBlogChildBySlug(
   slug: string,
-  locale: "es" | "de"
+  locale: "es" | "de" | 'en'
 ): Promise<WordPressFrontendPage> {
   const parentPages = {
     es: "spanish-pages",
     de: "german-pages",
+    en: 'english-pages',
   };
   const parentPage = parentPages[locale];
   const WORDPRESS_API_URL = "https://www.kuhlmann-partner.com/wp-json";
