@@ -41,7 +41,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <head>
-        <title>Molly & Tobi</title>
+        <title>Kuhlmann & Partner</title>
         <link rel="icon" type="image/jpeg" href="/images/logo.jpg" />
       </head>
       <body>
