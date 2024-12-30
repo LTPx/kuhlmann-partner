@@ -46,7 +46,7 @@ export function BlogInformation(props: BlogInformationDetails) {
               key={index}
             >
               <div
-                className="wp-h2 lg:pt-[15px]"
+                className="wp-h2 lg:pt-[15px] lg:w-[97%]"
                 dangerouslySetInnerHTML={{
                   __html: blog.information.title,
                 }}

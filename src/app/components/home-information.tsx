@@ -51,7 +51,7 @@ export function HomeInformation(props: HomeInformationDetails) {
       >
         <div
           data-aos="fade-up"
-          className="wp-h3"
+          className="wp-h3 lg:w-[97%]"
           dangerouslySetInnerHTML={{
             __html: first_section.title,
           }}
@@ -72,7 +72,7 @@ export function HomeInformation(props: HomeInformationDetails) {
       >
         <div
           data-aos="fade-up"
-          className="wp-h3"
+          className="wp-h3 lg:w-[97%]"
           dangerouslySetInnerHTML={{
             __html: second_section.title,
           }}

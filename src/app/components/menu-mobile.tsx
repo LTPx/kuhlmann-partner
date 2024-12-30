@@ -131,14 +131,18 @@ export function MenuMobile(props: MenuMobileProps) {
                   </p>
                   <div className="pt-[22px] flex flex-col">
                     <Link
-                      href={"/"}
+                      href={
+                        "https://www.instagram.com/kuhlmannpartner?igsh=MXB5OXNqc25qc2l6Zg=="
+                      }
                       target="_blank"
                       className="underline text-[16px] leading-[22px] lg:text-[20px] lg:leading-[28px]"
                     >
                       Instagram
                     </Link>
                     <Link
-                      href={"/"}
+                      href={
+                        "https://www.facebook.com/share/19xQvMyUpT/?mibextid=wwXIfr"
+                      }
                       target="_blank"
                       className="underline text-[16px] leading-[22px] lg:text-[20px] lg:leading-[28px]"
                     >

@@ -70,14 +70,18 @@ export function Footer(props: FooterProps) {
               </div>
               <div className="pt-[22px] lg:pt-[0px] flex flex-col lg:flex-row lg:gap-[0px] lg:flex-col">
                 <Link
-                  href={"/"}
+                  href={
+                    "https://www.instagram.com/kuhlmannpartner?igsh=MXB5OXNqc25qc2l6Zg=="
+                  }
                   target="_blank"
                   className="w-auto inline-block font-regularFont underline text-[16px] leading-[22px] lg:text-[20px] lg:leading-[28px]"
                 >
                   Instagram
                 </Link>
                 <Link
-                  href={"/"}
+                  href={
+                    "https://www.facebook.com/share/19xQvMyUpT/?mibextid=wwXIfr"
+                  }
                   target="_blank"
                   className="w-auto inline-block font-regularFont underline text-[16px] leading-[22px] lg:text-[20px] lg:leading-[28px]"
                 >

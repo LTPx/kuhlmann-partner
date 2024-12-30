@@ -35,7 +35,7 @@ export function ProjectsInformation(props: ProjectsInformationDetails) {
       <section className="pt-[30px] lg:pt-[41px] flex flex-col gap-[20px] lg:gap-[0px] lg:grid lg:grid-cols-2">
         <div
           data-aos="fade-up"
-          className="wp-h3"
+          className="wp-h3 lg:w-[97%]"
           dangerouslySetInnerHTML={{
             __html: information.title,
           }}
