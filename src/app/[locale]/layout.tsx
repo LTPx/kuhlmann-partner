@@ -13,7 +13,9 @@ export async function generateMetadata({
   return {
     title: "Kuhlmann & Partner",
     description: "New Site",
-    // robots: seoData.robots,
+    icons: {
+      icon: '/images/logo.jpg',
+    },
     openGraph: {
       title: "Kuhlmann & Partner",
       description: "New Site",
@@ -40,10 +42,6 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <head>
-        <title>Kuhlmann & Partner</title>
-        <link rel="icon" type="image/jpeg" href="/images/logo.jpg" />
-      </head>
       <body>
         <NextIntlClientProvider messages={messages} timeZone={timeZone}>
           <App locale={locale}>{children}</App>
