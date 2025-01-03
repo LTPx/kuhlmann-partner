@@ -12,13 +12,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   return {
     title: "Kuhlmann & Partner",
-    description: "New Site",
+    description:
+      "Kuhlmann & Partner is a family-owned business founded in 2008. With over a decade of experience, we have established ourselves as leaders in the industry, offering comprehensive services that cover everything from planning to execution. Our approach is client-focused, ensuring personalised attention and tailored solutions to meet their specific needs.",
     icons: {
-      icon: '/images/logo.jpg',
+      icon: "/images/logo.jpg",
     },
     openGraph: {
       title: "Kuhlmann & Partner",
-      description: "New Site",
+      description:
+        "Kuhlmann & Partner is a family-owned business founded in 2008. With over a decade of experience, we have established ourselves as leaders in the industry, offering comprehensive services that cover everything from planning to execution. Our approach is client-focused, ensuring personalised attention and tailored solutions to meet their specific needs.",
       siteName: "",
       locale: locale,
     },
