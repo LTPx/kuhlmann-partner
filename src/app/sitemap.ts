@@ -5,7 +5,7 @@ type Locale = "es" | "de" | "en";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://www.kuhlmann-partner.com";
-  const languages: Locale[] = ["/es", "/en", "/de"];
+  const languages: Locale[] = ["es", "en", "de"];
   const staticRoutes = [
     "/projects",
     "/about-us",
@@ -16,7 +16,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   const allProjectRoutesPromises = languages.map(async (lang) => {
-    const locale: Locale = lang.slice(1) as Locale;
+    const locale: Locale = lang;
     const parentSlug =
       locale === "es"
         ? "spanish-pages"
@@ -27,7 +27,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const projectPages = await getChildPages("projects", locale, parentSlug);
 
     return projectPages.map((project: { slug: string }) => ({
-      url: `${baseUrl}${lang}/projects/${project.slug}`,
+      url: `${baseUrl}/${lang}/projects/${project.slug}`,
       lastModified: new Date(),
     }));
   });
@@ -35,7 +35,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const allProjectRoutes = (await Promise.all(allProjectRoutesPromises)).flat();
 
   const allNewsRoutesPromises = languages.map(async (lang) => {
-    const locale: Locale = lang.slice(1) as Locale; //
+    const locale: Locale = lang;
     const parentSlug =
       locale === "es"
         ? "spanish-pages"
@@ -46,7 +46,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const newsPages = await getChildPages("blog", locale, parentSlug);
 
     return newsPages.map((news: { slug: string }) => ({
-      url: `${baseUrl}${lang}/news/${news.slug}`,
+      url: `${baseUrl}/${lang}/news/${news.slug}`,
       lastModified: new Date(),
     }));
   });
@@ -55,13 +55,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const allStaticRoutes = languages.flatMap((lang) =>
     staticRoutes.map((route) => ({
-      url: `${baseUrl}${lang}${route}`,
+      url: `${baseUrl}/${lang}${route}`,
       lastModified: new Date(),
     }))
   );
 
   const homeRoutes = languages.map((lang) => ({
-    url: `${baseUrl}${lang}`,
+    url: `${baseUrl}/${lang}`,
     lastModified: new Date(),
   }));
 
