@@ -1,5 +1,6 @@
 import Home from "./home";
 import { getChildPages, getWordPressCustomPage } from "../_services/api";
+import { Metadata } from "next";
 
 export default async function Page(nextParams: {
   params: { locale: "es" | "de" | "en" };
