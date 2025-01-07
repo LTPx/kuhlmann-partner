@@ -2,9 +2,44 @@ import { getTranslations } from "next-intl/server";
 import Cover from "@/app/components/cover";
 import ProjectDetails from "@/app/components/project-details";
 import { getChildPages, getProjectChildBySlug } from "@/app/_services/api";
+import { Metadata } from "next";
+import { JSDOM } from "jsdom";
+
+export async function generateMetadata({
+  params: { locale, slug },
+}: {
+  params: { locale: "es" | "en" | "de"; slug: string };
+}): Promise<Metadata> {
+  const page = await getProjectChildBySlug(slug, locale);
+  if (page) {
+    const { acf } = page;
+    const { individual_project } = acf;
+    const title = `Kuhlmann & Partner - ${individual_project.title}`;
+    const description = individual_project.second_section
+      ? new JSDOM(individual_project.second_section.description).window.document
+          .body.textContent || ""
+      : "Default description";
+    console.log(description);
+    return {
+      title,
+      description,
+      openGraph: {
+        title,
+        description,
+        type: "website",
+        siteName: "Kuhlmann & Partner",
+        locale: locale,
+      },
+    };
+  } else {
+    return {
+      title: "Kuhlmann & Partner",
+    };
+  }
+}
 
 async function ProjectSlugPage(nextParams: {
-  params: { locale: "es" | "de" | "en" ; slug: string };
+  params: { locale: "es" | "de" | "en"; slug: string };
 }) {
   const {
     params: { locale, slug },
@@ -21,8 +56,8 @@ async function ProjectSlugPage(nextParams: {
       ? "spanish-pages"
       : locale === "de"
       ? "german-pages"
-      : "english-pages";  
-  
+      : "english-pages";
+
   const allProjects = await getChildPages(page, locale, parentSlug);
   // allProjects.reverse();
   const currentIndex = allProjects.findIndex(

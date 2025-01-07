@@ -1,7 +1,4 @@
-import {
-  getChildPages,
-  getWordPressCustomPage,
-} from "@/app/_services/api";
+import { getChildPages, getWordPressCustomPage } from "@/app/_services/api";
 import Cover from "@/app/components/cover";
 import ProjectsInformation from "@/app/components/projects-information";
 import { Metadata } from "next";
@@ -19,12 +16,10 @@ export async function generateMetadata({
     const { acf } = page;
     const { page_projects } = acf;
     const title = `Kuhlmann & Partner - ${t("projects-page.projects")}`;
-
     const description = page_projects.information
       ? new JSDOM(page_projects.information.description).window.document.body
           .textContent || ""
       : "Default description";
-
     return {
       title,
       description,
