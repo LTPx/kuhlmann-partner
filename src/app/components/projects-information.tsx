@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -9,6 +9,7 @@ import { useTranslations } from "next-intl";
 import { WordPressFrontendPage } from "../_interfaces/wordpress-page";
 import Items from "./items";
 import ProjectView from "./project-view";
+import { getUniqueCategories } from "../utils";
 
 interface ProjectsInformationDetails {
   information: DescriptionWp;
@@ -18,8 +19,23 @@ interface ProjectsInformationDetails {
 
 export function ProjectsInformation(props: ProjectsInformationDetails) {
   const { information, work_processes, allProjects } = props;
+  const [selectedOption, setSelectedOption] = useState(-1);
+  const [filteredProjects, setFilteredProjects] =
+    useState<WordPressFrontendPage[]>(allProjects);
+  const categories = getUniqueCategories(allProjects);
 
   const t = useTranslations();
+
+  const handleClick = (id: number) => {
+    setSelectedOption(id);
+    const filterProjects = allProjects.filter((project) => {
+      const categories = project._embedded["wp:term"].categories;
+      return categories.find((category) => category.id === id);
+    });
+    const results = id === -1 ? allProjects : filterProjects;
+    setFilteredProjects(results);
+  };
+  // console.log(filteredProjects);
 
   useEffect(() => {
     AOS.init({

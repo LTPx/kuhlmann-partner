@@ -1,24 +1,43 @@
-import { WordPressProject } from "./_interfaces/wordpress-project";
+import { WordPressFrontendPage } from "./_interfaces/wordpress-page";
+
+export function groupProjectsByCategory(projects: WordPressFrontendPage[]) {
+  const groupedProjects: Record<number, WordPressFrontendPage[]> = {};
+
+  projects.forEach((project) => {
+    const categories = project._embedded?.["wp:term"]?.categories || [];
+    categories.forEach((category) => {
+      if (!groupedProjects[category.id]) {
+        groupedProjects[category.id] = [];
+      }
+      groupedProjects[category.id].push(project);
+    });
+  });
+
+  return groupedProjects;
+}
 
 export function getUniqueCategories(
-  projects: WordPressProject[]
+  projects: WordPressFrontendPage[]
 ): { id: number; name: string; slug: string }[] {
   const uniqueCategories = new Map();
 
   projects.forEach((project) => {
-    const categories = project._embedded["wp:term"].categories;
+    const categories = project._embedded?.["wp:term"]?.categories;
 
-    categories.forEach((category) => {
-      uniqueCategories.set(category.id, {
-        id: category.id,
-        name: category.name,
-        slug: category.slug,
+    if (categories) {
+      categories.forEach((category) => {
+        uniqueCategories.set(category.id, {
+          id: category.id,
+          name: category.name,
+          slug: category.slug,
+        });
       });
-    });
+    }
   });
 
   return Array.from(uniqueCategories.values());
 }
+
 
 export function plainTextFromHtml(text: string) {
   return text.replace(/<[^>]*>/g, "");

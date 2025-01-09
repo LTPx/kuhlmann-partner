@@ -29,7 +29,17 @@ export interface WordPressFrontendPage {
   yoast_head: string;
   yoast_head_json: YoastHeadJSON;
   _links: Links;
-  acf: AcfComponents
+  acf: AcfComponents;
+  _embedded: {
+    "wp:term": {
+      categories: {
+        id: number;
+        name: string;
+        slug: string;
+      }[];
+    };
+    tags: number[]
+  };
 }
 
 export interface Links {
