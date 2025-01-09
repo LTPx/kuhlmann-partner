@@ -79,7 +79,7 @@ export function HomeInformation(props: HomeInformationDetails) {
         />
         <div
           data-aos="fade-up"
-          className="font-regularFont lg:pr-[160px]"
+          className="font-regularFont"
           dangerouslySetInnerHTML={{
             __html: second_section.description,
           }}
