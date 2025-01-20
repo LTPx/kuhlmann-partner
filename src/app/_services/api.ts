@@ -5,7 +5,7 @@ export async function getWordPressPage(
   locale: "en" | "es" | "de",
   slug: string
 ): Promise<WordPressFrontendPage> {
-  const WORDPRESS_API_URL = "https://www.kuhlmann-mallorca.com/wp-json";
+  const WORDPRESS_API_URL = "https://admin.kuhlmann-partner.com/wp-json";
   const url = `${WORDPRESS_API_URL}/wp/v2/pages?slug=${slug}&acf_format=standard`;
   console.log("url: ", url);
   const response = await fetch(url, {
@@ -24,12 +24,12 @@ export async function getWordPressCustomPage(
   slug: string
 ): Promise<WordPressFrontendPage> {
   const parentPages = {
-    es: 'spanish-pages',
-    de: 'german-pages',
-    en: 'english-pages',
+    es: "spanish-pages",
+    de: "german-pages",
+    en: "english-pages",
   };
   const parentPage = parentPages[locale];
-  const WORDPRESS_API_URL = "https://www.kuhlmann-mallorca.com/wp-json";
+  const WORDPRESS_API_URL = "https://admin.kuhlmann-partner.com/wp-json";
   const url = `${WORDPRESS_API_URL}/custom/v1/page_by_slug?slug=${slug}&parent_slug=${parentPage}&lang=${locale}`;
   console.log("url custom page: ", url);
   const response = await fetch(url, {
@@ -43,11 +43,11 @@ export async function getWordPressCustomPage(
 }
 
 export async function getChildPages(
-  slug: string, 
+  slug: string,
   locale: "en" | "es" | "de",
   parentSlug: string
 ): Promise<WordPressFrontendPage[]> {
-  const WORDPRESS_API_URL = "https://www.kuhlmann-mallorca.com/wp-json";
+  const WORDPRESS_API_URL = "https://admin.kuhlmann-partner.com/wp-json";
   const url = `${WORDPRESS_API_URL}/custom/v1/projects_children?slug=${slug}&parent_slug=${parentSlug}&lang=${locale}`;
 
   try {
@@ -65,17 +65,17 @@ export async function getChildPages(
 
 export async function getProjectChildBySlug(
   slug: string,
-  locale: "en" | "es" | "de",
+  locale: "en" | "es" | "de"
 ): Promise<WordPressFrontendPage> {
   const parentPages = {
     es: "spanish-pages",
     de: "german-pages",
-    en: 'english-pages',
+    en: "english-pages",
   };
   const parentPage = parentPages[locale];
-  const WORDPRESS_API_URL = "https://www.kuhlmann-mallorca.com/wp-json";
+  const WORDPRESS_API_URL = "https://admin.kuhlmann-partner.com/wp-json";
   const url = `${WORDPRESS_API_URL}/custom/v1/project_child?slug=${slug}&parent_slug=${parentPage}&lang=${locale}`;
-  
+
   console.log("url project child: ", url);
 
   try {
@@ -97,17 +97,17 @@ export async function getProjectChildBySlug(
 
 export async function getBlogChildBySlug(
   slug: string,
-  locale: "es" | "de" | 'en'
+  locale: "es" | "de" | "en"
 ): Promise<WordPressFrontendPage> {
   const parentPages = {
     es: "spanish-pages",
     de: "german-pages",
-    en: 'english-pages',
+    en: "english-pages",
   };
   const parentPage = parentPages[locale];
-  const WORDPRESS_API_URL = "https://www.kuhlmann-mallorca.com/wp-json";
+  const WORDPRESS_API_URL = "https://admin.kuhlmann-partner.com/wp-json";
   const url = `${WORDPRESS_API_URL}/custom/v1/blog_child?slug=${slug}&parent_slug=${parentPage}&lang=${locale}`;
-  
+
   console.log("url blog child: ", url);
 
   try {
@@ -126,7 +126,3 @@ export async function getBlogChildBySlug(
     throw new Error("No se pudo obtener la página hija.");
   }
 }
-
-
-
-
