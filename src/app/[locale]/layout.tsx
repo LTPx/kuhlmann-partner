@@ -47,6 +47,7 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <body>
         <Script
+          id="google-tag-manager-script"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){
