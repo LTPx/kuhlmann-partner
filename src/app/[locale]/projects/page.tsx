@@ -11,21 +11,15 @@ export async function generateMetadata({
   params: { locale: "es" | "en" | "de" };
 }): Promise<Metadata> {
   const page = await getWordPressCustomPage(locale, "projects");
-  const t = await getTranslations();
   if (page) {
-    const { acf } = page;
-    const { page_projects } = acf;
-    const title = `Kuhlmann & Partner - ${t("projects-page.projects")}`;
-    const description = page_projects.information
-      ? new JSDOM(page_projects.information.description).window.document.body
-          .textContent || ""
-      : "Default description";
+    const { aioseo_seo } = page;
+    const { seo_title, seo_desc } = aioseo_seo;
     return {
-      title,
-      description,
+      title: seo_title,
+      description: seo_desc,
       openGraph: {
-        title,
-        description,
+        title: seo_title,
+        description: seo_desc,
         type: "website",
         siteName: "Kuhlmann & Partner",
         locale: locale,

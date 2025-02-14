@@ -3,7 +3,6 @@ import Cover from "@/app/components/cover";
 import ProjectDetails from "@/app/components/project-details";
 import { getChildPages, getProjectChildBySlug } from "@/app/_services/api";
 import { Metadata } from "next";
-import { JSDOM } from "jsdom";
 
 export async function generateMetadata({
   params: { locale, slug },
@@ -12,20 +11,14 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const page = await getProjectChildBySlug(slug, locale);
   if (page) {
-    const { acf } = page;
-    const { individual_project } = acf;
-    const title = `Kuhlmann & Partner - ${individual_project.title}`;
-    const description = individual_project.second_section
-      ? new JSDOM(individual_project.second_section.description).window.document
-          .body.textContent || ""
-      : "Default description";
-    console.log(description);
+    const { aioseo_seo } = page;
+    const { seo_title, seo_desc } = aioseo_seo;
     return {
-      title,
-      description,
+      title: seo_title,
+      description: seo_desc,
       openGraph: {
-        title,
-        description,
+        title: seo_title,
+        description: seo_desc,
         type: "website",
         siteName: "Kuhlmann & Partner",
         locale: locale,
