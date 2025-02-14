@@ -2,6 +2,33 @@ import Home from "./home";
 import { getChildPages, getWordPressCustomPage } from "../_services/api";
 import { Metadata } from "next";
 
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: "es" | "en" | "de" };
+}): Promise<Metadata> {
+  const page = await getWordPressCustomPage(locale, "home");
+  if (page) {
+    const { aioseo_seo } = page;
+    const { seo_title, seo_desc } = aioseo_seo;
+    return {
+      title: seo_title,
+      description: seo_desc,
+      openGraph: {
+        title: seo_title,
+        description: seo_desc,
+        type: "website",
+        siteName: "Kuhlmann & Partner",
+        locale: locale,
+      },
+    };
+  } else {
+    return {
+      title: "Kuhlmann & Partner",
+    };
+  }
+}
+
 export default async function Page(nextParams: {
   params: { locale: "es" | "de" | "en" };
 }) {

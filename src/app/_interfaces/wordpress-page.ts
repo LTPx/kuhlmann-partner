@@ -26,6 +26,7 @@ export interface WordPressFrontendPage {
   featured_media: number;
   template: string;
   parent: number;
+  aioseo_seo: YoastHeadJSON,
   yoast_head: string;
   yoast_head_json: YoastHeadJSON;
   _links: Links;
@@ -40,6 +41,11 @@ export interface WordPressFrontendPage {
     };
     tags: number[]
   };
+}
+
+export interface YoastHeadJSON {
+  seo_title: string;
+  seo_desc: string;
 }
 
 export interface Links {
