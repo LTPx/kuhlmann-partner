@@ -22,11 +22,11 @@ function ProjectCard(props: ProjectCardProps) {
       <div className="lg:pr-[160px] flex flex-col justify-between">
         <div className="flex flex-col">
           <Link href={url || ""}>
-            <p data-aos="fade-up" className="font-mediumFont text-[40px] leading-[45px] lg:text-[75px] lg:leading-[78px] tracking-[-0.03em]">
+            <h2 data-aos="fade-up" className="font-mediumFont text-[40px] leading-[45px] lg:text-[75px] lg:leading-[78px] tracking-[-0.03em]">
               {title}
               <br />
               <span className="opacity-30">{date}</span>
-            </p>
+            </h2>
           </Link>
         </div>
         <div data-aos="fade-up" className="hidden lg:flex flex-col gap-[50px]">
