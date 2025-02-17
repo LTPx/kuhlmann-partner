@@ -46,6 +46,8 @@ export interface WordPressFrontendPage {
 export interface YoastHeadJSON {
   seo_title: string;
   seo_desc: string;
+  seo_keywords: string[];
+  seo_canonical: string;
 }
 
 export interface Links {
