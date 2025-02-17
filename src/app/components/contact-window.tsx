@@ -30,26 +30,26 @@ export function ContactWindow(props: Props) {
           </button>
         </div>
         <div className="px-[8px] lg:px-[0px] lg:pt-[30px] flex flex-col gap-[35px] lg:gap-[70px]">
-          <h1 className="text-[25px] leading-[28px] lg:text-[75px] lg:leading-[85px] font-mediumFont">
+          <span className="text-[25px] leading-[28px] lg:text-[75px] lg:leading-[85px] font-mediumFont">
             {`Carrer d'Andalucía 1, Local 4`}
             <br />
             {`07620 Llucmajor`}
             <br />
             {`Islas Baleares, España`}
-          </h1>
+          </span>
           <div className="contact">
             <Link href={`tel:+34 971 718 996`} className="inline-block">
-              <h1 className="text-[25px] leading-[28px] lg:text-[75px] lg:leading-[85px] font-mediumFont">
+              <span className="text-[25px] leading-[28px] lg:text-[75px] lg:leading-[85px] font-mediumFont">
                 +34 971 718 996
-              </h1>
+              </span>
             </Link>
             <Link
               href={`mailto:info@kuhlmann-partner.com`}
               className="inline-block text-[15px] leading-[32px] lg:text-[20px] lg:leading-[28px]"
             >
-              <h1 className="font-mediumFont text-[25px] leading-[28px] lg:text-[75px] lg:leading-[85px]">
+              <span className="font-mediumFont text-[25px] leading-[28px] lg:text-[75px] lg:leading-[85px]">
                 info@kuhlmann-partner.com
-              </h1>
+              </span>
             </Link>
           </div>
           <div className="social">
@@ -58,9 +58,9 @@ export function ContactWindow(props: Props) {
               target="_blank"
               className="inline-block text-[30px] leading-[32px] lg:text-[20px] lg:leading-[28px]"
             >
-              <h1 className="font-mediumFont text-[25px] leading-[28px] lg:text-[75px] lg:leading-[85px]">
+              <span className="font-mediumFont text-[25px] leading-[28px] lg:text-[75px] lg:leading-[85px]">
                 Instagram
-              </h1>
+              </span>
             </Link>
             <br></br>
             <Link
@@ -68,9 +68,9 @@ export function ContactWindow(props: Props) {
               target="_blank"
               className="inline-block text-[30px] leading-[32px] lg:text-[20px] lg:leading-[28px]"
             >
-              <h1 className="font-mediumFont text-[25px] leading-[28px] lg:text-[75px] lg:leading-[85px]">
+              <span className="font-mediumFont text-[25px] leading-[28px] lg:text-[75px] lg:leading-[85px]">
                 Facebook
-              </h1>
+              </span>
             </Link>
           </div>
         </div>
