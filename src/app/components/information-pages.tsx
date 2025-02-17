@@ -37,7 +37,7 @@ export function InformationPages(props: InformationPagesDetails) {
               <div
                 className="wp-h2 lg:pt-[15px]"
                 dangerouslySetInnerHTML={{
-                  __html: blog.information.title,
+                  __html: blog.information.title.replace(/<p>/g, "<h2>").replace(/<\/p>/g, "</h2>"),
                 }}
               />
               <div

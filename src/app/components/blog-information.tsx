@@ -48,11 +48,14 @@ export function BlogInformation(props: BlogInformationDetails) {
               <div
                 className="wp-h2 lg:pt-[15px] lg:w-[97%]"
                 dangerouslySetInnerHTML={{
-                  __html: blog.information.title,
+                  __html: `<h2>${blog.information.title
+                    .replace(/<\/?p>/g, "")
+                    .replace(/\n/g, " <br /> ") 
+                    .trim()}</h2>`,
                 }}
               />
               <div
-              data-aos="fade-up"
+                data-aos="fade-up"
                 className="blog-description font-regularFont lg:pr-[160px] lg:pt-[15px]"
                 dangerouslySetInnerHTML={{
                   __html: blog.information.description,

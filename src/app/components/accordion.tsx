@@ -46,13 +46,13 @@ export function Accordion(props: AccordionProps) {
           setIsOpen(!isOpen);
         }}
       >
-        <p
+        <h2
           className={`pl-[12px] lg:pl-[30px] tracking-[-0.015em] font-mediumFont text-[20px] leading-[30px] lg:text-[40px] lg:leading-[40px] py-[12px] lg:py-[40px] text-start 
           ${isOpen ? "text-white-beige" : "group-hover:text-white-beige"}`}
         >
           <span className="lg:hidden"> {date} - </span>
           {title}
-        </p>
+        </h2>
         <div className="hidden lg:block ml-auto pr-[30px]">
           <span
             className={`uppercase inline-block flex items-center justify-center font-mediumFont text-[20px] leading-[25px] cursor-pointer border 
