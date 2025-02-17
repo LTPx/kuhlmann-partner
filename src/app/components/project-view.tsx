@@ -19,9 +19,9 @@ function ProjectView(props: ProjectViewProps) {
       <div className="flex items-center justify-between pb-[5px] lg:pb-[0px]">
         <Link href={url || ""}>
           <div className="flex flex-col">
-            <p className="font-mediumFont text-[32px] leading-[38px] tracking-[-0.01em]">
+            <h3 className="font-mediumFont text-[32px] leading-[38px] lg:text-[32px] lg:leading-[38px] tracking-[-0.01em]">
               {title} | <span className="opacity-30">{date}</span>
-            </p>
+            </h3>
           </div>
         </Link>
         <div className="hidden lg:flex flex-col gap-[50px]">

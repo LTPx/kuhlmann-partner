@@ -53,7 +53,7 @@ export function ProjectsInformation(props: ProjectsInformationDetails) {
           data-aos="fade-up"
           className="wp-h3 lg:w-[97%]"
           dangerouslySetInnerHTML={{
-            __html: information.title,
+            __html: information.title.replace(/<p>/g, "<h3>").replace(/<\/p>/g, "</h3>"),
           }}
         />
         <div
