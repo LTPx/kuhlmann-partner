@@ -32,9 +32,21 @@ export default async function LocaleLayout({
       : locale === "de"
       ? "Europe/Berlin"
       : "America/New_York";
+  const baseUrl = "https://kuhlmann-partner.com";
+  const hreflangs = [
+    { lang: "de", url: `${baseUrl}/de/` },
+    { lang: "en", url: `${baseUrl}/en/` },
+    { lang: "es", url: `${baseUrl}/es/` },
+    { lang: "x-default", url: baseUrl },
+  ];
 
   return (
     <html lang={locale}>
+      <head>
+        {hreflangs.map(({ lang, url }) => (
+          <link key={lang} rel="alternate" hrefLang={lang} href={url} />
+        ))}
+      </head>
       <body>
         <Script
           id="google-tag-manager-script"
