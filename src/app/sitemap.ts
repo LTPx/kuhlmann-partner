@@ -4,7 +4,7 @@ import { getChildPages } from "@/app/_services/api";
 type Locale = "es" | "de" | "en";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://www.kuhlmann-partner.com";
+  const baseUrl = "https://kuhlmann-partner.com";
   const languages: Locale[] = ["es", "en", "de"];
   const staticRoutes = [
     "/projects",
