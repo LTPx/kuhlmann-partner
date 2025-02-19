@@ -10,7 +10,7 @@ export async function generateMetadata({
   params: { locale: "es" | "en" | "de"; slug: string };
 }): Promise<Metadata> {
   const page = await getProjectChildBySlug(slug, locale);
-  const origin = "https://www.kuhlmann-partner.com";
+  const origin = "https://kuhlmann-partner.com";
 
   if (page) {
     const { aioseo_seo } = page;

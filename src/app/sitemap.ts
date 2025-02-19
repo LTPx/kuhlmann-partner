@@ -6,8 +6,7 @@ type Locale = "es" | "de" | "en";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://kuhlmann-partner.com";
   const languages: Locale[] = ["es", "en", "de"];
-  
-  // Rutas estáticas con prioridad asignada
+
   const staticRoutes = [
     { route: "/projects", priority: 0.8 },
     { route: "/about-us", priority: 0.6 },
@@ -32,7 +31,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/${lang}/projects/${project.slug}`,
       lastModified: new Date(),
       changeFrequency: "daily" as const,
-      priority: 0.6,  // Ajusta según el contexto
+      priority: 0.6,
     }));
   });
 
@@ -53,28 +52,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/${lang}/news/${news.slug}`,
       lastModified: new Date(),
       changeFrequency: "daily" as const,
-      priority: 0.5,  // Ajusta según el contexto
+      priority: 0.5,
     }));
   });
 
   const allNewsRoutes = (await Promise.all(allNewsRoutesPromises)).flat();
 
-  // Asignar prioridad a las rutas estáticas
   const allStaticRoutes = languages.flatMap((lang) =>
     staticRoutes.map(({ route, priority }) => ({
       url: `${baseUrl}/${lang}${route}`,
       lastModified: new Date(),
       changeFrequency: "daily" as const,
-      priority, // Asignar la prioridad que corresponde
+      priority,
     }))
   );
 
-  // Rutas principales con prioridad alta (1.0)
   const homeRoutes = languages.map((lang) => ({
     url: `${baseUrl}/${lang}`,
     lastModified: new Date(),
     changeFrequency: "daily" as const,
-    priority: 1.0, // Alta prioridad para las páginas principales
+    priority: 1.0,
   }));
 
   return [

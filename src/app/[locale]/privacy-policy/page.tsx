@@ -9,7 +9,7 @@ export async function generateMetadata({
   params: { locale: "es" | "en" | "de" };
 }): Promise<Metadata> {
   const page = await getWordPressCustomPage(locale, "privacy-policy");
-  const origin = "https://www.kuhlmann-partner.com";
+  const origin = "https://kuhlmann-partner.com";
 
   if (page) {
     const { aioseo_seo } = page;
