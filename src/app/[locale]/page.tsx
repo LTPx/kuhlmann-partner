@@ -96,7 +96,13 @@ export default async function Page(nextParams: {
     .map((id) => allProjects.find((project) => project.id === id))
     .filter(isDefined);
 
-  return <Home projects={projects} home_information={home_information} />;
+  return (
+    <Home
+      locale={locale}
+      projects={projects}
+      home_information={home_information}
+    />
+  );
 }
 
 function isDefined<T>(value: T | undefined): value is T {
