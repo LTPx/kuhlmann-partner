@@ -46,6 +46,10 @@ export default async function LocaleLayout({
         {hreflangs.map(({ lang, url }) => (
           <link key={lang} rel="alternate" hrefLang={lang} href={url} />
         ))}
+        <meta
+        name="google-site-verification"
+        content="mh9OT7ofL1NqRCxdVaSd-kGUnQ7YjJcO-OC0TkGe6TI"
+        />
       </head>
       <body>
         <Script
