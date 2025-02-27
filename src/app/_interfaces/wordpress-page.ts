@@ -7,7 +7,7 @@ import {
   OgImage,
   TargetClass,
 } from './wordpress';
-import { AboutUsPageWp, FeatureProjectWp, HomePageWp, IndividualBlogWP, IndividualProjectWp, PreviewBlogWP, PreviewProyectWp, ProjectsPageWp } from './wordpress-components';
+import { AboutUsPageWp, FeatureProjectWp, GalleryImageWp, HomePageWp, IndividualBlogWP, IndividualProjectWp, PreviewBlogWP, PreviewProyectWp, ProjectsPageWp } from './wordpress-components';
 
 
 export interface WordPressFrontendPage {
@@ -37,6 +37,9 @@ export interface WordPressFrontendPage {
         id: number;
         name: string;
         slug: string;
+        title: {
+          rendered: string;
+        }
       }[];
     };
     tags: number[]
@@ -184,6 +187,7 @@ export interface AcfComponents {
   preview_blog: PreviewBlogWP;
   page_about_us: AboutUsPageWp;
   feature_projects: FeatureProjectWp[];
+  gallery: GalleryImageWp[];
 }
 
 export interface Project {

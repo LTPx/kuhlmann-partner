@@ -6,12 +6,13 @@ import { useTranslations } from "next-intl";
 interface ProjectViewProps {
   image?: string;
   title: string;
+  category?: string;
   date: string;
   url: string;
 }
 
 function ProjectView(props: ProjectViewProps) {
-  const { image, title, date, url } = props;
+  const { image, title, date, url, category } = props;
   const t = useTranslations();
 
   return (
@@ -19,8 +20,8 @@ function ProjectView(props: ProjectViewProps) {
       <div className="flex items-center justify-between pb-[5px] lg:pb-[0px]">
         <Link href={url || ""}>
           <div className="flex flex-col">
-            <h3 className="font-mediumFont text-[32px] leading-[38px] lg:text-[32px] lg:leading-[38px] tracking-[-0.01em]">
-              {title} | <span className="opacity-30">{date}</span>
+            <h3 className="font-mediumFont text-[20px] leading-[26px] lg:text-[32px] lg:leading-[38px] tracking-[-0.01em]">
+              {title} | <span className="opacity-30">{category}</span>
             </h3>
           </div>
         </Link>

@@ -10,7 +10,7 @@ function AppHeader() {
   const t = useTranslations();
 
   const linksHeader = [
-    { title: `${t('header.projects')}`, url: "/projects" },
+    // { title: `${t('header.projects')}`, url: "/projects" },
     { title: `${t('header.about-us')}`, url: `/about-us` },
     { title: `${t('header.blog')}`, url: "/news" },
   ];

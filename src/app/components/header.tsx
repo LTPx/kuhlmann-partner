@@ -6,6 +6,7 @@ import LanguageSelector from "./selector-languages";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import ContactWindow from "./contact-window";
+import CategoriesSelector from "./categories-selector";
 
 interface LinksHeader {
   title: string;
@@ -53,6 +54,7 @@ export function Header(props: Props) {
     <>
       <header className="container sticky top-0 z-[1000] bg-[#DCB93C] hidden lg:grid grid-cols-3">
         <div className="flex gap-[30px]">
+          <CategoriesSelector />
           {links.map((link, index) => (
             <Link
               key={index}

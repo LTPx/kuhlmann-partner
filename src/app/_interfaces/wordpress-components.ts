@@ -100,3 +100,18 @@ export interface ProjectPostWp {
   post_title: string;
   imageUrl: string;
 }
+
+export interface GalleryImageWp {
+  ID: number;
+  title: string;
+  filename: string;
+  url: string;
+  alt: string;
+  description: string;
+  caption: string;
+  width: number;
+  height: number;
+  sizes: {
+    [key: string]: string;
+  };
+}

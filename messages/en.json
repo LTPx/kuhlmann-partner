@@ -26,11 +26,12 @@
     "contact": "Contact"
   },
   "projects-page": {
-    "projects": "Projects",
+    "projects": "Projects:",
     "all_projects": "All projects:",
     "see_project": "See project",
     "next": "NEXT",
-    "prev": "PREVIOUS"
+    "prev": "PREVIOUS",
+    "all": "All"
   },
   "us-page": {
     "us": "About us"

@@ -28,7 +28,7 @@ export function getUniqueCategories(
       categories.forEach((category) => {
         uniqueCategories.set(category.id, {
           id: category.id,
-          name: category.name,
+          name: category.title.rendered,
           slug: category.slug,
         });
       });

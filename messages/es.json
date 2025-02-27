@@ -25,11 +25,12 @@
     "contact": "Contacto"
   },
   "projects-page": {
-    "projects": "Proyectos",
+    "projects": "Proyectos:",
     "all_projects": "Todos los proyectos:",
     "see_project": "Ver proyecto",
     "next": "SIGUIENTE",
-    "prev": "ANTERIOR"
+    "prev": "ANTERIOR",
+    "all": "Todos"
   },
   "us-page": {
     "us": "Nosotros"

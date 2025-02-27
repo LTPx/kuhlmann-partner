@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
 import { DescriptionWp, WorkWp } from "../_interfaces/wordpress-components";
 import { useTranslations } from "next-intl";
 import { WordPressFrontendPage } from "../_interfaces/wordpress-page";
@@ -19,11 +18,11 @@ interface ProjectsInformationDetails {
 
 export function ProjectsInformation(props: ProjectsInformationDetails) {
   const { information, work_processes, allProjects } = props;
-  const [selectedOption, setSelectedOption] = useState(-1);
+  const [selectedOption, setSelectedOption] = useState<number>(-1);
   const [filteredProjects, setFilteredProjects] =
     useState<WordPressFrontendPage[]>(allProjects);
+  const [isFiltered, setIsFiltered] = useState(true);
   const categories = getUniqueCategories(allProjects);
-
   const t = useTranslations();
 
   const handleClick = (id: number) => {
@@ -33,9 +32,13 @@ export function ProjectsInformation(props: ProjectsInformationDetails) {
       return categories.find((category) => category.id === id);
     });
     const results = id === -1 ? allProjects : filterProjects;
-    setFilteredProjects(results);
+
+    setIsFiltered(false);
+    setTimeout(() => {
+      setFilteredProjects(results);
+      setIsFiltered(true);
+    }, 300);
   };
-  // console.log(filteredProjects);
 
   useEffect(() => {
     AOS.init({
@@ -46,6 +49,11 @@ export function ProjectsInformation(props: ProjectsInformationDetails) {
     });
   }, []);
 
+  useEffect(() => {
+    setFilteredProjects(allProjects);
+    setIsFiltered(true);
+  }, [allProjects]);
+
   return (
     <div className="container">
       <section className="pt-[30px] lg:pt-[41px] flex flex-col gap-[20px] lg:gap-[0px] lg:grid lg:grid-cols-2">
@@ -53,7 +61,9 @@ export function ProjectsInformation(props: ProjectsInformationDetails) {
           data-aos="fade-up"
           className="wp-h3 lg:w-[97%]"
           dangerouslySetInnerHTML={{
-            __html: information.title.replace(/<p>/g, "<h3>").replace(/<\/p>/g, "</h3>"),
+            __html: information.title
+              .replace(/<p>/g, "<h3>")
+              .replace(/<\/p>/g, "</h3>"),
           }}
         />
         <div
@@ -87,27 +97,61 @@ export function ProjectsInformation(props: ProjectsInformationDetails) {
         </div>
       </section>
       <section className="pt-[50px] lg:pt-[95px] pb-[50px] lg:pb-[0px]">
-        <p
-          data-aos="fade-up"
-          className="font-semiBoldFont text-[16px] leading-[16px] uppercase lg:normal-case lg:text-[20px] lg:leading-[27px]"
-        >
-          {`${t("projects-page.projects")}`}
-        </p>
-        {allProjects.map((project, index) => (
-          <div key={index} data-aos="fade-up">
-            <hr
-              className={`hr-draw border-t border-black border-1 ${
-                index === 0 ? "my-[16px]" : "mt-[25px] mb-[16px]"
-              }`}
-            />{" "}
-            <ProjectView
-              image={project.acf.preview_project.feature_image.url}
-              title={project.acf.preview_project.title}
-              date={project.acf.preview_project.date}
-              url={`/projects/${project.slug}`}
-            />
+        <div data-aos="fade-up" className="w-full overflow-hidden">
+          <div className="flex items-center gap-[14px] lg:gap-[11px] overflow-x-scroll no-scrollbar">
+            <p className="font-mediumFont text-[16px] leading-[16px] uppercase lg:text-[18px] lg:leading-[18px]">
+              {`${t("projects-page.projects")}`}
+            </p>
+            <button
+              onClick={() => handleClick(-1)}
+              className={`font-mediumFont uppercase hover:bg-black hover:text-white transition-colors duration-300 ease-in-out font-medium text-[15px] leading-[18px] lg:text-[18px] lg:leading-[18px] cursor-pointer border border-black h-[35px] px-[15px] ${
+                selectedOption === -1
+                  ? "select-option rounded-full bg-black text-white"
+                  : "text-black rounded-full"
+              } whitespace-nowrap min-w-[120px]`}
+            >
+              {`${t("projects-page.all")}`}
+            </button>
+            {categories.map((option, index) => (
+              <button
+                key={index}
+                onClick={() => handleClick(option.id)}
+                className={`font-mediumFont hover:bg-black hover:text-white transition-colors duration-300 ease-in-out font-medium text-[15px] leading-[18px] lg:text-[18px] lg:leading-[18px] cursor-pointer border border-black h-[35px] px-[15px] ${
+                  selectedOption === option.id
+                    ? "select-option rounded-full bg-black text-white"
+                    : "text-black rounded-full"
+                } whitespace-nowrap`}
+              >
+                {option.name}
+              </button>
+            ))}
           </div>
-        ))}
+        </div>
+        <div
+          className={`transition-opacity duration-500 ease-in-out ${
+            isFiltered ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          {filteredProjects.map((project, index) => (
+            <div key={index} data-aos="fade-up">
+              <hr
+                className={`hr-draw border-t border-black border-1 ${
+                  index === 0 ? "my-[16px]" : "mt-[25px] mb-[16px]"
+                }`}
+              />
+              <ProjectView
+                image={project.acf.preview_project.feature_image.url}
+                title={project.acf.preview_project.title}
+                category={
+                  project._embedded?.["wp:term"]?.categories?.[0]?.title
+                    ?.rendered || "Sin categoría"
+                }
+                date={project.acf.preview_project.date}
+                url={`/projects/${project.slug}`}
+              />
+            </div>
+          ))}
+        </div>
       </section>
     </div>
   );

@@ -49,7 +49,7 @@ export async function getChildPages(
 ): Promise<WordPressFrontendPage[]> {
   const WORDPRESS_API_URL = "https://admin.kuhlmann-partner.com/wp-json";
   const url = `${WORDPRESS_API_URL}/custom/v1/projects_children?slug=${slug}&parent_slug=${parentSlug}&lang=${locale}`;
-
+  console.log("url child page: ", url);
   try {
     const response = await fetch(url);
     if (!response.ok) {

@@ -274,3 +274,14 @@ p {
 .aos-animate .hr-draw {
   width: 100%;
 }
+
+/* lightbox-custom.css */
+.ril__outer {
+  background: rgba(255, 255, 255, 0.8) !important; /* Fondo blanco con 80% de opacidad */
+}
+
+.ril__image {
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Sombra ligera para resaltar */
+}
+
+
