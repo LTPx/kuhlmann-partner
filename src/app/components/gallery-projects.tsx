@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { RowsPhotoAlbum } from "react-photo-album";
-import "react-photo-album/rows.css";
 import { GalleryImageWp } from "../_interfaces/wordpress-components";
 
 interface GalleryProps {
@@ -11,6 +9,8 @@ interface GalleryProps {
 
 const GalleryProjects: React.FC<GalleryProps> = ({ gallery }) => {
   const [index, setIndex] = useState<number>(-1);
+  const [fade, setFade] = useState<boolean>(false);
+  const [showButtons, setShowButtons] = useState<boolean>(false); 
   const touchStartRef = useRef(0);
   const touchEndRef = useRef(0);
 
@@ -31,10 +31,14 @@ const GalleryProjects: React.FC<GalleryProps> = ({ gallery }) => {
   };
 
   const goToNextImage = () => {
+    setFade(true); 
+    setShowButtons(false); 
     setIndex((prevIndex) => (prevIndex + 1) % photos.length);
   };
 
   const goToPreviousImage = () => {
+    setFade(true); 
+    setShowButtons(false); 
     setIndex((prevIndex) => (prevIndex - 1 + photos.length) % photos.length);
   };
 
@@ -78,13 +82,36 @@ const GalleryProjects: React.FC<GalleryProps> = ({ gallery }) => {
     };
   }, [photos.length]);
 
+  useEffect(() => {
+    if (fade) {
+      setTimeout(() => {
+        setFade(false); 
+        setShowButtons(true); 
+      }, 300); 
+    }
+  }, [fade]);
+
   return (
     <div className="p-6">
-      <RowsPhotoAlbum
-        photos={photos}
-        spacing={15}
-        onClick={({ index: clickedIndex }) => openLightbox(clickedIndex)}
-      />
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+        {gallery.map((project, index) => (
+          <div
+            key={index}
+            className="relative group overflow-hidden cursor-pointer"
+            onClick={() => openLightbox(index)}
+          >
+            <div className="relative w-full h-auto overflow-hidden group-hover:bg-[#DCB93C] group-hover:bg-opacity-100 bg-transparent transition-all duration-500 ease-in-out">
+              <img
+                src={project.sizes.medium}
+                alt={project.alt}
+                className="w-full h-auto object-cover transition-all duration-300"
+              />
+              <div className="absolute inset-0 bg-[#DCB93C] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out"></div>
+            </div>
+          </div>
+        ))}
+      </div>
+
       {index >= 0 && (
         <div className="lightbox" onClick={(e) => e.stopPropagation()}>
           <button
@@ -96,43 +123,60 @@ const GalleryProjects: React.FC<GalleryProps> = ({ gallery }) => {
             Close
           </button>
           <div className="lightbox-content">
-            <button
-              className="lightbox-prev hidden lg:block"
-              onClick={(e) => {
-                e.stopPropagation();
-                goToPreviousImage();
-              }}
+            {showButtons && (
+              <>
+                <button
+                  className="lightbox-prev hidden lg:block show" 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    goToPreviousImage();
+                  }}
+                >
+                  Previous
+                </button>
+
+                <div className="lg:hidden lightbox-side-image prev-image">
+                  <img
+                    src={
+                      photos[(index - 1 + photos.length) % photos.length].largeSrc
+                    }
+                    alt={photos[(index - 1 + photos.length) % photos.length].alt}
+                  />
+                </div>
+              </>
+            )}
+
+            <div
+              className={`fade-transition ${fade ? "fade-out" : "fade-in"}`}
+              key={photos[index].largeSrc}
             >
-              Previous
-            </button>
-            <div className="lg:hidden lightbox-side-image prev-image">
               <img
-                src={
-                  photos[(index - 1 + photos.length) % photos.length].largeSrc
-                }
-                alt={photos[(index - 1 + photos.length) % photos.length].alt}
+                src={photos[index].largeSrc}
+                alt={photos[index].alt}
+                style={{ width: "100%", height: "auto", objectFit: "contain" }}
               />
             </div>
-            <img
-              src={photos[index].largeSrc}
-              alt={photos[index].alt}
-              style={{ width: "100%", height: "auto", objectFit: "contain" }}
-            />
-            <div className="lg:hidden lightbox-side-image next-image">
-              <img
-                src={photos[(index + 1) % photos.length].largeSrc}
-                alt={photos[(index + 1) % photos.length].alt}
-              />
-            </div>
-            <button
-              className="lightbox-next hidden lg:block"
-              onClick={(e) => {
-                e.stopPropagation();
-                goToNextImage();
-              }}
-            >
-              Next
-            </button>
+
+            {showButtons && (
+              <>
+                <div className="lg:hidden lightbox-side-image next-image">
+                  <img
+                    src={photos[(index + 1) % photos.length].largeSrc}
+                    alt={photos[(index + 1) % photos.length].alt}
+                  />
+                </div>
+
+                <button
+                  className="lightbox-next hidden lg:block show" 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    goToNextImage();
+                  }}
+                >
+                  Next
+                </button>
+              </>
+            )}
           </div>
         </div>
       )}

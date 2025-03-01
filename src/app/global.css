@@ -323,6 +323,13 @@ p {
   cursor: pointer;
   z-index: 1001;
   font-family: "Regular";
+  opacity: 0;
+  transition: opacity 0.5s ease; 
+}
+
+.lightbox-prev.show,
+.lightbox-next.show {
+  opacity: 1;
 }
 
 .lightbox-prev {
@@ -375,6 +382,24 @@ p {
   }
   
 }
+
+.fade-transition {
+  position: relative;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+
+
+
 
 
 
