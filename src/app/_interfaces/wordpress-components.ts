@@ -112,6 +112,35 @@ export interface GalleryImageWp {
   width: number;
   height: number;
   sizes: {
-    [key: string]: string;
+    thumbnail: string;
+    "thumbnail-width": number;
+    "thumbnail-height": number;
+    medium: string;
+    "medium-width": number;
+    "medium-height": number;
+    medium_large: string;
+    "medium_large-width": number;
+    "medium_large-height": number;
+    large: string;
+    "large-width": number;
+    "large-height": number;
+    "1536x1536": string;
+    "1536x1536-width": number;
+    "1536x1536-height": number;
+    "2048x2048": string;
+    "2048x2048-width": number;
+    "2048x2048-height": number;
+    "featured-blog-large": string;
+    "featured-blog-large-width": number;
+    "featured-blog-large-height": number;
+    "featured-blog-medium": string;
+    "featured-blog-medium-width": number;
+    "featured-blog-medium-height": number;
+    featured: string;
+    "featured-width": number;
+    "featured-height": number;
+    "featured-blog-medium-small": string;
+    "featured-blog-medium-small-width": number;
+    "featured-blog-medium-small-height": number;
   };
 }

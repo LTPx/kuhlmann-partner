@@ -275,13 +275,68 @@ p {
   width: 100%;
 }
 
-/* lightbox-custom.css */
-.ril__outer {
-  background: rgba(255, 255, 255, 0.8) !important; /* Fondo blanco con 80% de opacidad */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
-.ril__image {
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Sombra ligera para resaltar */
+.lightbox-content {
+  position: relative;
+  width: auto;
+  max-width: 90%; 
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  line-height: 28px;
+  color: black;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.lightbox-prev {
+  left: -120px;
+}
+
+.lightbox-next {
+  right: -120px; 
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  font-weight: 900;
+}
+
+.lightbox-content img {
+  width: auto;   
+  max-width: 100%; 
+  height: auto;    
+  object-fit: contain; 
+  max-height: 70vh; 
+}
+
+
+
+
+
+
+ 
 

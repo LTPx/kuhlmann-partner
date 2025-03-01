@@ -1,81 +1,79 @@
 "use client";
 
 import React, { useState } from "react";
-import Lightbox from "react-18-image-lightbox";
-import "react-18-image-lightbox/style.css";
+import { RowsPhotoAlbum } from "react-photo-album";
+import "react-photo-album/rows.css";
 import { GalleryImageWp } from "../_interfaces/wordpress-components";
 
 interface GalleryProps {
   gallery: GalleryImageWp[];
 }
 
-export function GalleryProjects({ gallery }: GalleryProps) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [photoIndex, setPhotoIndex] = useState(0);
+const GalleryProjects: React.FC<GalleryProps> = ({ gallery }) => {
+  const [index, setIndex] = useState<number>(-1);
+
+  const photos = gallery.map((project) => ({
+    src: project.sizes.medium,  
+    width: project.sizes["medium-width"],  
+    height: project.sizes["medium-height"],  
+    alt: project.alt,
+    largeSrc: project.sizes["medium_large"],  
+  }));
+
+  const openLightbox = (index: number) => {
+    setIndex(index);
+  };
+
+  const closeLightbox = () => {
+    setIndex(-1);
+  };
+
+  const goToNextImage = () => {
+    setIndex((prevIndex) => (prevIndex + 1) % photos.length);
+  };
+
+  const goToPreviousImage = () => {
+    setIndex((prevIndex) => (prevIndex - 1 + photos.length) % photos.length);
+  };
 
   return (
     <div className="p-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-        {gallery.map((project, index) => (
-          <div
-            key={index}
-            className="relative group overflow-hidden cursor-pointer"
-            onClick={() => {
-              setPhotoIndex(index);
-              setIsOpen(true);
-            }}
-          >
-            <img
-              src={project.sizes.medium}
-              alt={project.alt}
-              className="w-full h-auto object-cover transition-transform duration-300 transform hover:scale-105"
-            />
-          </div>
-        ))}
-      </div>
-
-      {isOpen && (
-        <Lightbox
-          mainSrc={gallery[photoIndex].sizes.medium_large}
-          nextSrc={
-            gallery[(photoIndex + 1) % gallery.length].sizes.medium_large
-          }
-          prevSrc={
-            gallery[(photoIndex + gallery.length - 1) % gallery.length].sizes
-              .medium_large
-          }
-          onCloseRequest={() => setIsOpen(false)}
-          onMovePrevRequest={() =>
-            setPhotoIndex((photoIndex + gallery.length - 1) % gallery.length)
-          }
-          onMoveNextRequest={() =>
-            setPhotoIndex((photoIndex + 1) % gallery.length)
-          }
-          enableZoom={false}
-          toolbarButtons={[
+      <RowsPhotoAlbum
+        photos={photos}
+        spacing={15}
+        onClick={({ index: clickedIndex }) => openLightbox(clickedIndex)}
+      />
+      {index >= 0 && (
+        <div className="lightbox" onClick={closeLightbox}>
+          <div className="lightbox-content">
             <button
-              key="prev"
-              className="custom-lightbox-button left-5"
-              onClick={() =>
-                setPhotoIndex(
-                  (photoIndex + gallery.length - 1) % gallery.length
-                )
-              }
+              className="lightbox-prev"
+              onClick={(e) => {
+                e.stopPropagation();
+                goToPreviousImage();
+              }}
             >
               Prev
-            </button>,
+            </button>
+            <img
+              src={photos[index].largeSrc}
+              alt={photos[index].alt}
+              style={{ width: "100%", height: "auto", objectFit: "contain" }}
+            />
             <button
-              key="next"
-              className="custom-lightbox-button right-5"
-              onClick={() => setPhotoIndex((photoIndex + 1) % gallery.length)}
+              className="lightbox-next"
+              onClick={(e) => {
+                e.stopPropagation();
+                goToNextImage();
+              }}
             >
               Next
-            </button>,
-          ]}
-        />
+            </button>
+          </div>
+        </div>
       )}
     </div>
   );
-}
+};
 
 export default GalleryProjects;
