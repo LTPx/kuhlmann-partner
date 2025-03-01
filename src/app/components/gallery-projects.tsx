@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { RowsPhotoAlbum } from "react-photo-album";
 import "react-photo-album/rows.css";
 import { GalleryImageWp } from "../_interfaces/wordpress-components";
@@ -11,6 +11,8 @@ interface GalleryProps {
 
 const GalleryProjects: React.FC<GalleryProps> = ({ gallery }) => {
   const [index, setIndex] = useState<number>(-1);
+  const touchStartRef = useRef(0);
+  const touchEndRef = useRef(0);
 
   const photos = gallery.map((project) => ({
     src: project.sizes.medium,
@@ -34,6 +36,22 @@ const GalleryProjects: React.FC<GalleryProps> = ({ gallery }) => {
 
   const goToPreviousImage = () => {
     setIndex((prevIndex) => (prevIndex - 1 + photos.length) % photos.length);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartRef.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    touchEndRef.current = e.changedTouches[0].clientX;
+
+    const swipeThreshold = 50;
+
+    if (touchStartRef.current - touchEndRef.current > swipeThreshold) {
+      goToNextImage();
+    } else if (touchEndRef.current - touchStartRef.current > swipeThreshold) {
+      goToPreviousImage();
+    }
   };
 
   useEffect(() => {
@@ -72,26 +90,42 @@ const GalleryProjects: React.FC<GalleryProps> = ({ gallery }) => {
           <button
             className="text-[14px] leading-[28px] lightbox-close underline"
             onClick={closeLightbox}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
           >
             Close
           </button>
           <div className="lightbox-content">
             <button
-              className="lightbox-prev"
+              className="lightbox-prev hidden lg:block"
               onClick={(e) => {
                 e.stopPropagation();
                 goToPreviousImage();
               }}
             >
-              Prev
+              Previous
             </button>
+            <div className="lg:hidden lightbox-side-image prev-image">
+              <img
+                src={
+                  photos[(index - 1 + photos.length) % photos.length].largeSrc
+                }
+                alt={photos[(index - 1 + photos.length) % photos.length].alt}
+              />
+            </div>
             <img
               src={photos[index].largeSrc}
               alt={photos[index].alt}
               style={{ width: "100%", height: "auto", objectFit: "contain" }}
             />
+            <div className="lg:hidden lightbox-side-image next-image">
+              <img
+                src={photos[(index + 1) % photos.length].largeSrc}
+                alt={photos[(index + 1) % photos.length].alt}
+              />
+            </div>
             <button
-              className="lightbox-next"
+              className="lightbox-next hidden lg:block"
               onClick={(e) => {
                 e.stopPropagation();
                 goToNextImage();
