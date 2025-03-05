@@ -8,23 +8,29 @@ interface CategoriesSelectorProps {
   locale: "es" | "en" | "de";
 }
 
-export const CategoriesSelector: React.FC<CategoriesSelectorProps> = ({ locale }) => {
+export const CategoriesSelector: React.FC<CategoriesSelectorProps> = ({
+  locale,
+}) => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const t = useTranslations();
 
   const categoriesByLanguage = {
     en: [
-      { id: 659, title: t("categories.new_construction") },
-      { id: 665, title: t("categories.reform") },
+      {
+        id: 659,
+        slug: "new-construction",
+        title: t("categories.new_construction"),
+      },
+      { id: 665, slug: "reform", title: t("categories.reform") },
     ],
     es: [
-      { id: 655, title: t("categories.new_construction") },
-      { id: 661, title: t("categories.reform") },
+      { id: 655, slug: "obra-nueva", title: t("categories.new_construction") },
+      { id: 661, slug: "reforma", title: t("categories.reform") },
     ],
     de: [
-      { id: 657, title: t("categories.new_construction") },
-      { id: 663, title: t("categories.reform") },
+      { id: 657, slug: "neubau", title: t("categories.new_construction") },
+      { id: 663, slug: "renovierung", title: t("categories.reform") },
     ],
   };
 
@@ -35,7 +41,10 @@ export const CategoriesSelector: React.FC<CategoriesSelectorProps> = ({ locale }
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsDropdownVisible(false);
       }
     };
@@ -57,8 +66,8 @@ export const CategoriesSelector: React.FC<CategoriesSelectorProps> = ({ locale }
             {categories.map((category) => (
               <Link
                 key={category.id}
-                locale={false} 
-                href={`/${locale}/projects?category=${category.id}`}
+                locale={false}
+                href={`/${locale}/projects?category=${category.slug}`}
                 className="whitespace-nowrap pr-[30px] cursor-pointer font-mediumFont tracking-[-0.01em] h-[40px] pl-[30px] w-auto flex items-center text-[20px] leading-[25px] hover:underline"
               >
                 {category.title}
