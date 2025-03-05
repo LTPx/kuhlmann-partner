@@ -13,17 +13,13 @@ interface LinksHeader {
   url: string;
 }
 
-interface Props {
-  links: LinksHeader[];
-}
-
-export function Header(props: Props) {
-  const { links } = props;
+export function Header({ links, params }: { links: LinksHeader[], params: { locale: "es" | "de" | "en" } }) {
+  const locale = params.locale;
   const currentPath = usePathname();
   const currentSlug = currentPath.substring(currentPath.lastIndexOf("/") + 1);
   const isProjectRoute = /^\/projects\/.+$/.test(currentPath);
   const isBlogRoute = /^\/news\/.+$/.test(currentPath);
-
+  
   const linksSelector = {
     es: isProjectRoute
       ? `/es/projects/${currentSlug}`
@@ -54,7 +50,7 @@ export function Header(props: Props) {
     <>
       <header className="container sticky top-0 z-[1000] bg-[#DCB93C] hidden lg:grid grid-cols-3">
         <div className="flex gap-[30px]">
-          <CategoriesSelector />
+          <CategoriesSelector locale={locale} />
           {links.map((link, index) => (
             <Link
               key={index}
@@ -75,6 +71,14 @@ export function Header(props: Props) {
           </Link>
         </div>
         <div className="flex gap-[30px] justify-end items-center">
+          <Link
+            href={"/gallery"}
+            className={`hover:underline font-mediumFont h-[54px] flex items-center justify-center cursor-pointer text-[20px] leading-[25px] tracking-[-0.01em] ${
+              currentPath === "/gallery" ? "underline" : "text-black"
+            }`}
+          >
+            {t("header.gallery")}
+          </Link>
           <button
             onClick={handleContactClick}
             className="hover:underline font-mediumFont h-[54px] flex items-center cursor-pointer text-[20px] leading-[25px] leading-[25px]"

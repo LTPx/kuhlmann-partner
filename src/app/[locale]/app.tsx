@@ -30,7 +30,11 @@ async function App(props: Props) {
       </Script>
       <AnalyticsTracker />
       <LoaderWrapper>
-        <AppHeader />
+        <AppHeader
+          params={{
+            locale: locale,
+          }}
+        />
         <div className="bg-body">{children}</div>
         <AppFooter
           params={{

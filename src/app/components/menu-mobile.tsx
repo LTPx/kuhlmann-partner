@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, usePathname } from "@/navigation";
 import { useTranslations } from "next-intl";
 import ContactWindow from "./contact-window";
@@ -14,27 +14,51 @@ interface Link {
 export interface MenuMobileProps {
   links: Link[];
   languages: { name: string; url: string }[];
+  locale: "en" | "es" | "de";
 }
 
-export function MenuMobile(props: MenuMobileProps) {
-  const { links, languages } = props;
+export function MenuMobile({ links, languages, locale }: MenuMobileProps) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const t = useTranslations();
+  const [showCategories, setShowCategories] = useState(false);
   const [showContact, setShowContact] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const t = useTranslations();
   const currentPath = usePathname();
 
-  const handleContactClick = () => {
-    setShowContact((prev) => !prev);
+  const categoriesByLanguage = {
+    en: [
+      { id: 659, title: t("categories.new_construction") },
+      { id: 665, title: t("categories.reform") },
+    ],
+    es: [
+      { id: 655, title: t("categories.new_construction") },
+      { id: 661, title: t("categories.reform") },
+    ],
+    de: [
+      { id: 657, title: t("categories.new_construction") },
+      { id: 663, title: t("categories.reform") },
+    ],
   };
+
+  const categories = categoriesByLanguage[locale] || [];
+
+  const handleContactClick = () => setShowContact((prev) => !prev);
+  const toggleCategories = () => setShowCategories((prev) => !prev);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setShowCategories(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <>
       <header className="block lg:hidden bg-[#DCB93C] sticky top-0 z-[1000]">
-        <div
-          className={
-            "px-[12px] flex bg-[#DCB93C] justify-between items-center h-[50px]"
-          }
-        >
+        <div className="px-[12px] flex bg-[#DCB93C] justify-between items-center h-[50px]">
           <div></div>
           <Link
             href="/"
@@ -53,6 +77,7 @@ export function MenuMobile(props: MenuMobileProps) {
           </div>
         </div>
       </header>
+
       {menuOpen && (
         <div
           className="fixed inset-0 z-[2000] bg-black bg-opacity-50"
@@ -65,7 +90,7 @@ export function MenuMobile(props: MenuMobileProps) {
           menuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="h-full flex flex-col justify-between">
+        <div className="h-full flex flex-col justify-between" ref={menuRef}>
           <div>
             <div className="px-[11px] bg-[#DCB93C] items-center flex justify-between h-[50px]">
               <div></div>
@@ -82,15 +107,41 @@ export function MenuMobile(props: MenuMobileProps) {
                 />
               </div>
             </div>
-            <div className="flex flex-col justify-between">
+
+            <div className="flex flex-col">
               <nav>
                 <hr className="border-t border-black border-1" />
+                <div
+                  onClick={toggleCategories}
+                  className={`pl-[20px] font-mediumFont text-[25px] leading-[34px] cursor-pointer ${!showCategories ? "py-[13px]" : "pt-[11px]"}`}
+                  >
+                  {t("header.projects")}
+                </div>
+                {showCategories && (
+                  <div className="pl-[20px]">
+                    {categories.map((category) => (
+                      <div key={category.id}>
+                        <Link
+                          className="block font-light text-[25px] leading-[34px]"
+                          href={`/projects?category=${category.id}`}
+                          onClick={() => setMenuOpen(false)}
+                        >
+                          {category.title}
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                <hr
+                  className={`border-t border-black border-1 ${
+                    showCategories ? "mt-[15px]" : ""
+                  }`}
+                />
                 {links.map((link, index) => (
                   <div key={index}>
                     <Link
                       className="pl-[20px] block font-mediumFont text-[25px] leading-[60px]"
                       href={link.url}
-                      key={index}
                       onClick={() => setMenuOpen(false)}
                     >
                       {link.title}
@@ -100,12 +151,13 @@ export function MenuMobile(props: MenuMobileProps) {
                 ))}
                 <div
                   onClick={handleContactClick}
-                  className="pl-[20px] block font-mediumFont text-[25px] leading-[60px]"
+                  className="pl-[20px] font-mediumFont text-[25px] leading-[60px] cursor-pointer"
                 >
                   {t("footer.contact")}
                 </div>
                 <hr className="border-t border-black border-1" />
-                <div className="pl-[20px] block font-mediumFont">
+
+                <div className="pl-[20px] font-mediumFont">
                   <LanguageSelector
                     urlsTranslate={{
                       es: "/es" + currentPath,
@@ -115,6 +167,7 @@ export function MenuMobile(props: MenuMobileProps) {
                   />
                 </div>
                 <hr className="border-t border-black border-1" />
+
                 <div className="mt-[70px] pl-[20px] w-[250px]">
                   <Link className="w-auto" href={`tel:+34 971 718 996`}>
                     <p>+34 971 718 996</p>
@@ -131,18 +184,14 @@ export function MenuMobile(props: MenuMobileProps) {
                   </p>
                   <div className="pt-[22px] flex flex-col">
                     <Link
-                      href={
-                        "https://www.instagram.com/kuhlmannpartner?igsh=MXB5OXNqc25qc2l6Zg=="
-                      }
+                      href={"https://www.instagram.com/kuhlmannpartner"}
                       target="_blank"
                       className="underline text-[16px] leading-[22px] lg:text-[20px] lg:leading-[28px]"
                     >
                       Instagram
                     </Link>
                     <Link
-                      href={
-                        "https://www.facebook.com/share/19xQvMyUpT/?mibextid=wwXIfr"
-                      }
+                      href={"https://www.facebook.com/share/19xQvMyUpT"}
                       target="_blank"
                       className="underline text-[16px] leading-[22px] lg:text-[20px] lg:leading-[28px]"
                     >
@@ -155,6 +204,7 @@ export function MenuMobile(props: MenuMobileProps) {
           </div>
         </div>
       </div>
+
       <ContactWindow
         showContact={showContact}
         setShowContact={setShowContact}

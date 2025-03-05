@@ -22,10 +22,11 @@
     "projects": "Projekte",
     "about-us": "Über uns",
     "blog": "Neuigkeiten",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "gallery": "Galerie"
   },
   "projects-page": {
-    "projects": "Projekte:",
+    "projects": "Projekte",
     "all_projects": "Alle Projekte:",
     "see_project": "Siehe Projekt",
     "next": "nächstes Projekt",
@@ -37,5 +38,9 @@
   },
   "blog-page": {
     "notice": "Neuigkeiten"
+  },
+  "categories": {
+    "new_construction": "Neubau",
+    "reform": "Reform"
   }
 }

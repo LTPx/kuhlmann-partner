@@ -10,7 +10,7 @@ export async function generateMetadata({
 }: {
   params: { locale: "es" | "en" | "de" };
 }): Promise<Metadata> {
-  const page = await getWordPressCustomPage(locale, "about-us");
+  const page = await getWordPressCustomPage(locale, "gallery");
   const origin = "https://kuhlmann-partner.com";
 
   if (page) {
@@ -20,11 +20,11 @@ export async function generateMetadata({
       title: seo_title,
       description: seo_desc,
       alternates: {
-        canonical: seo_canonical ? seo_canonical : `${origin}/${locale}/about-us`,
+        canonical: seo_canonical ? seo_canonical : `${origin}/${locale}/gallery`,
         languages: {
-          en: `${origin}/en/about-us`,
-          es: `${origin}/es/about-us`,
-          de: `${origin}/de/about-us`,
+          en: `${origin}/en/gallery`,
+          es: `${origin}/es/gallery`,
+          de: `${origin}/de/gallery`,
         },
       },
       openGraph: {

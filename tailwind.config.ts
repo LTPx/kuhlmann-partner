@@ -30,6 +30,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
+        light: ['Light', 'sans-serif'],
         var: ['Ottertype-Var', 'sans-serif'],
         regularFont: ['Regular', 'sans-serif'],
         boldFont: ['Bold', 'sans-serif'],

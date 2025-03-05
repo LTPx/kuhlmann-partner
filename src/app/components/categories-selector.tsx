@@ -1,24 +1,34 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 
-export const CategoriesSelector: React.FC = () => {
+interface CategoriesSelectorProps {
+  locale: "es" | "en" | "de";
+}
+
+export const CategoriesSelector: React.FC<CategoriesSelectorProps> = ({ locale }) => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const pathname = usePathname();
   const t = useTranslations();
 
-  const languageMatch = pathname.match(/^\/(es|en|de)/);
-  const currentLanguage = languageMatch ? languageMatch[1] : "en";
+  const categoriesByLanguage = {
+    en: [
+      { id: 659, title: t("categories.new_construction") },
+      { id: 665, title: t("categories.reform") },
+    ],
+    es: [
+      { id: 655, title: t("categories.new_construction") },
+      { id: 661, title: t("categories.reform") },
+    ],
+    de: [
+      { id: 657, title: t("categories.new_construction") },
+      { id: 663, title: t("categories.reform") },
+    ],
+  };
 
-  const categories = [
-    { title: 'Obra Nueva', url: `/${currentLanguage}/projects/new-construction` },
-    { title: 'Reforma', url: `/${currentLanguage}/projects/renovation` },
-  ];
-
+  const categories = categoriesByLanguage[locale] || [];
   const toggleDropdown = () => {
     setIsDropdownVisible(!isDropdownVisible);
   };
@@ -37,18 +47,19 @@ export const CategoriesSelector: React.FC = () => {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={toggleDropdown}
-        className="hover:underline font-medium h-[54px] flex items-center text-[20px] leading-[25px]"
+        className="font-mediumFont hover:underline font-medium h-[54px] flex items-center text-[20px] leading-[25px]"
       >
         {t("header.projects")}
       </button>
       {isDropdownVisible && (
         <div className="absolute top-full left-[-30px] bg-primary pb-[15px]">
           <div className="flex flex-col">
-            {categories.map((category, index) => (
+            {categories.map((category) => (
               <Link
-                key={index}
-                href={category.url}
-                className="font-mediumFont tracking-[-0.01em] h-[40px] pl-[30px] lg:w-[155px] flex items-center text-[20px] leading-[25px] hover:underline"
+                key={category.id}
+                locale={false} 
+                href={`/${locale}/projects?category=${category.id}`}
+                className="whitespace-nowrap pr-[30px] cursor-pointer font-mediumFont tracking-[-0.01em] h-[40px] pl-[30px] w-auto flex items-center text-[20px] leading-[25px] hover:underline"
               >
                 {category.title}
               </Link>

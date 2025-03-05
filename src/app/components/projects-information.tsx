@@ -9,6 +9,7 @@ import { WordPressFrontendPage } from "../_interfaces/wordpress-page";
 import Items from "./items";
 import ProjectView from "./project-view";
 import { getUniqueCategories } from "../utils";
+import { usePathname, useSearchParams } from "next/navigation";
 
 interface ProjectsInformationDetails {
   information: DescriptionWp;
@@ -24,14 +25,25 @@ export function ProjectsInformation(props: ProjectsInformationDetails) {
   const [isFiltered, setIsFiltered] = useState(true);
   const categories = getUniqueCategories(allProjects);
   const t = useTranslations();
+  const searchParams = useSearchParams();
+  const category = searchParams.get("category");
+
+  useEffect(() => {
+    console.log(category);
+    if (category) {
+      setSelectedOption(Number(category));
+    }
+  }, [category]);
 
   const handleClick = (id: number) => {
     setSelectedOption(id);
+    // searchParams.set("category", id.toString());
     const filterProjects = allProjects.filter((project) => {
       const categories = project._embedded["wp:term"].categories;
       return categories.find((category) => category.id === id);
     });
     const results = id === -1 ? allProjects : filterProjects;
+    console.log(selectedOption);
 
     setIsFiltered(false);
     setTimeout(() => {
@@ -97,34 +109,38 @@ export function ProjectsInformation(props: ProjectsInformationDetails) {
         </div>
       </section>
       <section className="pt-[50px] lg:pt-[95px] pb-[50px] lg:pb-[0px]">
-        <div data-aos="fade-up" className="w-full overflow-hidden">
-          <div className="flex items-center gap-[14px] lg:gap-[11px] overflow-x-scroll no-scrollbar">
+        <div data-aos="fade-up">
+          <div className="flex flex-col lg:flex-row lg:items-center gap-[26px] lg:gap-[14px] lg:gap-[11px] ">
             <p className="font-mediumFont text-[16px] leading-[16px] uppercase lg:text-[18px] lg:leading-[18px]">
-              {`${t("projects-page.projects")}`}
+              {`${t("projects-page.projects")}`}:
             </p>
-            <button
-              onClick={() => handleClick(-1)}
-              className={`font-mediumFont uppercase hover:bg-black hover:text-white transition-colors duration-300 ease-in-out font-medium text-[15px] leading-[18px] lg:text-[18px] lg:leading-[18px] cursor-pointer border border-black h-[35px] px-[15px] ${
-                selectedOption === -1
-                  ? "select-option rounded-full bg-black text-white"
-                  : "text-black rounded-full"
-              } whitespace-nowrap min-w-[120px]`}
-            >
-              {`${t("projects-page.all")}`}
-            </button>
-            {categories.map((option, index) => (
-              <button
-                key={index}
-                onClick={() => handleClick(option.id)}
-                className={`font-mediumFont hover:bg-black hover:text-white transition-colors duration-300 ease-in-out font-medium text-[15px] leading-[18px] lg:text-[18px] lg:leading-[18px] cursor-pointer border border-black h-[35px] px-[15px] ${
-                  selectedOption === option.id
-                    ? "select-option rounded-full bg-black text-white"
-                    : "text-black rounded-full"
-                } whitespace-nowrap`}
-              >
-                {option.name}
-              </button>
-            ))}
+            <div className="w-full overflow-hidden">
+              <div className="flex flex-row gap-[10px] overflow-x-scroll no-scrollbar">
+                <button
+                  onClick={() => handleClick(-1)}
+                  className={`font-mediumFont uppercase hover:bg-black hover:text-white transition-colors duration-300 ease-in-out font-medium text-[15px] leading-[18px] lg:text-[18px] lg:leading-[18px] cursor-pointer border border-black h-[35px] px-[15px] ${
+                    selectedOption === -1
+                      ? "select-option rounded-full bg-black text-white"
+                      : "text-black rounded-full"
+                  } whitespace-nowrap min-w-[120px]`}
+                >
+                  {`${t("projects-page.all")}`}
+                </button>
+                {categories.map((option, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleClick(option.id)}
+                    className={`font-mediumFont hover:bg-black hover:text-white transition-colors duration-300 ease-in-out font-medium text-[15px] leading-[18px] lg:text-[18px] lg:leading-[18px] cursor-pointer border border-black h-[35px] px-[15px] ${
+                      selectedOption === option.id
+                        ? "select-option rounded-full bg-black text-white"
+                        : "text-black rounded-full"
+                    } whitespace-nowrap`}
+                  >
+                    {option.name}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
         <div

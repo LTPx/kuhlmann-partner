@@ -126,3 +126,27 @@ export async function getBlogChildBySlug(
     throw new Error("No se pudo obtener la página hija.");
   }
 }
+
+export async function getCategoriesBySlug(
+  slug: string,
+  locale: "es" | "de" | "en",
+  parentSlug: string
+): Promise<any> {
+  const WORDPRESS_API_URL = "https://admin.kuhlmann-partner.com/wp-json";
+  const url = `${WORDPRESS_API_URL}/custom/v1/project_child_categories?slug=${slug}&parent_slug=${parentSlug}&lang=${locale}`;
+
+  console.log("url categories: ", url);
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error("Error al obtener las categorías.");
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error al obtener las categorías:", error);
+    throw new Error("No se pudieron obtener las categorías.");
+  }
+}
+

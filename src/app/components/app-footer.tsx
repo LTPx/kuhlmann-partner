@@ -8,7 +8,6 @@ async function AppFooter(nextParams: {
     params: { locale },
   } = nextParams;
 
-
   return <Footer/>;
 }
 

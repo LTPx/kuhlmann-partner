@@ -323,13 +323,6 @@ p {
   cursor: pointer;
   z-index: 1001;
   font-family: "Regular";
-  opacity: 0;
-  transition: opacity 0.5s ease; 
-}
-
-.lightbox-prev.show,
-.lightbox-next.show {
-  opacity: 1;
 }
 
 .lightbox-prev {
@@ -382,11 +375,11 @@ p {
   }
   
 }
-
+/* Transición para desvanecer las imágenes */
 .fade-transition {
   position: relative;
   opacity: 1;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.5s ease;
 }
 
 .fade-out {
@@ -397,7 +390,7 @@ p {
   opacity: 1;
 }
 
-
+/* Resto de los estilos CSS que ya tenías... */
 
 
 
