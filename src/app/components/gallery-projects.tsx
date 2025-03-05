@@ -102,8 +102,6 @@ const GalleryProjects: React.FC<GalleryProps> = ({ gallery }) => {
           <button
             className="text-[14px] leading-[28px] lightbox-close underline"
             onClick={closeLightbox}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
           >
             Close
           </button>
@@ -118,7 +116,11 @@ const GalleryProjects: React.FC<GalleryProps> = ({ gallery }) => {
               Previous
             </button>
 
-            <div className="lg:hidden lightbox-side-image prev-image">
+            <div
+              className="lg:hidden lightbox-side-image prev-image"
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
               <img
                 src={
                   photos[(index - 1 + photos.length) % photos.length].largeSrc
@@ -131,11 +133,19 @@ const GalleryProjects: React.FC<GalleryProps> = ({ gallery }) => {
               src={photos[index].largeSrc}
               alt={photos[index].alt}
               style={{ width: "100%", height: "auto", objectFit: "contain" }}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
             />
 
-            <div className="lg:hidden lightbox-side-image next-image">
+            <div
+              className="lg:hidden lightbox-side-image next-image"
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
               <img
-                src={photos[(index + 1) % photos.length].largeSrc}
+                src={
+                  photos[(index + 1) % photos.length].largeSrc
+                }
                 alt={photos[(index + 1) % photos.length].alt}
               />
             </div>
