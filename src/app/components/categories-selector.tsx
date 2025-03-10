@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { useTranslations } from "next-intl";
 
 interface CategoriesSelectorProps {
@@ -35,29 +35,15 @@ export const CategoriesSelector: React.FC<CategoriesSelectorProps> = ({
   };
 
   const categories = categoriesByLanguage[locale] || [];
-  const toggleDropdown = () => {
-    setIsDropdownVisible(!isDropdownVisible);
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setIsDropdownVisible(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
 
   return (
-    <div className="relative" ref={dropdownRef}>
-      <button
-        onClick={toggleDropdown}
-        className="font-mediumFont hover:underline font-medium h-[54px] flex items-center text-[20px] leading-[25px]"
-      >
+    <div
+      className="relative"
+      ref={dropdownRef}
+      onMouseEnter={() => setIsDropdownVisible(true)}
+      onMouseLeave={() => setIsDropdownVisible(false)}
+    >
+      <button className="font-mediumFont hover:underline font-medium h-[54px] flex items-center text-[20px] leading-[25px]">
         {t("header.projects")}
       </button>
       {isDropdownVisible && (
