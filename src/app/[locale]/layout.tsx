@@ -13,7 +13,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   return {
     icons: {
-      icon: "/images/logo.jpg",
+      icon: "/images/logo.png",
     },
   };
 }
@@ -47,8 +47,8 @@ export default async function LocaleLayout({
           <link key={lang} rel="alternate" hrefLang={lang} href={url} />
         ))}
         <meta
-        name="google-site-verification"
-        content="mh9OT7ofL1NqRCxdVaSd-kGUnQ7YjJcO-OC0TkGe6TI"
+          name="google-site-verification"
+          content="mh9OT7ofL1NqRCxdVaSd-kGUnQ7YjJcO-OC0TkGe6TI"
         />
       </head>
       <body>
