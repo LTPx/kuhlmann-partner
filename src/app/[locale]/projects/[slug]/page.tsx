@@ -79,6 +79,7 @@ async function ProjectSlugPage(nextParams: {
   } = nextParams;
 
   const data = await getProjectChildBySlug(slug, locale);
+  
   const { acf } = data;
   const { individual_project } = acf;
   const t = await getTranslations();
