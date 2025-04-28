@@ -40,7 +40,7 @@ export function MenuMobile({ links, languages, locale }: MenuMobileProps) {
     ],
     de: [
       { id: 657, slug: "neubau", title: t("categories.new_construction") },
-      { id: 663, slug: "renovierung", title: t("categories.reform") },
+      { id: 663, slug: "reform-de", title: t("categories.reform") },
     ],
   };
 

@@ -33,7 +33,26 @@ export function ProjectsInformation(props: ProjectsInformationDetails) {
 
   useEffect(() => {
     setSelectedOption(selectedCategoryId);
-  }, [categorySlug]);
+  
+    if (selectedCategoryId !== -1) {
+      const filterProjects = allProjects.filter((project) => {
+        const categories = project._embedded["wp:term"].categories;
+        return categories.find((category) => category.id === selectedCategoryId);
+      });
+  
+      setIsFiltered(false);
+      setTimeout(() => {
+        setFilteredProjects(filterProjects);
+        setIsFiltered(true);
+      }, 300);
+    } else {
+      setIsFiltered(false);
+      setTimeout(() => {
+        setFilteredProjects(allProjects);
+        setIsFiltered(true);
+      }, 300);
+    }
+  }, [selectedCategoryId, allProjects]);
 
   const handleClick = (id: number, slug: string) => {
     setSelectedOption(id);
