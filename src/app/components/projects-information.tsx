@@ -23,7 +23,9 @@ export function ProjectsInformation(props: ProjectsInformationDetails) {
   const [filteredProjects, setFilteredProjects] =
     useState<WordPressFrontendPage[]>(allProjects);
   const [isFiltered, setIsFiltered] = useState(true);
-  const categories = getUniqueCategories(allProjects);
+  const categories = getUniqueCategories(allProjects).sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
   const t = useTranslations();
   const searchParams = useSearchParams();
   const router = useRouter();
