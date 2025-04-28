@@ -27,16 +27,20 @@ export function MenuMobile({ links, languages, locale }: MenuMobileProps) {
 
   const categoriesByLanguage = {
     en: [
-      { id: 659, title: t("categories.new_construction") },
-      { id: 665, title: t("categories.reform") },
+      {
+        id: 659,
+        slug: "new-construction",
+        title: t("categories.new_construction"),
+      },
+      { id: 665, slug: "reform", title: t("categories.reform") },
     ],
     es: [
-      { id: 655, title: t("categories.new_construction") },
-      { id: 661, title: t("categories.reform") },
+      { id: 655, slug: "obra-nueva", title: t("categories.new_construction") },
+      { id: 661, slug: "reforma", title: t("categories.reform") },
     ],
     de: [
-      { id: 657, title: t("categories.new_construction") },
-      { id: 663, title: t("categories.reform") },
+      { id: 657, slug: "neubau", title: t("categories.new_construction") },
+      { id: 663, slug: "renovierung", title: t("categories.reform") },
     ],
   };
 
@@ -113,8 +117,10 @@ export function MenuMobile({ links, languages, locale }: MenuMobileProps) {
                 <hr className="border-t border-black border-1" />
                 <div
                   onClick={toggleCategories}
-                  className={`pl-[20px] font-mediumFont text-[25px] leading-[34px] cursor-pointer ${!showCategories ? "py-[13px]" : "pt-[11px]"}`}
-                  >
+                  className={`pl-[20px] font-mediumFont text-[25px] leading-[34px] cursor-pointer ${
+                    !showCategories ? "py-[13px]" : "pt-[11px]"
+                  }`}
+                >
                   {t("header.projects")}
                 </div>
                 {showCategories && (
@@ -123,7 +129,7 @@ export function MenuMobile({ links, languages, locale }: MenuMobileProps) {
                       <div key={category.id}>
                         <Link
                           className="block font-light text-[25px] leading-[34px]"
-                          href={`/projects?category=${category.id}`}
+                          href={`/projects?category=${category.slug}`}
                           onClick={() => setMenuOpen(false)}
                         >
                           {category.title}
