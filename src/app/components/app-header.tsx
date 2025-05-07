@@ -23,6 +23,7 @@ function AppHeader(nextParams: { params: { locale: "en" | "es" | "de" } }) {
     // { title: `${t("header.projects")}`, url: "/projects" },
     { title: `${t("header.about-us")}`, url: `/about-us` },
     { title: `${t("header.blog")}`, url: "/news" },
+    { title: `${t("header.gallery")}`, url: "/gallery" },
     // { title: `${t('header.contact')}`, url: "/" },
   ];
 

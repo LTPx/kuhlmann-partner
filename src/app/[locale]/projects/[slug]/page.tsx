@@ -20,7 +20,9 @@ export async function generateMetadata({
       title: seo_title,
       description: seo_desc,
       alternates: {
-        canonical: seo_canonical ? seo_canonical : `${origin}/${locale}/projects/${slug}`,
+        canonical: seo_canonical
+          ? seo_canonical
+          : `${origin}/${locale}/projects/${slug}`,
         languages: {
           en: `${origin}/en/${slug}`,
           es: `${origin}/es/${slug}`,
@@ -79,7 +81,7 @@ async function ProjectSlugPage(nextParams: {
   } = nextParams;
 
   const data = await getProjectChildBySlug(slug, locale);
-  
+
   const { acf } = data;
   const { individual_project } = acf;
   const t = await getTranslations();
@@ -107,7 +109,7 @@ async function ProjectSlugPage(nextParams: {
     <div className="project-slug-page">
       <Cover media={individual_project.cover_page}>
         <div className="flex flex-col">
-          <h1 className="text-white-light tracking-[-0.015em]">
+          <h1 className="text-center text-white-light tracking-[-0.015em]">
             {individual_project.title}
           </h1>
         </div>

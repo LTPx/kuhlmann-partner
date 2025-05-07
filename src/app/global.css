@@ -185,6 +185,14 @@ p {
   }
 }
 
+.project-information-content {
+  div {
+    font-size: 20px;
+    line-height: 28px;
+    font-family: "Regular", sans-serif;
+  }
+}
+
 @media (min-width: 1920px) {
   .home-image {
     height: 1000px;
@@ -192,6 +200,14 @@ p {
 }
 
 @media (max-width: 768px) {
+
+  .project-information-content {
+    div {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
   .container {
     padding-left: 12px;
     padding-right: 12px;

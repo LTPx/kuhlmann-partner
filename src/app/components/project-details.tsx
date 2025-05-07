@@ -66,6 +66,30 @@ export function ProjectDetails(props: ProjectDetailsProps) {
     }
   }, []);
 
+  const primaryCategorySlugs = {
+    es: "obra-nueva",
+    en: "new-construction",
+    de: "neubau",
+  };
+
+  const currentLocale =
+    typeof window !== "undefined"
+      ? window.location.pathname.split("/")[1]
+      : "es";
+
+  const primarySlug =
+    primaryCategorySlugs[currentLocale as keyof typeof primaryCategorySlugs];
+
+  const sortedProjects = [...allProjects].sort((a, b) => {
+    const aHasPrimary = a._embedded["wp:term"].categories.some(
+      (cat) => cat.slug === primarySlug
+    );
+    const bHasPrimary = b._embedded["wp:term"].categories.some(
+      (cat) => cat.slug === primarySlug
+    );
+    return aHasPrimary === bHasPrimary ? 0 : aHasPrimary ? -1 : 1;
+  });
+
   return (
     <div className="flex flex-col">
       <section
@@ -76,7 +100,7 @@ export function ProjectDetails(props: ProjectDetailsProps) {
           {first_section.title}
         </h3>
         <div
-          className="font-regularFont lg:pr-[160px] information-content"
+          className="font-regularFont lg:pr-[160px] project-information-content"
           dangerouslySetInnerHTML={{
             __html: first_section.description,
           }}
@@ -95,7 +119,7 @@ export function ProjectDetails(props: ProjectDetailsProps) {
           {information.title}
         </h3>
         <div
-          className="font-regularFont lg:pr-[160px] information-content"
+          className="font-regularFont lg:pr-[160px] project-information-content"
           dangerouslySetInnerHTML={{
             __html: information.description,
           }}
@@ -115,7 +139,7 @@ export function ProjectDetails(props: ProjectDetailsProps) {
             {process_section.title}
           </h3>
           <div
-            className="font-regularFont lg:pr-[160px] information-content"
+            className="font-regularFont lg:pr-[160px] project-information-content"
             dangerouslySetInnerHTML={{
               __html: process_section.description,
             }}
@@ -155,15 +179,16 @@ export function ProjectDetails(props: ProjectDetailsProps) {
           </div>
         </div>
       </section>
+
       <section className="pt-[55px] pb-[47px] lg:hidden">
         <p className="pl-[12px] font-mediumFont pb-[15px]">
           {`${t("projects-page.all_projects")}`}
         </p>
-        {allProjects.map((project, index) => (
+        {sortedProjects.map((project, index) => (
           <Link key={index} href={`/projects/${project?.slug}`}>
             <div
               className={`h-[65px] flex items-center border-1 border-black border-t ${
-                index === allProjects.length - 1 ? "border-b" : ""
+                index === sortedProjects.length - 1 ? "border-b" : ""
               } ${project.slug === slug ? "bg-black text-white" : ""}`}
             >
               <p className="font-mediumFont container text-[20px] leading-[40px]">
