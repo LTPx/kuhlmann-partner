@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useRef } from "react";
 import { useTranslations } from "next-intl";
+import { useSearchParams, useRouter } from "next/navigation";
 
 interface CategoriesSelectorProps {
   locale: "es" | "en" | "de";
@@ -14,6 +15,11 @@ export const CategoriesSelector: React.FC<CategoriesSelectorProps> = ({
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const t = useTranslations();
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`/${locale}/projects?category=all`);
+  };
 
   const categoriesByLanguage = {
     en: [
@@ -43,7 +49,10 @@ export const CategoriesSelector: React.FC<CategoriesSelectorProps> = ({
       onMouseEnter={() => setIsDropdownVisible(true)}
       onMouseLeave={() => setIsDropdownVisible(false)}
     >
-      <button className="font-mediumFont hover:underline font-medium h-[54px] flex items-center text-[20px] leading-[25px]">
+      <button
+        onClick={handleClick}
+        className="font-mediumFont hover:underline font-medium h-[54px] flex items-center text-[20px] leading-[25px]"
+      >
         {t("header.projects")}
       </button>
       {isDropdownVisible && (
@@ -54,7 +63,7 @@ export const CategoriesSelector: React.FC<CategoriesSelectorProps> = ({
                 key={category.id}
                 locale={false}
                 href={`/${locale}/projects?category=${category.slug}`}
-                className="whitespace-nowrap pr-[30px] cursor-pointer font-mediumFont tracking-[-0.01em] h-[40px] pl-[30px] w-auto flex items-center text-[20px] leading-[25px] hover:underline"
+                className="cursor-pointer whitespace-nowrap pr-[30px] font-mediumFont tracking-[-0.01em] h-[40px] pl-[30px] w-auto flex items-center text-[20px] leading-[25px] hover:underline"
               >
                 {category.title}
               </Link>

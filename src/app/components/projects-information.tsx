@@ -35,39 +35,101 @@ export function ProjectsInformation(props: ProjectsInformationDetails) {
 
   useEffect(() => {
     setSelectedOption(selectedCategoryId);
-  
-    if (selectedCategoryId !== -1) {
-      const filterProjects = allProjects.filter((project) => {
-        const categories = project._embedded["wp:term"].categories;
-        return categories.find((category) => category.id === selectedCategoryId);
+
+    const primaryCategorySlugs = {
+      es: "obra-nueva",
+      en: "new-construction",
+      de: "neubau",
+    };
+
+    const currentLocale =
+      typeof window !== "undefined"
+        ? window.location.pathname.split("/")[1]
+        : "es";
+
+    const primarySlug =
+      primaryCategorySlugs[currentLocale as keyof typeof primaryCategorySlugs];
+
+    const sortByPrimaryCategory = (projects: WordPressFrontendPage[]) => {
+      return [...projects].sort((a, b) => {
+        const aHasPrimary = a._embedded["wp:term"].categories.some(
+          (cat) => cat.slug === primarySlug
+        );
+        const bHasPrimary = b._embedded["wp:term"].categories.some(
+          (cat) => cat.slug === primarySlug
+        );
+        return aHasPrimary === bHasPrimary ? 0 : aHasPrimary ? -1 : 1;
       });
-  
+    };
+
+    const applyFilter = () => {
+      let filtered: WordPressFrontendPage[];
+
+      if (selectedCategoryId !== -1) {
+        filtered = allProjects.filter((project) =>
+          project._embedded["wp:term"].categories.some(
+            (category) => category.id === selectedCategoryId
+          )
+        );
+      } else {
+        filtered = allProjects;
+      }
+
+      const sorted = sortByPrimaryCategory(filtered);
+
       setIsFiltered(false);
       setTimeout(() => {
-        setFilteredProjects(filterProjects);
+        setFilteredProjects(sorted);
         setIsFiltered(true);
       }, 300);
-    } else {
-      setIsFiltered(false);
-      setTimeout(() => {
-        setFilteredProjects(allProjects);
-        setIsFiltered(true);
-      }, 300);
-    }
+    };
+
+    applyFilter();
   }, [selectedCategoryId, allProjects]);
 
   const handleClick = (id: number, slug: string) => {
     setSelectedOption(id);
     window.history.pushState(null, "", `?category=${slug}`);
-    const filterProjects = allProjects.filter((project) => {
-      const categories = project._embedded["wp:term"].categories;
-      return categories.find((category) => category.id === id);
-    });
+    const filtered =
+      id === -1
+        ? allProjects
+        : allProjects.filter((project) =>
+            project._embedded["wp:term"].categories.some(
+              (category) => category.id === id
+            )
+          );
 
-    const results = id === -1 ? allProjects : filterProjects;
+    const primaryCategorySlugs = {
+      es: "obra-nueva",
+      en: "new-construction",
+      de: "neubau",
+    };
+
+    const currentLocale =
+      typeof window !== "undefined"
+        ? window.location.pathname.split("/")[1]
+        : "es";
+
+    const primarySlug =
+      primaryCategorySlugs[currentLocale as keyof typeof primaryCategorySlugs];
+
+    const sortByPrimaryCategory = (projects: WordPressFrontendPage[]) => {
+      return [...projects].sort((a, b) => {
+        const aHasPrimary = a._embedded["wp:term"].categories.some(
+          (cat) => cat.slug === primarySlug
+        );
+        const bHasPrimary = b._embedded["wp:term"].categories.some(
+          (cat) => cat.slug === primarySlug
+        );
+        return aHasPrimary === bHasPrimary ? 0 : aHasPrimary ? -1 : 1;
+      });
+    };
+
+    const sorted = sortByPrimaryCategory(filtered);
+
     setIsFiltered(false);
     setTimeout(() => {
-      setFilteredProjects(results);
+      setFilteredProjects(sorted);
       setIsFiltered(true);
     }, 300);
   };
