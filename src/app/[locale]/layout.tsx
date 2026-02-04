@@ -52,7 +52,6 @@ export default async function LocaleLayout({
         />
       </head>
       <body>
-        {/* GTM SE MOVERÁ A UN COMPONENTE CONDICIONAL */}
         <NextIntlClientProvider messages={messages} timeZone={timeZone}>
           <App locale={locale}>{children}</App>
           <CookieBanner />

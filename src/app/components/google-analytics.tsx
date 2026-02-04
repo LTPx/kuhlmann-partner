@@ -11,7 +11,7 @@ const AnalyticsTracker = () => {
       typeof window !== "undefined" &&
       typeof (window as any).gtag === "function"
     ) {
-      (window as any).gtag("config", "G-WTD75CT3EE", {
+      (window as any).gtag("event", "page_view", {
         page_path: pathname,
       });
     }

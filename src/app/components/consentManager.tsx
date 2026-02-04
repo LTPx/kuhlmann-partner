@@ -18,6 +18,18 @@ export default function ConsentManager() {
   });
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      (window as any).dataLayer = (window as any).dataLayer || [];
+
+      (window as any).dataLayer.push({
+        event: "default_consent",
+        analytics_storage: "denied",
+        ad_storage: "denied",
+      });
+    }
+  }, []);
+
+  useEffect(() => {
     const checkConsent = () => {
       const savedConsent = Cookies.get("kuhlmann-cookie-consent");
       if (savedConsent) {
@@ -31,39 +43,11 @@ export default function ConsentManager() {
     return () => clearInterval(interval);
   }, []);
 
-  const shouldLoadGTM = consent?.analytics && !scriptsLoaded.gtm;
-
-  const shouldLoadGA = consent?.marketing && !scriptsLoaded.analytics;
+  const shouldLoadGA = consent?.analytics && !scriptsLoaded.analytics;
+  const shouldLoadGTM = consent?.marketing && !scriptsLoaded.gtm;
 
   return (
     <>
-      {shouldLoadGTM && (
-        <>
-          <Script
-            id="google-tag-manager-script"
-            strategy="afterInteractive"
-            onLoad={() => setScriptsLoaded((prev) => ({ ...prev, gtm: true }))}
-            dangerouslySetInnerHTML={{
-              __html: `(function(w,d,s,l,i){
-                w[l]=w[l]||[];w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});
-                var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-TBJWNDDJ');`,
-            }}
-          />
-          <noscript>
-            <iframe
-              src="https://www.googletagmanager.com/ns.html?id=GTM-TBJWNDDJ"
-              height="0"
-              width="0"
-              style={{ display: "none", visibility: "hidden" }}
-            />
-          </noscript>
-        </>
-      )}
-
       {shouldLoadGA && (
         <>
           <Script
@@ -78,11 +62,50 @@ export default function ConsentManager() {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
+              gtag('consent', 'update', {
+                'analytics_storage': 'granted'
+              });
               gtag('config', 'G-WTD75CT3EE', {
                 page_path: window.location.pathname,
               });
             `}
           </Script>
+        </>
+      )}
+
+      {shouldLoadGTM && (
+        <>
+          <Script
+            id="google-tag-manager-script"
+            strategy="afterInteractive"
+            onLoad={() => setScriptsLoaded((prev) => ({ ...prev, gtm: true }))}
+            dangerouslySetInnerHTML={{
+              __html: `(function(w,d,s,l,i){
+                w[l]=w[l]||[];
+                w[l].push({
+                  'gtm.start': new Date().getTime(),
+                  event:'gtm.js'
+                });
+                w[l].push({
+                  event: 'consent_update',
+                  ad_storage: 'granted'
+                });
+                var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+                j.async=true;
+                j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+                f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-TBJWNDDJ');`,
+            }}
+          />
+          <noscript>
+            <iframe
+              src="https://www.googletagmanager.com/ns.html?id=GTM-TBJWNDDJ"
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            />
+          </noscript>
         </>
       )}
     </>

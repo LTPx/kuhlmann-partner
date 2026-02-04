@@ -13,6 +13,7 @@ interface CookiePreferences {
 export default function CookieBanner() {
   const [showBanner, setShowBanner] = useState(false);
   const [showConfig, setShowConfig] = useState(false);
+  const [canShowBanner, setCanShowBanner] = useState(false);
   const locale = useLocale();
   const t = useTranslations("cookies");
 
@@ -23,31 +24,70 @@ export default function CookieBanner() {
   });
 
   useEffect(() => {
+    const checkLoaderStatus = () => {
+      const isAnimating = sessionStorage.getItem("loaderAnimating");
+      const hasShownLoader = sessionStorage.getItem("hasShownLoader");
+
+      if (!hasShownLoader || isAnimating === "false") {
+        setCanShowBanner(true);
+      } else {
+        const interval = setInterval(() => {
+          const animating = sessionStorage.getItem("loaderAnimating");
+          if (animating === "false") {
+            setCanShowBanner(true);
+            clearInterval(interval);
+          }
+        }, 100);
+
+        return () => clearInterval(interval);
+      }
+    };
+
+    checkLoaderStatus();
+  }, []);
+
+  useEffect(() => {
+    if (!canShowBanner) return;
+
     const consent = Cookies.get("kuhlmann-cookie-consent");
     if (!consent) {
-      setShowBanner(true);
+      setTimeout(() => {
+        setShowBanner(true);
+      }, 300);
     } else {
       const savedPreferences = JSON.parse(consent);
       setPreferences(savedPreferences);
       applyConsent(savedPreferences);
     }
-  }, []);
+  }, [canShowBanner]);
 
   const applyConsent = (prefs: CookiePreferences) => {
     if (typeof window !== "undefined") {
       (window as any).dataLayer = (window as any).dataLayer || [];
 
+      // Para Google Analytics
       if (prefs.analytics) {
         (window as any).dataLayer.push({
           event: "cookie_consent_analytics",
-          consent: "granted",
+          analytics_storage: "granted",
+        });
+      } else {
+        (window as any).dataLayer.push({
+          event: "cookie_consent_analytics",
+          analytics_storage: "denied",
         });
       }
 
+      // Para Google Tag Manager / Marketing
       if (prefs.marketing) {
         (window as any).dataLayer.push({
           event: "cookie_consent_marketing",
-          consent: "granted",
+          ad_storage: "granted",
+        });
+      } else {
+        (window as any).dataLayer.push({
+          event: "cookie_consent_marketing",
+          ad_storage: "denied",
         });
       }
     }
@@ -96,8 +136,8 @@ export default function CookieBanner() {
 
   return (
     <>
-      <div className="fixed inset-0 bg-black/70 z-[9998]" />
-      <div className="fixed inset-0 flex items-center justify-center z-[9999] p-4">
+      <div className="fixed inset-0 bg-black/70 z-[9998] animate-fadeIn" />
+      <div className="fixed inset-0 flex items-center justify-center z-[9999] p-4 animate-fadeIn">
         <div className="bg-body rounded-xl shadow-2xl max-w-xl w-full max-h-[85vh] overflow-hidden border border-primary">
           <div className="bg-body relative border-b-[0.5px] border-b border-black px-6 py-4">
             <h2 className="text-lg font-semiBoldFont text-black">
@@ -134,7 +174,8 @@ export default function CookieBanner() {
                 </button>
 
                 <div className="space-y-3">
-                  <div className="flex items-start justify-between p-3 border border-primary rounded-lg bg-white">
+                  {/* COOKIES NECESARIAS - cursor-not-allowed */}
+                  <div className="flex items-start justify-between p-3 border border-primary rounded-lg bg-white cursor-not-allowed opacity-75">
                     <div className="flex-1 pr-3">
                       <h3 className="text-sm font-mediumFont text-black mb-1">
                         {t("necessary.title")}
@@ -150,6 +191,7 @@ export default function CookieBanner() {
                     </div>
                   </div>
 
+                  {/* ANALYTICS - clickeable */}
                   <div className="flex items-start justify-between p-3 border border-black/10 rounded-lg bg-white hover:border-primary/50 transition-colors">
                     <div className="flex-1 pr-3">
                       <h3 className="text-sm font-mediumFont text-black mb-1">
@@ -174,6 +216,8 @@ export default function CookieBanner() {
                       </div>
                     </button>
                   </div>
+
+                  {/* MARKETING/GOOGLE - clickeable */}
                   <div className="flex items-start justify-between p-3 border border-black/10 rounded-lg bg-white hover:border-primary/50 transition-colors">
                     <div className="flex-1 pr-3">
                       <h3 className="text-sm font-mediumFont text-black mb-1">

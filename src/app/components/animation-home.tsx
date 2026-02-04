@@ -19,6 +19,7 @@ export default function LoaderWrapper({
       setIsFirstVisit(true);
       setIsLoading(true);
       sessionStorage.setItem("hasShownLoader", "true");
+      sessionStorage.setItem("loaderAnimating", "true");
     } else {
       setShowContent(true);
     }
@@ -26,6 +27,7 @@ export default function LoaderWrapper({
 
   const handleAnimationComplete = () => {
     setIsLoading(false);
+    sessionStorage.setItem("loaderAnimating", "false");
     setTimeout(() => {
       setShowContent(true);
     }, 5);
