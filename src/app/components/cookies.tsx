@@ -172,7 +172,7 @@ export default function CookieBanner() {
                 <p className="text-sm font-regularFont text-black/70">
                   {t("moreInfo")}{" "}
                   <a
-                    href={`/${locale}/privacy-policy`}
+                    href={`/${locale}/cookies-policy`}
                     className="text-primary hover:text-black transition-colors font-mediumFont"
                   >
                     {t("policyLink")}
