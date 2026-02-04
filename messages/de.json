@@ -42,5 +42,31 @@
   "categories": {
     "new_construction": "Neubau",
     "reform": "Reform"
+  },
+  "cookies": {
+    "title": "Cookie-Zustimmung",
+    "description": "Wir verwenden eigene Cookies und Cookies von Drittanbietern zu Analysezwecken und um Ihnen personalisierte Werbung basierend auf einem Profil anzuzeigen, das aus Ihren Surfgewohnheiten erstellt wurde (z. B. besuchte Seiten).",
+    "moreInfo": "Weitere Informationen finden Sie in unserer",
+    "policyLink": "Cookie-Richtlinie",
+    "configInstructions": "Sie können alle Cookies akzeptieren, indem Sie auf die Schaltfläche \"Akzeptieren\" klicken, oder sie konfigurieren oder ihre Verwendung ablehnen, indem Sie auf die Schaltfläche \"Konfigurieren\" klicken.",
+    "acceptAll": "Akzeptieren",
+    "configure": "Konfigurieren",
+    "back": "Zurück",
+    "acceptAll": "Alle akzeptieren",
+    "rejectAll": "Alle ablehnen",
+    "saveConfig": "Konfiguration speichern",
+    "new": "neu",
+    "necessary": {
+      "title": "Kuhlmann & Partner",
+      "description": "Technische und funktionale Cookies"
+    },
+    "analytics": {
+      "title": "Analytics",
+      "description": "Analyse-Cookies zur Verbesserung der Benutzererfahrung"
+    },
+    "marketing": {
+      "title": "Google",
+      "description": "Marketing- und personalisierte Werbe-Cookies"
+    }
   }
 }

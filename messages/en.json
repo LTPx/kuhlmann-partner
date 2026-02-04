@@ -43,5 +43,31 @@
   "categories": {
     "new_construction": "New Construction",
     "reform": "Reform"
+  },
+  "cookies": {
+    "title": "Cookie Consent",
+    "description": "Utilizamos cookies propias y de terceros para fines analíticos y para mostrarle publicidad personalizada en base a un perfil elaborado a partir de sus hábitos de navegación (por ejemplo, páginas visitadas).",
+    "moreInfo": "Para más información consulte la",
+    "policyLink": "política de cookies",
+    "configInstructions": "Puede aceptar todas las cookies pulsando el botón \"Aceptar\" o configurarlas o rechazar su uso pulsando el botón \"Configurar\".",
+    "acceptAll": "Aceptar",
+    "configure": "Configurar",
+    "back": "Volver atrás",
+    "acceptAll": "Aceptar todas",
+    "rejectAll": "Rechazar todas",
+    "saveConfig": "Guardar configuración",
+    "new": "nuevo",
+    "necessary": {
+      "title": "Kuhlmann & Partner",
+      "description": "Cookies técnicas y funcionales"
+    },
+    "analytics": {
+      "title": "Analytics",
+      "description": "Cookies de análisis para mejorar la experiencia del usuario"
+    },
+    "marketing": {
+      "title": "Google",
+      "description": "Cookies de marketing y publicidad personalizada"
+    }
   }
 }

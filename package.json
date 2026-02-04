@@ -12,6 +12,7 @@
     "@fontsource/inter": "5.0.20",
     "@tailwindcss/typography": "0.5.13",
     "aos": "^2.3.4",
+    "js-cookie": "^3.0.5",
     "jsdom": "^25.0.1",
     "lottie-react": "^2.4.0",
     "next": "14.2.5",
@@ -19,6 +20,7 @@
     "react": "^18",
     "react-18-image-lightbox": "5.1.4",
     "react-animate-height": "3.2.3",
+    "react-cookie-consent": "^10.0.1",
     "react-dom": "^18",
     "react-masonry-css": "^1.0.16",
     "react-photo-album": "^3.0.2",
@@ -26,6 +28,7 @@
   },
   "devDependencies": {
     "@types/aos": "^3.0.7",
+    "@types/js-cookie": "^3.0.6",
     "@types/jsdom": "^21.1.7",
     "@types/node": "^20",
     "@types/react": "^18",

@@ -1,10 +1,10 @@
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { Metadata } from "next";
-import Script from "next/script";
 import App from "./app";
 import "tailwindcss/tailwind.css";
 import "../global.css";
+import CookieBanner from "../components/cookies";
 
 export async function generateMetadata({
   params: { locale },
@@ -30,8 +30,8 @@ export default async function LocaleLayout({
     locale === "es"
       ? "Europe/Madrid"
       : locale === "de"
-      ? "Europe/Berlin"
-      : "America/New_York";
+        ? "Europe/Berlin"
+        : "America/New_York";
   const baseUrl = "https://kuhlmann-partner.com";
   const hreflangs = [
     { lang: "de", url: `${baseUrl}/de/` },
@@ -52,30 +52,10 @@ export default async function LocaleLayout({
         />
       </head>
       <body>
-        <Script
-          id="google-tag-manager-script"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){
-              w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});
-              var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-TBJWNDDJ');`,
-          }}
-        />
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-TBJWNDDJ"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          ></iframe>
-        </noscript>
-
+        {/* GTM SE MOVERÁ A UN COMPONENTE CONDICIONAL */}
         <NextIntlClientProvider messages={messages} timeZone={timeZone}>
           <App locale={locale}>{children}</App>
+          <CookieBanner />
         </NextIntlClientProvider>
       </body>
     </html>
