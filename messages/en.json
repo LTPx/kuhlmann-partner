@@ -46,28 +46,28 @@
   },
   "cookies": {
     "title": "Cookie Consent",
-    "description": "Utilizamos cookies propias y de terceros para fines analíticos y para mostrarle publicidad personalizada en base a un perfil elaborado a partir de sus hábitos de navegación (por ejemplo, páginas visitadas).",
-    "moreInfo": "Para más información consulte la",
-    "policyLink": "política de cookies",
-    "configInstructions": "Puede aceptar todas las cookies pulsando el botón \"Aceptar\" o configurarlas o rechazar su uso pulsando el botón \"Configurar\".",
-    "acceptAll": "Aceptar",
-    "configure": "Configurar",
-    "back": "Volver atrás",
-    "acceptAll": "Aceptar todas",
-    "rejectAll": "Rechazar todas",
-    "saveConfig": "Guardar configuración",
-    "new": "nuevo",
+    "description": "We use our own and third-party cookies for analytical purposes and to show you personalized advertising based on a profile created from your browsing habits (for example, pages visited).",
+    "moreInfo": "For more information, please see the",
+    "policyLink": "cookie policy",
+    "configInstructions": "You can accept all cookies by clicking the \"Accept\" button or configure or reject their use by clicking the \"Configure\" button.",
+    "acceptAll": "Accept",
+    "configure": "Configure",
+    "back": "Go back",
+    "acceptAll": "Accept all",
+    "rejectAll": "Reject all",
+    "saveConfig": "Save settings",
+    "new": "new",
     "necessary": {
       "title": "Kuhlmann & Partner",
-      "description": "Cookies técnicas y funcionales"
+      "description": "Technical and functional cookies"
     },
     "analytics": {
       "title": "Analytics",
-      "description": "Cookies de análisis para mejorar la experiencia del usuario"
+      "description": "Analytics cookies to improve the user experience"
     },
     "marketing": {
       "title": "Google",
-      "description": "Cookies de marketing y publicidad personalizada"
+      "description": "Marketing and personalized advertising cookies"
     }
   }
 }

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Link } from "@/navigation";
 import { useTranslations } from "next-intl";
 import ContactWindow from "./contact-window";
+import { openCookieSettings } from "./cookies";
 
 interface LinksFooter {
   title: string;
@@ -19,6 +20,9 @@ export function Footer(props: FooterProps) {
   const currentYear = new Date().getFullYear();
   const t = useTranslations();
   const [showContact, setShowContact] = useState(false);
+  const handleCookieSettings = () => {
+    openCookieSettings();
+  };
 
   const handleContactClick = () => {
     setShowContact((prev) => !prev);
@@ -131,7 +135,7 @@ export function Footer(props: FooterProps) {
           <p className="hidden lg:block font-semiBoldFont text-[12px] leading-[14px] lg:text-[14px] lg:leading-[27px]">
             © Kuhlmann & Partner, {currentYear}
           </p>
-          <div className="flex flex-col lg:flex-no-wrap lg:flex-row gap-[0px] lg:gap-[20px]">
+          <div className="flex flex-col lg:flex-no-wrap lg:flex-row gap-[0px] lg:gap-[20px] lg:items-center">
             <Link
               href={"/legal-notice"}
               className="hover:underline font-semiBoldFont text-[12px] leading-[20px] lg:text-[14px] lg:leading-[27px] lg:ml-[0px] cursor-pointer"
@@ -150,6 +154,22 @@ export function Footer(props: FooterProps) {
             >
               {`${t("footer.cookies-policy")}`}
             </Link>
+
+            <button
+              onClick={handleCookieSettings}
+              className="flex items-center gap-1 hover:opacity-80 transition-opacity cursor-pointer group"
+              aria-label="Cookie Settings"
+            >
+              <img
+                className="w-2 h-3 lg:w-5 lg:h-5 group-hover:scale-110 transition-transform"
+                src="/images/icons/cookie.svg"
+                alt="Cookie settings"
+              />
+              <span className="font-semiBoldFont text-[12px] lg:text-[14px] lg:hidden">
+                {`${t("footer.cookie-settings")}`}
+              </span>
+            </button>
+
             <div className="lg:hidden pt-[97px] pb-[21px]">
               <img className="h-[56px]" src="/images/logo-footer.svg" alt="" />
             </div>

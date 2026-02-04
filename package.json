@@ -24,7 +24,8 @@
     "react-dom": "^18",
     "react-masonry-css": "^1.0.16",
     "react-photo-album": "^3.0.2",
-    "yet-another-react-lightbox": "^3.21.7"
+    "yet-another-react-lightbox": "^3.21.7",
+    "zustand": "^5.0.11"
   },
   "devDependencies": {
     "@types/aos": "^3.0.7",

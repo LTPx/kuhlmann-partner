@@ -10,6 +10,10 @@ interface CookiePreferences {
   marketing: boolean;
 }
 
+export const openCookieSettings = () => {
+  window.dispatchEvent(new CustomEvent("openCookieSettings"));
+};
+
 export default function CookieBanner() {
   const [showBanner, setShowBanner] = useState(false);
   const [showConfig, setShowConfig] = useState(false);
@@ -22,6 +26,22 @@ export default function CookieBanner() {
     analytics: false,
     marketing: false,
   });
+
+  useEffect(() => {
+    const handleOpenSettings = () => {
+      const consent = Cookies.get("kuhlmann-cookie-consent");
+      if (consent) {
+        const savedPreferences = JSON.parse(consent);
+        setPreferences(savedPreferences);
+      }
+      setShowBanner(true);
+      setShowConfig(true);
+    };
+
+    window.addEventListener("openCookieSettings", handleOpenSettings);
+    return () =>
+      window.removeEventListener("openCookieSettings", handleOpenSettings);
+  }, []);
 
   useEffect(() => {
     const checkLoaderStatus = () => {
@@ -65,7 +85,6 @@ export default function CookieBanner() {
     if (typeof window !== "undefined") {
       (window as any).dataLayer = (window as any).dataLayer || [];
 
-      // Para Google Analytics
       if (prefs.analytics) {
         (window as any).dataLayer.push({
           event: "cookie_consent_analytics",
@@ -78,7 +97,6 @@ export default function CookieBanner() {
         });
       }
 
-      // Para Google Tag Manager / Marketing
       if (prefs.marketing) {
         (window as any).dataLayer.push({
           event: "cookie_consent_marketing",
@@ -174,7 +192,6 @@ export default function CookieBanner() {
                 </button>
 
                 <div className="space-y-3">
-                  {/* COOKIES NECESARIAS - cursor-not-allowed */}
                   <div className="flex items-start justify-between p-3 border border-primary rounded-lg bg-white cursor-not-allowed opacity-75">
                     <div className="flex-1 pr-3">
                       <h3 className="text-sm font-mediumFont text-black mb-1">
@@ -191,7 +208,6 @@ export default function CookieBanner() {
                     </div>
                   </div>
 
-                  {/* ANALYTICS - clickeable */}
                   <div className="flex items-start justify-between p-3 border border-black/10 rounded-lg bg-white hover:border-primary/50 transition-colors">
                     <div className="flex-1 pr-3">
                       <h3 className="text-sm font-mediumFont text-black mb-1">
@@ -217,7 +233,6 @@ export default function CookieBanner() {
                     </button>
                   </div>
 
-                  {/* MARKETING/GOOGLE - clickeable */}
                   <div className="flex items-start justify-between p-3 border border-black/10 rounded-lg bg-white hover:border-primary/50 transition-colors">
                     <div className="flex-1 pr-3">
                       <h3 className="text-sm font-mediumFont text-black mb-1">
