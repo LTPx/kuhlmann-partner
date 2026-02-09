@@ -312,3 +312,7 @@ export default function CookieBanner() {
     </>
   );
 }
+
+if (typeof window !== 'undefined') {
+  (window as any).openCookieSettings = openCookieSettings;
+}
