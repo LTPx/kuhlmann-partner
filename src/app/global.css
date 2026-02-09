@@ -425,6 +425,31 @@ p {
     line-height: 24px;
   }
 
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  ul li {
+    padding-left: 8px;
+  }
+
+  ol {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style-type: decimal;
+    padding-left: 20px;
+  }
+
+  ol li {
+    padding-left: 8px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+
   table {
     width: 100%;
     border-collapse: collapse;

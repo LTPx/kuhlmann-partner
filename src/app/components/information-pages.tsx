@@ -17,7 +17,10 @@ export function InformationPages(props: InformationPagesDetails) {
   const pathname = usePathname();
   const t = useTranslations();
 
-  const isCookiesPolicy = pathname.includes("cookies-policy");
+  const isSingleColumn = 
+    pathname.includes("cookies-policy") || 
+    pathname.includes("privacy-policy") || 
+    pathname.includes("legal-notice");
 
   useEffect(() => {
     AOS.init({
@@ -35,7 +38,7 @@ export function InformationPages(props: InformationPagesDetails) {
           <div key={index} data-aos="fade-up">
             <div
               className={
-                isCookiesPolicy
+                isSingleColumn
                   ? "flex flex-col gap-[30px]"
                   : "flex flex-col gap-[30px] lg:gap-[0px] lg:grid lg:grid-cols-2"
               }
@@ -51,7 +54,7 @@ export function InformationPages(props: InformationPagesDetails) {
               <div
                 data-aos="fade-up"
                 className={`blog-description font-regularFont lg:pt-[15px] ${
-                  !isCookiesPolicy ? "lg:pr-[160px]" : ""
+                  !isSingleColumn ? "lg:pr-[160px]" : ""
                 }`}
                 dangerouslySetInnerHTML={{
                   __html: blog.information.description,
