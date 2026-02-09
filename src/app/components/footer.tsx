@@ -161,13 +161,10 @@ export function Footer(props: FooterProps) {
               aria-label="Cookie Settings"
             >
               <img
-                className="w-2 h-3 lg:w-5 lg:h-5 group-hover:scale-110 transition-transform"
+                className="w-5 h-5 lg:w-5 lg:h-5 group-hover:scale-110 transition-transform"
                 src="/images/icons/cookie.svg"
                 alt="Cookie settings"
               />
-              <span className="font-semiBoldFont text-[12px] lg:text-[14px] lg:hidden">
-                {`${t("footer.cookie-settings")}`}
-              </span>
             </button>
 
             <div className="lg:hidden pt-[97px] pb-[21px]">
